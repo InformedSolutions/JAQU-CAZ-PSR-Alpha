@@ -464,6 +464,8 @@ router.post('/payments/selected-date', function (req, res) {
   var endDate = req.body['end-date'];
   var startDate2 = req.body['start-date-2'];
   var endDate2 = req.body['end-date-2'];
+  var startDate3 = req.body['start-date-3'];
+  var endDate3 = req.body['end-date-3'];
   var caz = req.session.data['caz'];
   var vrn = req.session.data['vrn'];
   // Remove spacing and make letters uppercase
@@ -555,6 +557,7 @@ router.post('/payments/selected-date', function (req, res) {
 
     var numberOfDays1 = endDateObject.diff(startDateObject, "days") + 1;
     var numberOfDays2 = 0;
+    var numberOfDays3 = 0;
 
     if (startDate2 != "") {
 
@@ -568,7 +571,19 @@ router.post('/payments/selected-date', function (req, res) {
 
     }
 
-    var numberOfDays = numberOfDays1 + numberOfDays2;                                                                                                          
+    if (startDate3 != "") {
+
+        var startDateArray3 = startDate3.split('/');
+        var startDateObject3 = moment(startDateArray3[2] + "-" + startDateArray3[1] + "-" + startDateArray3[0]);
+  
+        var endDateArray3 = endDate3.split('/');
+        var endDateObject3 = moment(endDateArray3[2] + "-" + endDateArray3[1] + "-" + endDateArray3[0]);
+  
+        var numberOfDays3 = endDateObject3.diff(startDateObject3, "days") + 1;
+  
+      }
+
+    var numberOfDays = numberOfDays1 + numberOfDays2 + numberOfDays3;                                                                                                          
   
     if (numberOfDays > 0) {
   
