@@ -75,8 +75,21 @@ text: "Back"
           </span>
           <input class="govuk-input govuk-input--width-10" style="margin-right: 20px;" id="start-date-2" name="start-date-2" type="text">
           <input class="govuk-input govuk-input--width-10" id="end-date-2" name="end-date-2" type="text">
+          <p><a id="add2" href="#" onclick="add2()"><br>Add another date or date range</a></p>
         </div>
-        <p><a id="add" href="#" onclick="add()">Add another date or date range</a></p>
+        <div class="govuk-form-group" id="dates-3" style="display: none;">
+            <h2 class="govuk-heading-m">Third date range</h2>
+            <label class="govuk-label" for="start-date-2">
+                <b>Start date</b><span style="margin-left: 155px; font-weight: bold;">End date</span>
+            </label>
+            <span id="start-date-2-hint" class="govuk-hint">
+              For example, 25/05/2019<span style="margin-left: 30px;">For example, 27/05/2019</span>
+            </span>
+            <input class="govuk-input govuk-input--width-10" style="margin-right: 20px;" id="start-date-3" name="start-date-3" type="text">
+            <input class="govuk-input govuk-input--width-10" id="end-date-3" name="end-date-3" type="text">
+          </div>
+        <p><a id="add1" href="#" onclick="add1()">Add another date or date range</a></p>
+        
         <button type="submit" class="govuk-button">
             Continue
         </button>
@@ -101,10 +114,10 @@ var picker = new Lightpick({
   }
 });
 
-function add() {
+function add1() {
 
   var fields = document.getElementById('dates-2');
-  var link = document.getElementById('add');
+  var link = document.getElementById('add1');
 
   if (link.innerHTML == "Add another date or date range") {
 
@@ -143,16 +156,71 @@ function add() {
       }
     });
     fields.style.display = "block";
-    document.getElementById('add').innerHTML = 'Remove date range';
+    document.getElementById('add1').innerHTML = 'Remove date range';
 
   } else {
 
     fields.style.display = "none";
     document.getElementById('start-date-2').value = '';
     document.getElementById('end-date-2').value = ''
-    document.getElementById('add').innerHTML = 'Add another date or date range';
+    document.getElementById('add1').innerHTML = 'Add another date or date range';
 
   }
+
+}
+
+function add2() {
+
+var fields = document.getElementById('dates-3');
+var link = document.getElementById('add2');
+
+if (link.innerHTML == "<br>Add another date or date range") {
+
+  // Retrieve dates already picked in first date
+  var startDate = picker.getStartDate();
+  var endDate = picker.getEndDate();
+
+  // Returns an array of dates between the two dates (from https://gist.github.com/miguelmota/7905510)
+  var getDates = function(startDateObject, endDateObject) {
+    var dates = [],
+        currentDate = startDateObject,
+        addDays = function(days) {
+          var date = new Date(this.valueOf());
+          date.setDate(date.getDate() + days);
+          return date;
+        };
+    while (currentDate <= endDateObject) {
+      dates.push(currentDate);
+      currentDate = addDays.call(currentDate, 1);
+    }
+    return dates;
+  };
+
+  var dates = getDates(startDate, endDate);
+
+  var picker3 = new Lightpick({
+    field: document.getElementById('start-date-3'),
+    secondField: document.getElementById('end-date-3'),
+    singleDate: false,
+    maxDays: 28,
+    disableDates: dates, /* Disable dates already picked in first date picker */
+    minDate: moment(new Date()).subtract(1, 'days'),
+    onSelect: function(start, end){
+        document.getElementById('start-date-3').innerHTML = start;
+        document.getElementById('end-date-3').innerHTML = end;
+    }
+  });
+  fields.style.display = "block";
+  document.getElementById('add2').innerHTML = '<br>Remove date range';
+
+} else {
+
+  fields.style.display = "none";
+  document.getElementById('start-date-3').value = '';
+  document.getElementById('end-date-3').value = ''
+  document.getElementById('add2').innerHTML = '<br>Add another date or date range';
+
+}
 
 }
 </script>
