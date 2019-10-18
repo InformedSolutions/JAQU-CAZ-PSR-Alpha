@@ -1,0 +1,117 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-thirds">
+        <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
+        <p>A daily charge runs from midnight to midnight.</p>
+        <form method="post" class="form" action="/fleets/single-user/confirm-charge">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-tabs" data-module="govuk-tabs">
+                        <h2 class="govuk-tabs__title">
+                            Contents
+                        </h2>
+                        <ul class="govuk-tabs__list">
+                            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                                <a class="govuk-tabs__tab" href="#past-day">
+                                    Before today
+                                </a>
+                            </li>
+                            <li class="govuk-tabs__list-item">
+                                <a class="govuk-tabs__tab" href="#past-week">
+                                    From today
+                                </a>
+                            </li>
+                        </ul>
+                        <section class="govuk-tabs__panel" id="past-day">
+                            <h2 class="govuk-heading-l">Before today</h2>
+                            <table class="govuk-table">
+                                <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                        <th scope="col" class="govuk-table__header">Registration</th>
+                                        <th scope="col" class="govuk-table__header">Tue 15<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Wed 16<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Thur 17<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Fri 18<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Sat 19<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Sun 20<br>Oct</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                    {% for vrn in ["JO51WQE","M56FGF","P057BOX","MH75BJH","BT02VYL","AF03WMY","WL08JTZ","AB12CDE","M15JIK","R66PPR"] %}
+                                    <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">{{vrn}}</td>
+                                        {% for i in range(6) %}
+                                        <td class="govuk-table__cell">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="select" name="select"
+                                                    type="checkbox" value="select">
+                                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                                </label>
+                                            </div>
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </section>
+                        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+                            <h2 class="govuk-heading-l">From today</h2>
+                            <table class="govuk-table">
+                                <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                        <th scope="col" class="govuk-table__header">Registration</th>
+                                        <th scope="col" class="govuk-table__header">Mon 21<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Tue 22<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Wed 23<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Thur 24<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Fri 25<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Sat 26<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">Sun 27<br>Oct</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                    {% for vrn in ["JO51WQE","M56FGF","P057BOX","MH75BJH","BT02VYL","AF03WMY","WL08JTZ","AB12CDE","M15JIK","R66PPR"] %}
+                                    <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">{{vrn}}</td>
+                                        {% for i in range(7) %}
+                                        <td class="govuk-table__cell">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="select" name="select"
+                                                    type="checkbox" value="select">
+                                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                                </label>
+                                            </div>
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </section>
+                    </div>
+
+                </fieldset>
+            </div>
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
