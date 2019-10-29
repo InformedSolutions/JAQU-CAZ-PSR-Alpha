@@ -670,7 +670,7 @@ router.post('/fleets/single-user/fleet-update', function(req, res) {
     res.redirect('/fleets/single-user/add-vehicle');
   }
   else {
-    res.redirect('/fleets/single-user/fleets-confirmation');
+    res.redirect('/fleets/single-user/fleet-account');
   }
 })
 

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Your account has been set up</h1>
+        <p>Enter your email address and password to sign in.</p>
+        <form method="POST" class="form" action="fleet-account">
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="email-address">Email address</label>
+                <input class="govuk-input" id="email-address" name="email-address" type="text" style="width: 60%;">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="password">
+                    Password
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="password" name="password" type="password"
+                    aria-describedby="password-hint">
+            </div>
+            <button type="submit" class="govuk-button">
+                Sign in
+            </button>
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
