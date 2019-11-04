@@ -35,9 +35,23 @@ text: "Back"
 
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row">{{vrn}}</td>
+                    {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
+                    <td class="govuk-table__cell" scope="row">HGV</td>
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif vrn == 'MH75BJH' %}
+                    <td class="govuk-table__cell" scope="row">HGV</td>
+                    <td class="govuk-table__cell" scope="row">£0</td>
+                    <td class="govuk-table__cell" scope="row">£0</td>
+                    {% elseif vrn == 'M56FGF' %}
+                    <td class="govuk-table__cell" scope="row">Van</td>
+                    <td class="govuk-table__cell" scope="row">£0</td>
+                    <td class="govuk-table__cell" scope="row">£0</td>
+                    {% else %}
                     <td class="govuk-table__cell" scope="row">Van</td>
                     <td class="govuk-table__cell" scope="row">£8</td>
                     <td class="govuk-table__cell" scope="row">£0</td>
+                    {% endif %}
                     <td class="govuk-table__cell" scope="row"><a href="/fleets/single-user/fleet-update?vrn={{vrn}}">Remove</a></td>
                 </tr>
 

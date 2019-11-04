@@ -659,7 +659,7 @@ router.get('/fleets/single-user/fleet-update', function(req, res) {
 
 // upload fleet
 router.post('/fleets/single-user/fleets-confirmation', function(req, res) {
-  req.session.vrns = ['CU57ABC', 'DQ59DEF']
+  req.session.vrns = ['AB12CDE','AF03WMY','BT02VYL','JO51WQE','M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ']
   res.redirect('fleet-update');
 })
 
