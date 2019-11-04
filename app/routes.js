@@ -660,7 +660,7 @@ router.get('/fleets/single-user/fleet-update', function(req, res) {
 // upload fleet
 router.post('/fleets/single-user/fleets-confirmation', function(req, res) {
   req.session.vrns = ['CU57ABC', 'DQ59DEF']
-  res.redirect('fleets-confirmation');
+  res.redirect('fleet-update');
 })
 
 // update the fleet - post
