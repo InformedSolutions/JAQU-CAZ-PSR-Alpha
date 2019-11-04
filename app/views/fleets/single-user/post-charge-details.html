@@ -1,0 +1,65 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Charge details</h1>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Registration Number</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Dates</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">AB12CDE</td>
+                    <td class="govuk-table__cell" scope="row">Wednesday 6th November 2019</td>
+                    <td class="govuk-table__cell" scope="row">£8</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">AF03WMY</td>
+                    <td class="govuk-table__cell" scope="row">Wednesday 6th November 2019<br>Thursday 7th November 2019
+                    </td>
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">JO51WQE</td>
+                    <td class="govuk-table__cell" scope="row">Monday 4th November 2019</td>
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">M15JIK</td>
+                    <td class="govuk-table__cell" scope="row">Monday 4th November 2019<br>Tuesday 5th November 2019</td>
+                    <td class="govuk-table__cell" scope="row">£16</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">WL08JTZ</td>
+                    <td class="govuk-table__cell" scope="row">Friday 1st November 2019<br>Saturday 2nd November
+                        2019<br>Sunday 3rd November 2019<br>Monday 4th November 2019<br>Tuesday 5th November
+                        2019<br>Wednesday 6th November 2019<br>Friday 8th November 2019</td>
+                    <td class="govuk-table__cell" scope="row">£56</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+        <p><a href="fleet-payment-confirmation">Return to confirmation</a></p>
+
+
+    </div>
+</div>
+
+{% endblock %}

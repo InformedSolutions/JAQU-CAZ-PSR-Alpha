@@ -13,7 +13,7 @@ Pay a Clean Air Zone charge
 
 {% block content %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-thirds">
+    <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
         <p>A daily charge runs from midnight to midnight.</p>
         <form method="post" class="form" action="/fleets/single-user/confirm-charge">
@@ -41,16 +41,16 @@ Pay a Clean Air Zone charge
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
                                         <th scope="col" class="govuk-table__header">Registration</th>
-                                        <th scope="col" class="govuk-table__header">Tue 15<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Wed 16<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Thur 17<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Fri 18<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Sat 19<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Sun 20<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('subtract', 6, 'days') | date("ddd D") }}<br>{{date | date('subtract', 6, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('subtract', 5, 'days') | date("ddd D") }}<br>{{date | date('subtract', 5, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('subtract', 4, 'days') | date("ddd D") }}<br>{{date | date('subtract', 4, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('subtract', 3, 'days') | date("ddd D") }}<br>{{date | date('subtract', 3, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('subtract', 2, 'days') | date("ddd D") }}<br>{{date | date('subtract', 2, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('subtract', 1, 'days') | date("ddd D") }}<br>{{date | date('subtract', 1, 'days') | date("MMM") }}</th>
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["JO51WQE","M56FGF","P057BOX","MH75BJH","BT02VYL","AF03WMY","WL08JTZ","AB12CDE","M15JIK","R66PPR"] %}
+                                    {% for vrn in ["AB12CDE","AF03WMY","BT02VYL","JO51WQE","M15JIK","M56FGF","MH75BJH","P057BOX","R66PPR","WL08JTZ"] %}
                                     <tr class="govuk-table__row">
                                         <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(6) %}
@@ -71,20 +71,20 @@ Pay a Clean Air Zone charge
                         <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
                             <h2 class="govuk-heading-l">From today</h2>
                             <table class="govuk-table">
-                                <thead class="govuk-table__head">
+                                <thead class="govuk-table__head"> 
                                     <tr class="govuk-table__row">
                                         <th scope="col" class="govuk-table__header">Registration</th>
-                                        <th scope="col" class="govuk-table__header">Mon 21<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Tue 22<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Wed 23<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Thur 24<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Fri 25<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Sat 26<br>Oct</th>
-                                        <th scope="col" class="govuk-table__header">Sun 27<br>Oct</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date("ddd D") }}<br>{{date | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('add', 1, 'days') | date("ddd D") }}<br>{{date | date('add', 1, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('add', 2, 'days') | date("ddd D") }}<br>{{date | date('add', 2, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('add', 3, 'days') | date("ddd D") }}<br>{{date | date('add', 3, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('add', 4, 'days') | date("ddd D") }}<br>{{date | date('add', 4, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('add', 5, 'days') | date("ddd D") }}<br>{{date | date('add', 5, 'days') | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">{{date | date('add', 6, 'days') | date("ddd D") }}<br>{{date | date('add', 6, 'days') | date("MMM") }}</th>
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["JO51WQE","M56FGF","P057BOX","MH75BJH","BT02VYL","AF03WMY","WL08JTZ","AB12CDE","M15JIK","R66PPR"] %}
+                                    {% for vrn in ["AB12CDE","AF03WMY","BT02VYL","JO51WQE","M15JIK","M56FGF","MH75BJH","P057BOX","R66PPR","WL08JTZ"] %}
                                     <tr class="govuk-table__row">
                                         <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(7) %}
