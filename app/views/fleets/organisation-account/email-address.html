@@ -32,6 +32,7 @@ text: "Back"
       {% endif %}
 
     <h1 class="govuk-heading-l">Email address</h1>
+    
 
     <form method="POST" class="form" action="password">
         {% if error %}
@@ -40,7 +41,8 @@ text: "Back"
         {% if not error %} 
           <div class="govuk-form-group">
         {% endif %}
-      <label class="govuk-label govuk-date-input__label" for="company-name">Email address</label>
+
+      <label class="govuk-label govuk-date-input__label" for="company-name">Enter your email address</label>
       {% if error %}
         <span id="vrn-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
