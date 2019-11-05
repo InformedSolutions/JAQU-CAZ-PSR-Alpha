@@ -41,16 +41,16 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£50</td>
                     {% elseif vrn == 'MH75BJH' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
-                    <td class="govuk-table__cell" scope="row">£0</td>
-                    <td class="govuk-table__cell" scope="row">£0</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
                     {% elseif vrn == 'M56FGF' %}
                     <td class="govuk-table__cell" scope="row">Van</td>
-                    <td class="govuk-table__cell" scope="row">£0</td>
-                    <td class="govuk-table__cell" scope="row">£0</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
                     {% else %}
                     <td class="govuk-table__cell" scope="row">Van</td>
                     <td class="govuk-table__cell" scope="row">£8</td>
-                    <td class="govuk-table__cell" scope="row">£0</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
                     {% endif %}
                     <td class="govuk-table__cell" scope="row"><a href="/fleets/single-user/fleet-update?vrn={{vrn}}">Remove</a></td>
                 </tr>
@@ -58,6 +58,7 @@ text: "Back"
                 {% endfor %}
             </tbody>
         </table>
+        <p>A vehicle labelled with 'No charge' under a Clean Air Zone means that it will not be charged when driving within that Clean Air Zone.</p>
         <form method="post" class="form" action="/fleets/single-user/fleet-update">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="add-vehicle-hint">

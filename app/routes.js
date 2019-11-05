@@ -637,7 +637,7 @@ router.get('/fleets/single-user/fleet-account', function(req, res) {
 })
 
 router.post('/fleets/single-user/fleet-account', function(req, res) {
-  req.session.vrns = ['CU57ABC','DA56XYZ'];
+  req.session.vrns = ['AB12CDE','AF03WMY','BT02VYL','JO51WQE','M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ'];
   res.redirect('/fleets/single-user/fleet-account')
 })
 
