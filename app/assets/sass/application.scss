@@ -71,3 +71,21 @@ $govuk-assets-path: '/govuk/assets/';
     background-color: #dee0e2;
     padding: 1em;
   }
+
+  @media (min-width: 40.0625em) {
+    .govuk-checkboxes--inline:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .govuk-checkboxes--inline .govuk-checkboxes__item {
+      margin-right: 20px;
+      float: left;
+      clear: none;
+    }
+  }
+  
+  .govuk-checkboxes--inline.govuk-checkboxes--conditional .govuk-checkboxes__item {
+    margin-right: 0;
+    float: none;
+  }

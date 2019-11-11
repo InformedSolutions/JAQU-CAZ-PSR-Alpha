@@ -56,7 +56,24 @@ text: "Back"
               {% endif %}
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes" required="required">
-                        {% if 'Mon' in today|string %}
+                            <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="date-13" name="date" type="checkbox" value="{{today | date('subtract', 6, 'days')}}">
+                                    <label class="govuk-label govuk-checkboxes__label" for="date-13">
+                                        {{today | date("subtract", 6, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                </div>
+                            <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="date-12" name="date" type="checkbox" value="{{today | date('subtract', 5, 'days')}}">
+                                    <label class="govuk-label govuk-checkboxes__label" for="date-12">
+                                        {{today | date("subtract", 5, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                </div>
+                            <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="date-11" name="date" type="checkbox" value="{{today | date('subtract', 4, 'days')}}">
+                                    <label class="govuk-label govuk-checkboxes__label" for="date-11">
+                                        {{today | date("subtract", 4, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="date-10" name="date" type="checkbox" value="{{today | date('subtract', 3, 'days')}}">
                             <label class="govuk-label govuk-checkboxes__label" for="date-10">
@@ -69,7 +86,6 @@ text: "Back"
                                 {{today | date("subtract", 2, "days") | date("dddd D MMMM YYYY") }}
                             </label>
                         </div>
-                        {% endif %}
 
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="date-1" name="date" type="checkbox" value="{{today | date('subtract', 1, 'days')}}">
