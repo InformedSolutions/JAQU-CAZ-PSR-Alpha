@@ -663,6 +663,11 @@ router.post('/fleets/single-user/fleets-confirmation', function(req, res) {
   res.redirect('fleet-update');
 })
 
+router.post('/fleets/single-user/fleets-reconfirmation', function(req, res) {
+    req.session.vrns = ['M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ','Z12TTP']
+    res.redirect('fleet-update');
+  })
+
 // update the fleet - post
 router.post('/fleets/single-user/fleet-update', function(req, res) {
   var ans = true ? req.session.data['add-vehicle'] === 'yes' : false;

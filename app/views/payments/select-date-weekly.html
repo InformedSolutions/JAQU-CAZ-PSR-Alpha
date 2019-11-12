@@ -8,7 +8,7 @@ text: "Back"
 {% endblock %}
 
 {% block pageTitle %}
-    Pay a Clean Air Zone charge
+Pay a Clean Air Zone charge
 {% endblock %}
 
 {% block content %}
@@ -34,11 +34,14 @@ text: "Back"
         <details class="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                Why can't I see my dates?
+                    Why can't I see my dates?
                 </span>
             </summary>
             <div class="govuk-details__text">
-                You can't pay more than 7 days ahead. <br><br>You have to pay the charge by midnight on the next working day after you have driven in a Clean Air Zone. If the payment window has closed you won't be able to pay here, and you will be sent a fine in the post. This will be sent to the address the DVLA holds for the vehicle's owner.
+                You can't pay more than 7 days ahead. <br><br>You have to pay the charge by midnight on the next working
+                day after you have driven in a Clean Air Zone. If the payment window has closed you won't be able to pay
+                here, and you will be sent a fine in the post. This will be sent to the address the DVLA holds for the
+                vehicle's owner.
             </div>
         </details>
         <form method="post" class="form" action="/payments/selected-date">
@@ -60,10 +63,66 @@ text: "Back"
                                     <input class="govuk-radios__input" id="date-1" name="date" type="radio"
                                         value="{{today | date('subtract', 1, 'days')}}" required>
                                     <label class="govuk-label govuk-radios__label" for="date-1">
+                                        {{today | date("subtract", 6, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                    <span id="yesterday-hint" class="govuk-hint" style="margin-left: 15px;">
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 0, "days") | date("dddd DD MMMM YYYY") }}
+                                    </span>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="date-1" name="date" type="radio"
+                                        value="{{today | date('subtract', 1, 'days')}}" required>
+                                    <label class="govuk-label govuk-radios__label" for="date-1">
+                                        {{today | date("subtract", 5, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                    <span id="yesterday-hint" class="govuk-hint" style="margin-left: 15px;">
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 1, "days") | date("dddd DD MMMM YYYY") }}
+                                    </span>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="date-1" name="date" type="radio"
+                                        value="{{today | date('subtract', 1, 'days')}}" required>
+                                    <label class="govuk-label govuk-radios__label" for="date-1">
+                                        {{today | date("subtract", 4, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                    <span id="yesterday-hint" class="govuk-hint" style="margin-left: 15px;">
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 2, "days") | date("dddd DD MMMM YYYY") }}
+                                    </span>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="date-1" name="date" type="radio"
+                                        value="{{today | date('subtract', 1, 'days')}}" required>
+                                    <label class="govuk-label govuk-radios__label" for="date-1">
+                                        {{today | date("subtract", 3, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                    <span id="yesterday-hint" class="govuk-hint" style="margin-left: 15px;">
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 3, "days") | date("dddd DD MMMM YYYY") }}
+                                    </span>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="date-1" name="date" type="radio"
+                                        value="{{today | date('subtract', 1, 'days')}}" required>
+                                    <label class="govuk-label govuk-radios__label" for="date-1">
+                                        {{today | date("subtract", 2, "days") | date("dddd D MMMM YYYY") }}
+                                    </label>
+                                    <span id="yesterday-hint" class="govuk-hint" style="margin-left: 15px;">
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 4, "days") | date("dddd DD MMMM YYYY") }}
+                                    </span>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="date-1" name="date" type="radio"
+                                        value="{{today | date('subtract', 1, 'days')}}" required>
+                                    <label class="govuk-label govuk-radios__label" for="date-1">
                                         {{today | date("subtract", 1, "days") | date("dddd D MMMM YYYY") }}
                                     </label>
                                     <span id="yesterday-hint" class="govuk-hint" style="margin-left: 15px;">
-                                        Your weekly ticket is valid until 11.59pm on {{today | date("add", 5, "days") | date("dddd DD MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 5, "days") | date("dddd DD MMMM YYYY") }}
                                     </span>
                                 </div>
                                 <div class="govuk-radios__item">
@@ -73,7 +132,8 @@ text: "Back"
                                         <b>{{today | date("dddd DD MMMM YYYY")}}</b> (Today)
                                     </label>
                                     <span id="today-hint" class="govuk-hint" style="margin-left: 15px;">
-                                            Your weekly ticket is valid until 11.59pm on {{today | date("add", 6, "days") | date("dddd DD MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 6, "days") | date("dddd DD MMMM YYYY") }}
                                     </span>
                                 </div>
                                 <div class="govuk-radios__item">
@@ -83,7 +143,8 @@ text: "Back"
                                         {{today | date("add", 1, "days") | date("dddd D MMMM YYYY") }}
                                     </label>
                                     <span id="today-hint" class="govuk-hint" style="margin-left: 15px;">
-                                            Your weekly ticket is valid until 11.59pm on {{today | date("add", 7, "days") | date("dddd D MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 7, "days") | date("dddd D MMMM YYYY") }}
                                     </span>
                                 </div>
                                 <div class="govuk-radios__item">
@@ -93,7 +154,8 @@ text: "Back"
                                         {{today | date("add", 2, "days") | date("dddd D MMMM YYYY") }}
                                     </label>
                                     <span id="today-hint" class="govuk-hint" style="margin-left: 15px;">
-                                            Your weekly ticket is valid until 11.59pm on {{today | date("add", 8, "days") | date("dddd D MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 8, "days") | date("dddd D MMMM YYYY") }}
                                     </span>
                                 </div>
                                 <div class="govuk-radios__item">
@@ -103,7 +165,8 @@ text: "Back"
                                         {{today | date("add", 3, "days") | date("dddd D MMMM YYYY") }}
                                     </label>
                                     <span id="today-hint" class="govuk-hint" style="margin-left: 15px;">
-                                            Your weekly ticket is valid until 11.59pm on {{today | date("add", 9, "days") | date("dddd D MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 9, "days") | date("dddd D MMMM YYYY") }}
                                     </span>
                                 </div>
                                 <div class="govuk-radios__item">
@@ -113,7 +176,8 @@ text: "Back"
                                         {{today | date("add", 4, "days") | date("dddd D MMMM YYYY") }}
                                     </label>
                                     <span id="today-hint" class="govuk-hint" style="margin-left: 15px;">
-                                            Your weekly ticket is valid until 11.59pm on {{today | date("add", 10, "days") | date("dddd D MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 10, "days") | date("dddd D MMMM YYYY") }}
                                     </span>
                                 </div>
                                 <div class="govuk-radios__item">
@@ -123,7 +187,8 @@ text: "Back"
                                         {{today | date("add", 5, "days") | date("dddd D MMMM YYYY") }}
                                     </label>
                                     <span id="today-hint" class="govuk-hint" style="margin-left: 15px;">
-                                            Your weekly ticket is valid until 11.59pm on {{today | date("add", 11, "days") | date("dddd D MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 11, "days") | date("dddd D MMMM YYYY") }}
                                     </span>
                                 </div>
                                 <div class="govuk-radios__item">
@@ -133,20 +198,21 @@ text: "Back"
                                         {{today | date("add", 6, "days") | date("dddd D MMMM YYYY") }}
                                     </label>
                                     <span id="today-hint" class="govuk-hint" style="margin-left: 15px;">
-                                            Your weekly ticket is valid until 11.59pm on {{today | date("add", 12, "days") | date("dddd D MMMM YYYY") }}
+                                        Your weekly ticket is valid until 11.59pm on
+                                        {{today | date("add", 12, "days") | date("dddd D MMMM YYYY") }}
                                     </span>
                                 </div>
-                               
+
                             </div>
-                        </fieldset>   
+                        </fieldset>
+                    </div>
+                    <br>
+                    <br>
+                    <button type="submit" class="govuk-button">
+                        Continue
+                    </button>
+                    <p><a href="/payments/select-period">Pay for 1 day instead</a></p>
                 </div>
-                <br>
-                <br>
-                <button type="submit" class="govuk-button">
-                    Continue
-                </button>
-                <p><a href="/payments/select-period">Pay for 1 day instead</a></p>
-            </div>        
         </form>
     </div>
 </div>
