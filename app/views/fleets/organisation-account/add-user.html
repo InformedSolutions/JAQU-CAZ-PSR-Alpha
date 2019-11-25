@@ -8,68 +8,63 @@ text: "Back"
 {% endblock %}
 
 {% block pageTitle %}
-  Pay a Clean Air Zone charge
+Pay a Clean Air Zone charge
 {% endblock %}
 
-{% block content %}   
+{% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
-      {% if error %}
-      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
-        <h2 class="govuk-error-summary__title" id="error-summary-title">
-          There is a problem
-        </h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#vrn-error">{{errorMessage}}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {% endif %}
-
-    <h1 class="govuk-heading-l">Add users</h1>
-
-    <span id="passport-issued-hint" class="govuk-hint">
-      Please invite your adminstrators to create an account.
-    </span>
-
-    <form method="POST" class="form" action="manage-users-added">
         {% if error %}
-          <div class="govuk-form-group govuk-form-group--error">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+            data-module="error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        <a href="#vrn-error">{{errorMessage}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         {% endif %}
-        {% if not error %} 
-          <div class="govuk-form-group">
-        {% endif %}
-      <label class="govuk-label" for="name">Name</label>
-      {% if error %}
-        <span id="vrn-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
+
+        <h1 class="govuk-heading-l">Add users</h1>
+
+        <span id="passport-issued-hint" class="govuk-hint">
+            Please invite your adminstrators to create an account.
         </span>
-      {% endif %}
-      <input class="govuk-input" id="name" name="name" type="text" style="width: 60%;" autocomplete="name" spellcheck="false" value="{{name}}">
-      </div> 
 
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="email">
-          Email address
-        </label>
-        <span id="email-hint" class="govuk-hint">
-          This will be used to send an invite to create an account
-        </span>
-        <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false" value="{{email}}">
-      </div>
+        <form method="POST" class="form" action="/fleets/organisation-account/add-users">
+
+            <div class="govuk-form-group">
+
+                <label class="govuk-label" for="name">Name</label>
+                <input class="govuk-input" id="name" name="name" type="text" style="width: 60%;" autocomplete="name"
+                    spellcheck="false" value="{{name}}">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="user-email">
+                    Email address
+                </label>
+                <span id="user-email-hint" class="govuk-hint">
+                    This will be used to send an invite to create an account
+                </span>
+                <input class="govuk-input" id="user-email" name="user-email" type="user-email"
+                    aria-describedby="user-email-hint" autocomplete="user-email" spellcheck="false">
+            </div>
 
 
-      
+
             <button type="submit" class="govuk-button">
                 Continue
             </button>
 
-          </form>
+        </form>
 
     </div>
 </div>

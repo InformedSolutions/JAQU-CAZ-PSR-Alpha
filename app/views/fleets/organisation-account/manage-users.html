@@ -28,16 +28,13 @@ text: "Back"
                     <th class="govuk-table__header" scope="col"></th>
             </thead>
             <tbody class="govuk-table__body">
+                {% for user in users %}
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">Alfonzo Marks</td>
-                    <td class="govuk-table__cell" scope="row">alfonzo.marks@gmail.com</td>
+                    <td class="govuk-table__cell" scope="row">{{user.name}}</td>
+                    <td class="govuk-table__cell" scope="row">{{user.email}}</td>
                     <td class="govuk-table__cell" scope="row"><a href="">Remove</a></td>
                 </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">Sally Hill</td>
-                    <td class="govuk-table__cell" scope="row">sally.hill@outlook.com</td>
-                    <td class="govuk-table__cell" scope="row"><a href="">Remove</a></td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
         <form method="post" class="form" action="/fleets/organisation-account/add-user">
