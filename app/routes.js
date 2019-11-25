@@ -711,4 +711,14 @@ router.post('/fleets/organisation-account/add-user', function(req, res) {
     }
   })
 
+
+  router.get('/add-vehicle-choice', function (req, res) {
+    var addchoice = req.session.data['add-choice'];
+  
+    if (addchoice == "upload") {
+      res.redirect('/fleets/single-user/csv-upload');
+    } else if (addchoice == "manual") {
+      res.redirect('/fleets/single-user/add-vehicle')
+    }
+  });
 module.exports = router

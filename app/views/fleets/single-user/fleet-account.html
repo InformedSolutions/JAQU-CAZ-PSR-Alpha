@@ -16,12 +16,8 @@ Pay a Clean Air Zone charge
     <article class="dashboard-total-group govuk-grid-column-one-third">
 
         <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
-                    href="{% if registered %}/fleets/single-user/fleet-update{% else %}/fleets/single-user/csv-upload{% endif %}">
-                    {% if registered %}
-                    Manage your fleet
-                    {% else %}
-                    Upload your fleet
-                    {% endif %}
+                    href="{% if registered %}/fleets/single-user/fleet-update{% else %}/fleets/single-user/add-choice{% endif %}">
+                    Manage your vehicles
                 </a></strong></p>
         <p class="govuk-body">Add or remove vehicles from your fleet</p>
     </article>
