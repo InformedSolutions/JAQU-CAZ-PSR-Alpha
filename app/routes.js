@@ -687,7 +687,7 @@ router.post('/fleets/single-user/fleets-reconfirmation', function(req, res) {
   })
 
 // update the fleet - post
-router.post('/fleets/single-user/fleet-update', function(req, res) {
+router.post('/fleets/single-user/fleet-update-add', function(req, res) {
   var ans = true ? req.session.data['add-vehicle'] === 'yes' : false;
   if (ans) {
     res.redirect('/fleets/single-user/add-vehicle');
@@ -768,4 +768,21 @@ router.post('/fleets/organisation-account/add-user', function(req, res) {
       vrn: req.query.vrn
     })
   })
+
+  router.get('/fleets/single-user/confirm-vehicle', function(req, res) {  
+  
+    res.render('fleets/single-user/confirm-vehicle', {
+      vrn: req.query.vrn
+    })
+  })
+
+
+  router.post('/fleets/single-user/confirm-vehicle', function (req, res) {
+    var confirm = req.body['confirm-vehicle'];
+
+    if (confirm == 'yes') {
+        
+        res.redirect('/fleets/single-user/manage-vehicles')
+    } 
+});
 module.exports = router

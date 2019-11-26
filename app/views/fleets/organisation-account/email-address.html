@@ -8,56 +8,83 @@ text: "Back"
 {% endblock %}
 
 {% block pageTitle %}
-  Pay a Clean Air Zone charge
+Pay a Clean Air Zone charge
 {% endblock %}
 
-{% block content %}   
+{% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
-      {% if error %}
-      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
-        <h2 class="govuk-error-summary__title" id="error-summary-title">
-          There is a problem
-        </h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#vrn-error">{{errorMessage}}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {% endif %}
-
-    <h1 class="govuk-heading-l">Email address</h1>
-    
-
-    <form method="POST" class="form" action="password">
         {% if error %}
-          <div class="govuk-form-group govuk-form-group--error">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+            data-module="error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        <a href="#vrn-error">{{errorMessage}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         {% endif %}
-        {% if not error %} 
-          <div class="govuk-form-group">
-        {% endif %}
 
-      <label class="govuk-label govuk-date-input__label" for="company-name">Enter your email address</label>
-      {% if error %}
-        <span id="vrn-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
-        </span>
-      {% endif %}
-      <input class="govuk-input" id="company-name" name="company-name" type="text" style="width: 60%;" autocomplete="name" spellcheck="false">
-      </div> 
+        <form method="POST" class="form" action="email-sent">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                    <h1 class="govuk-fieldset__heading">
+                        Account details
+                    </h1>
+                </legend>
+
+                <div class="govuk-form-group">
+
+                    <label class="govuk-label" for="email-address">
+                        Enter your email address
+                    </label>
+
+                    <input class="govuk-input" id="company-name" name="company-name" type="text" style="width: 60%;"
+                        autocomplete="name" spellcheck="false">
+                </div>
+                <div class="govuk-form-group">
+
+                    <label class="govuk-label" for="email-address">
+                        Confirm email address
+                    </label>
+
+                    <input class="govuk-input" id="company-name" name="company-name" type="text" style="width: 60%;"
+                        autocomplete="name" spellcheck="false">
+                </div>
+                <br><br>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="passwordr">
+                        Create a password
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="password" name="password" type="password"
+                        aria-describedby="password-hint">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="confirm-password">
+                        Confirm password
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="confirm-password" name="confirm-password"
+                        type="password" aria-describedby="password-hint">
+                </div>
+
+            </fieldset>
 
 
-      
+
+
+
             <button type="submit" class="govuk-button">
                 Continue
             </button>
 
-          </form>
+        </form>
 
     </div>
 </div>
