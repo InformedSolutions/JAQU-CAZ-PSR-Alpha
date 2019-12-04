@@ -18,7 +18,7 @@ text: "Back"
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">Manage your account administrators</h1>
-
+        {% if users %}
         <table class="govuk-table">
             <caption class="govuk-table__caption">Administrators</caption>
             <thead class="govuk-table__head">
@@ -37,11 +37,12 @@ text: "Back"
                 {% endfor %}
             </tbody>
         </table>
+        {% endif %}
         <form method="post" class="form" action="/fleets/organisation-account/add-user">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="add-user-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Do you need to add another fleet administrator?
+                        Do you need to add a fleet administrator?
                     </legend>
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">

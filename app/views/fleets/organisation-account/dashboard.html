@@ -9,42 +9,38 @@ Pay a Clean Air Zone charge
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Your fleet account</h1>
-        <p>On this page you can upload your vehicles, add and remove users, make a payment and view the payments you’ve already made.</p>
+        <h1 class="govuk-heading-l">Your company account</h1>
+        <p>On this page you can upload your vehicles, add and remove users, make a payment and view the payments you’ve
+            already made.</p>
+        <div class="govuk-inset-text">
+            You must upload your vehicle details before making a payment.
+        </div>
     </div>
 </div>
-<div class="govuk-grid-row"><article class="dashboard-total-group govuk-grid-column-one-third">
-                    <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
-                                href="manage-users">Manage users</a></strong></p>
-                    <p class="govuk-body">Add and remove users who can manage your vehicles and payments.</p>
-                </article>
-                <article class="dashboard-total-group govuk-grid-column-one-third">
-                        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
-                                    href="">Payment history</a></strong></p>
-                        <p class="govuk-body">View the Clean Air Zone payments made within your company.</p>
-                    </article>
-    
+<div class="govuk-grid-row">
     <article class="dashboard-total-group govuk-grid-column-one-third">
-            
-        
-
         <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
                     href="{% if registered %}/fleets/single-user/fleet-update{% else %}/fleets/single-user/csv-upload{% endif %}">
-                    {% if registered %}
-                    Manage your fleet
-                    {% else %}
-                    Upload your fleet
-                    {% endif %}
+                    Manage your vehicles
                 </a></strong></p>
-        <p class="govuk-body">Add, edit and remove vehicles.</p>
+        <p class="govuk-body">Upload your fleet registration details and add or remove vehicle from your account.</p>
     </article>
+    <article class="dashboard-total-group govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a href="manage-users">Manage
+                    administrators</a></strong></p>
+        <p class="govuk-body">Add and remove users who can manage your vehicles and payments.</p>
+    </article>
+    
 
     
+
+
 </div>
-    <div class="govuk-grid-row"><article class="dashboard-total-group govuk-grid-column-one-third">
+<div class="govuk-grid-row">
+    <article class="dashboard-total-group govuk-grid-column-one-third">
         <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
                     href="/fleets/single-user/select-caz">Make a payment</a></strong></p>
-        <p class="govuk-body">Pay CAZ charges for your fleet</p>
+        <p class="govuk-body">Pay Clean Air Zone charges for your vehicles.</p>
     </article>
 
     <article class="dashboard-total-group govuk-grid-column-one-third">
@@ -53,6 +49,11 @@ Pay a Clean Air Zone charge
                     your direct debits{%else%}Create a direct debit mandate{%endif%}</a></strong></p>
         <p class="govuk-body">{% if direct_debit %}View the direct debits you have created{%else%}Create a direct debit
             mandate to allow BACS payments{%endif%}</p>
+    </article>
+    <article class="dashboard-total-group govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a href="">Payment history</a></strong>
+        </p>
+        <p class="govuk-body">View previous payments you have made.</p>
     </article>
 </div>
 

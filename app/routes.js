@@ -758,7 +758,7 @@ router.post('/fleets/organisation-account/add-user', function(req, res) {
         }
     }
 
-    res.redirect('/fleets/organisation-account/manage-users');
+    res.redirect('/fleets/organisation-account/user-add-confirmation');
   
   })
 
