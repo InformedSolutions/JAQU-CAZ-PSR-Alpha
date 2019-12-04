@@ -1,4 +1,3 @@
-
 {% extends "layout_account.html" %}
 
 {% block beforeContent %}
@@ -9,62 +8,76 @@ text: "Back"
 {% endblock %}
 
 {% block pageTitle %}
-  Pay a Clean Air Zone charge
+Pay a Clean Air Zone charge
 {% endblock %}
 
-{% block content %}   
+{% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if error %}
-      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
-        <h2 class="govuk-error-summary__title" id="error-summary-title">
-          There is a problem
-        </h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#vrn-error">{{errorMessage}}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {% endif %}
-
-      <h1 class="govuk-heading-l">Upload your fleet</h1>
-      <p>To register a fleet and your vehicles' compliance, <a href="">download and complete the CSV</a>, then upload it once it has been filled out</p>
-      <p>You will need to enter all of your fleet's registration numbers.</p>
-      <p><a href="">Fleet registration guide</a></p>
-      <form method="POST" class="form" action="fleets-confirmation">
         {% if error %}
-        <div class="govuk-form-group govuk-form-group--error">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+            data-module="error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        <a href="#vrn-error">{{errorMessage}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         {% endif %}
-        {% if not error %} 
-        <div class="govuk-form-group">
-        {% endif %}    
-                <label class="govuk-label" for="file-upload-1">
-                  Upload a CSV file
-                </label>
-                {% if error %}
-                <span id="file-upload-1-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span> The CSV must be smaller than 2MB
-                </span>
-                <input class="govuk-file-upload govuk-file-upload--error" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-error">
+
+        <h1 class="govuk-heading-l">Upload your vehicle details</h1>
+        <p>To find out which vehicles are subject to charge in a Clean Air Zone.</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>
+                <a href="">Download the CSV</a>
+            </li>
+            <li>
+                Fill in all of your fleet's registration numbers
+            </li>
+            <li>
+                Upload it
+            </li>
+        </ul>
+
+        <p>If you need help, read the multiple vehicle <a href="">registration guide</a></p>
+        <form method="POST" class="form" action="fleets-confirmation">
+            {% if error %}
+            <div class="govuk-form-group govuk-form-group--error">
                 {% endif %}
-                <input class="govuk-file-upload govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1">
-              </div>
+                {% if not error %}
+                <div class="govuk-form-group">
+                    {% endif %}
+                    <label class="govuk-label" for="file-upload-1">
+                        Upload a CSV file
+                    </label>
+                    {% if error %}
+                    <span id="file-upload-1-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> The CSV must be smaller than 2MB
+                    </span>
+                    <input class="govuk-file-upload govuk-file-upload--error" id="file-upload-1" name="file-upload-1"
+                        type="file" aria-describedby="file-upload-1-error">
+                    {% endif %}
+                    <input class="govuk-file-upload govuk-file-upload" id="file-upload-1" name="file-upload-1"
+                        type="file" aria-describedby="file-upload-1">
+                </div>
 
-        <br>
+                <br>
 
-        {% if data['rtn'] %}
-          <input type="hidden" name="rtn" value="true">
-        {% endif %}
-        
-        <button type="submit" class="govuk-button" name="registered" value="true">
-            Upload Fleet
-        </button>
-      </form>
+                {% if data['rtn'] %}
+                <input type="hidden" name="rtn" value="true">
+                {% endif %}
+
+                <button type="submit" class="govuk-button" name="registered" value="true">
+                    Upload Fleet
+                </button>
+        </form>
 
     </div>
 </div>

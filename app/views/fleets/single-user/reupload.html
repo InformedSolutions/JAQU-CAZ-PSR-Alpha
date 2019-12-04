@@ -33,9 +33,13 @@ text: "Back"
       {% endif %}
 
       <h1 class="govuk-heading-l">Upload your vehicles again</h1>
-      <p>To upload and override your existing fleet, <a href="">download and complete the CSV</a>, then upload it once it has been filled out. </p>
-      <p>You will need to enter all of your fleet's registration numbers.</p>
-      <p><a href="">Fleet registration guide</a></p>
+      <p>To upload and override your existing fleet</p>
+      <ul class="govuk-list govuk-list--bullet">
+          <li><a href="">Download and fill in the CSV</a> with all your vehicle registration numbers</li>
+          <li>Upload it</li>
+
+      </ul>
+      <p>If you need help, read the multiple vehicle <a href="">registration guide</a></p>
       <form method="POST" class="form" action="fleets-reconfirmation">
         {% if error %}
         <div class="govuk-form-group govuk-form-group--error">

@@ -34,7 +34,7 @@ text: "Back"
     <h1 class="govuk-heading-l">Create account</h1>
 
     <span id="passport-issued-hint" class="govuk-hint">
-      Create an account to upload and pay for multiple vehicles.
+      You can upload and pay the charge for multiple vehicles.
     </span>
 
     <form method="POST" class="form" action="email-address">
@@ -44,7 +44,7 @@ text: "Back"
         {% if not error %} 
           <div class="govuk-form-group">
         {% endif %}
-      <label class="govuk-label" for="company-name">Company name</label>
+      <label class="govuk-label" for="company-name">Enter your company name</label>
       {% if error %}
         <span id="vrn-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
