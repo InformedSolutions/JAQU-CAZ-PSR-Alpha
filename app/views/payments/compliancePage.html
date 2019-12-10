@@ -1,0 +1,84 @@
+
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "/vehicle-checker/local-authority",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Clean Air Zones
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Clean Air Zone compliance</h1>
+
+      <p>Vehicle registration ABC123.</p>
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Birmingham
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <p class='govuk-body'>{% include "includes/birmingham.html" %}</p>
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                Leeds
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            <p class='govuk-body'>{% include "includes/leeds.html" %}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- {% if bathShow %}
+        {% include "includes/bath.html" %}
+      {% endif %}
+
+      {% if birminghamShow %}
+        
+      {% endif %}
+
+      {% if leedsShow %}
+        {% include "includes/leeds.html" %}
+      {% endif %}
+
+      {% if sheffieldShow %}
+        {% include "includes/sheffield.html" %}
+      {% endif %} -->
+
+      <p><a href="javascript:window.print()">Print this page</a></p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">
+        Related tasks
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/vehicle-checker/enter-vehicle-details">Check another vehicle's compliance</a></li>
+        <li><a href="https://www.gov.uk/government/publications/air-quality-clean-air-zone-framework-for-england" target=_blank>Find out about alternative travel options</a></li>
+      </ul>
+    </div>
+
+</div>
+
+{% endblock %}
