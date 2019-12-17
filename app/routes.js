@@ -268,7 +268,7 @@ router.post('/payments/selected-date', function (req, res) {
     } else if (req.session.data['vrn'] == 'ERR0R') {
         res.render('payments/select-date-error', {
             error: true,
-            errorMessage: "You have already paid for the following dates, select other dates to continue:",
+            errorMessage: "The charge has been paid for the following dates. Select another date to pay and continue.",
             today: today
         })
     } else {
