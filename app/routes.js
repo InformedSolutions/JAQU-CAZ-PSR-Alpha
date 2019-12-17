@@ -253,8 +253,10 @@ router.post('/payments/selected-date', function (req, res) {
     var dates = req.body['date'];
      
     charge = calculateCharge(formattedVrn, vehicleType, caz);
-    charge = caz === 'leeds-weekly' ? charge : charge * dates.length;
+    // charge = caz === 'leeds-weekly' ? charge : charge * dates.length;
+    charge = charge * dates.length;
     req.session.amountDue = '£' + charge.toFixed(2);
+
   
     // var selectedDates = dates.join(', ');
     if (req.session.data['date'] == undefined) {
@@ -295,7 +297,7 @@ router.post('/payments/selected-date', function (req, res) {
     var dates = req.body['date'] ? req.body['date'] : [];
 
     charge = calculateCharge(formattedVrn, vehicleType, caz);
-    charge = caz === 'leeds-weekly' ? charge : charge * dates.length;
+    charge = charge * dates.length;
     req.session.amountDue = '£' + charge.toFixed(2);
   
     // var selectedDates = dates.join(', ');
@@ -336,6 +338,7 @@ router.get('/payments/confirm-payment', function (req, res) {
   var dates = req.session.data['date'];
   var vrn = formatVrn(req.session.data['vrn']);
 
+
   res.render('payments/confirm-payment', {
     amountDue: req.session.amountDue, 
     dates: dates, 
@@ -356,7 +359,7 @@ router.post('/payments/confirm-payment', function (req, res) {
   var vehicleType = req.session.data['vehicle-type'];
    
   charge = calculateCharge(vrn, vehicleType, caz);
-  charge = caz === 'leeds-weekly' ? charge : charge * dates.length;
+  charge = charge * dates.length;
   req.session.amountDue = '£' + charge.toFixed(2);
   var localAuthority = caz === "leeds-weekly" ? "Leeds" : caz.charAt(0).toUpperCase() + caz.slice(1);
 

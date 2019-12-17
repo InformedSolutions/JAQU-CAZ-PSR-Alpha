@@ -39,7 +39,7 @@ Pay a Clean Air Zone charge
                     <th class="govuk-table__header" scope="row">
                         {% for date in dates%}{{ date | date("dddd D MMMM YYYY")}}{%if loop.index != loop.length %},{% endif %} {% endfor %}</th>
                     {% else %}
-                    <th class="govuk-table__header" scope="row">{{dates | date("DD/MM/YYYY")}} - {{dates | date("add", 6, "days") | date("DD/MM/YYYY")}}</th>
+                    <th class="govuk-table__header" scope="row">{% for date in dates%}{{date | date("DD/MM/YYYY")}} - {{date | date("add", 6, "days") | date("DD/MM/YYYY")}}<br>{% endfor %}</th>
                     {% endif %}
                     <td class="govuk-table__cell"></td>
                 </tr>
