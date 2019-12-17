@@ -119,16 +119,20 @@ router.post('/payments/paymentPages', function (req, res) {
 
 // Birmingham Charge page
 router.post('/payments/birmingham', function (req, res) {
-  var confirm = req.body['confirm'];
-
-  if (confirm == '_unchecked'){
-    res.render('payments/birmingham', {
-      error: true,
-      errorMessage: "Confirm you have checked if you are eligible for an exemption"
-    })
-  } else {
-    res.redirect('/payments/select-date')
-  }
+    var confirm = req.body['confirm'];
+    var vrn = formatVrn(req.session.data['vrn']);
+    if (confirm == '_unchecked') {
+        res.render('payments/birmingham', {
+            error: true,
+            errorMessage: "Confirm you have checked if you are eligible for an exemption"
+        })
+    } else if (vrn == "GR3Y0UT") {
+        res.redirect('/payments/select-date-disabled')
+    } else if (vrn == "REM0VE") {
+        res.redirect('/payments/select-date-remove')
+    } else {
+        res.redirect('/payments/select-date')
+    }
 });
 
 // Leeds Charge page - checked exemption
@@ -259,7 +263,12 @@ router.post('/payments/selected-date', function (req, res) {
             errorMessage: "Select a date that you wish to pay for",
             today: today
         })
-
+    } else if (req.session.data['vrn'] == 'ERR0R') {
+        res.render('payments/select-date-error', {
+            error: true,
+            errorMessage: "You have already paid for the following dates, select other dates to continue:",
+            today: today
+        })
     } else {
       res.render('payments/confirm-charge', {
         amountDue: req.session.amountDue, 
