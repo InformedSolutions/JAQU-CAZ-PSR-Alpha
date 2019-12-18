@@ -43,12 +43,13 @@ text: "Back"
               <ul class="govuk-list">
                   <li>The 7 day period you had to pay has ended.<br>You may be subject to a penalty charge notice (PCN).</li><br>
 
-                  <li>The date is too far in the future.<br>You should check back here closer to the date you want.</li><br>
-
-                  <li>The date cannot be selected for this vehicle because the charge has been paid.</li>
+                  <li>The date is too far in the future.<br>You should check back here closer to the date you want.</li>
               </ul>
             </div>
           </details>
+          <div class="govuk-inset-text">
+                If you can't select the date you want, it's because it has already been paid.
+              </div>
         <form method="post" class="form" action="/payments/selected-date">
             {% if error %}
             <div class="govuk-form-group govuk-form-group--error">
@@ -72,19 +73,19 @@ text: "Back"
                             <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="date-12" name="date" type="checkbox" value="{{today | date('subtract', 5, 'days')}}" disabled="disabled">
                                     <label class="govuk-label govuk-checkboxes__label" for="date-12">
-                                        {{today | date("subtract", 5, "days") | date("dddd D MMMM YYYY") }}
+                                        {{today | date("subtract", 5, "days") | date("dddd D MMMM YYYY") }} - Paid
                                     </label>
                                 </div>
                             <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="date-11" name="date" type="checkbox" value="{{today | date('subtract', 4, 'days')}}" disabled="disabled">
                                     <label class="govuk-label govuk-checkboxes__label" for="date-11">
-                                        {{today | date("subtract", 4, "days") | date("dddd D MMMM YYYY") }}
+                                        {{today | date("subtract", 4, "days") | date("dddd D MMMM YYYY") }} - Paid
                                     </label>
                                 </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="date-10" name="date" type="checkbox" value="{{today | date('subtract', 3, 'days')}}" disabled="disabled">
                             <label class="govuk-label govuk-checkboxes__label" for="date-10">
-                                {{today | date("subtract", 3, "days") | date("dddd D MMMM YYYY") }}
+                                {{today | date("subtract", 3, "days") | date("dddd D MMMM YYYY") }} - Paid
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
