@@ -265,7 +265,7 @@ router.post('/payments/selected-date', function (req, res) {
             errorMessage: "Select a date that you wish to pay for",
             today: today
         })
-    } else if (req.session.data['vrn'] == 'ERR0R') {
+    } else if (req.session.data['vrn'] == 'ERR0R' || req.session.data['vrn'] == 'err0r') {
         res.render('payments/select-date-error', {
             error: true,
             errorMessage: "The charge has been paid for the following dates. Select another date to pay and continue.",
