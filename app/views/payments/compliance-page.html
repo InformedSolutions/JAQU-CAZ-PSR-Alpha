@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<body class="govuk-template__body js-enabled" data-ga="UA-150934733-2">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Clean Air Zone charge</h1>
+            <p>Vehicle registration WL08JTZ.</p>
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        <b>Please Note:</b>
+                        Results are updated on an ongoing basis. See what this means for you
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    The Vehicle Checker service is in private beta, which means we are testing it with a
+                    small group of users before launching to the public in 2020. We are continually enhancing
+                    and improving the data that underpins the Vehicle Checker, as part of on-going development
+                    of the service. It is recommended that users check their vehicles shortly before entering
+                    any Clean Air Zones, the first of which are due to launch in summer 2020.
+                </div>
+            </details>
+            <h1 class="govuk-heading-l" id="birmingham">
+                Birmingham
+            </h1>
+            <div class="govuk-panel govuk-panel--noncompliant">
+                <h1 class="govuk-panel__title" id="charged-title-birmingham">
+                    Subject to daily charge:
+                    <br>
+                    £8.00
+                </h1>
+            </div>
+            <br>
+            <p>If your vehicle is subject to a charge you may still be eligible for an exemption or discount, <a href="">find out if you qualify</a>.</p>
+            <p>The zone will operate 24 hours a day, 7 days a week, every day of the year.</p>
+            <p><a href="">View the Birmingham Clean Air Zone boundary</a>.</p>
+            <p><a href="">Find out why you received this result</a>.</p>
+            <h2 class="govuk-heading-m">
+                    What you can do
+                    </h2>
+                    <p><a href="">Get support to upgrade or replace your vehicle</a>.</p>
+                    <p><a href="">Explore cycling and public transport options</a>.</p>
+
+            
+            <h1 class="govuk-heading-l" id="leeds">
+                Leeds
+            </h1>
+            <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title" id="uncharged-title-leeds">
+                    You will not be charged
+                </h1>
+            </div>
+            <br>
+            <p>
+                There is no charge for driving in
+                <a target="_blank" id="no-charge-leeds"
+                    href="https://www.leeds.gov.uk/business/environmental-health-for-business/air-quality">Leeds
+                    Clean Air Zone</a>,
+                but you may be subject to charge in other Clean Air Zones.
+            </p>
+
+
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <aside class="app-related-items" id="related-items-label" role="complementary">
+                <h2 class="govuk-heading-m">
+                    Related tasks
+                </h2>
+                <nav aria-labelledby="related-items-label" role="navigation">
+                    <ul class="govuk-!-font-size-16 govuk-list">
+                        <li>
+                            <a id="check-another-vrn" href="/vehicle_checkers/enter_details">Check another
+                                vehicle</a>
+                        </li>
+                        <li>
+                            <a id="check-another-caz" href="/air_zones/caz_selection">Check another Clean Air
+                                Zone</a>
+                        </li>
+                        <li>
+                            <a id="contact-form" href="/contact_forms">Contact Clean Air Zones</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </div>
+</body>
+{% endblock %}
