@@ -250,7 +250,56 @@ router.post('/payments/selected-date', function (req, res) {
 
     // Remove spacing and make letters uppercase
     var formattedVrn = formatVrn(vrn);
+
+    // Date stuff
     var dates = req.body['date'];
+    req.session.data['singledates'] = dates;
+     
+    charge = calculateCharge(formattedVrn, vehicleType, caz);
+    // charge = caz === 'leeds-weekly' ? charge : charge * dates.length;
+    charge = charge * dates.length;
+    req.session.amountDue = '£' + charge.toFixed(2);
+
+  
+    // var selectedDates = dates.join(', ');
+    if (req.session.data['date'] == undefined) {
+        res.render('payments/select-date', {
+            error: true,
+            errorMessage: "Select a date that you wish to pay for",
+            today: today
+        })
+    } else if (req.session.data['vrn'] == 'ERR0R' || req.session.data['vrn'] == 'err0r') {
+        res.render('payments/select-date-error', {
+            error: true,
+            errorMessage: "The charge has been paid for the following dates. Select another date to pay and continue.",
+            today: today
+        })
+    } else {
+      res.render('payments/confirm-charge', {
+        amountDue: req.session.amountDue, 
+        dates: dates, 
+        caz: caz,
+        vrn: formattedVrn
+      });
+    }
+  
+  });
+
+  router.post('/payments/selected-date-taxi', function (req, res) {
+    if (!req.session.data['vrn']) {
+      res.redirect('/')
+    }
+    var caz = req.session.data['caz'];
+    var vrn = req.session.data['vrn'];
+    var vehicleType = req.session.data['vehicle-type'];
+
+    // Remove spacing and make letters uppercase
+    var formattedVrn = formatVrn(vrn);
+
+    // Date stuff
+    var dates = [req.body['date2']]; 
+    dates.unshift(req.session.data['first-date']);
+    req.session.data['dateArray'] = dates;
      
     charge = calculateCharge(formattedVrn, vehicleType, caz);
     // charge = caz === 'leeds-weekly' ? charge : charge * dates.length;
@@ -284,40 +333,60 @@ router.post('/payments/selected-date', function (req, res) {
   
   // Router to correct payment method page
   router.get('/payments/selected-date', function (req, res) {
-    var caz = req.session.data['caz'];
-    var vrn = req.session.data['vrn'];
-    var vehicleType = req.session.data['vehicle-type'];
-
-    if (!vrn) {
-      res.redirect('/')
-    }
-
-    // Remove spacing and make letters uppercase
-    var formattedVrn = formatVrn(vrn);
-    var dates = req.body['date'] ? req.body['date'] : [];
-
-    charge = calculateCharge(formattedVrn, vehicleType, caz);
-    charge = charge * dates.length;
-    req.session.amountDue = '£' + charge.toFixed(2);
+    if (!req.session.data['vrn']) {
+        res.redirect('/')
+      }
+      var caz = req.session.data['caz'];
+      var vrn = req.session.data['vrn'];
+      var vehicleType = req.session.data['vehicle-type'];
   
-    // var selectedDates = dates.join(', ');
-    if (req.session.data['date'] == undefined) {
-        res.render('payments/select-date', {
-            error: true,
-            errorMessage: "Select a date that you wish to pay for",
-            today: today
-        })
-
+      // Remove spacing and make letters uppercase
+      var formattedVrn = formatVrn(vrn);
+  
+      // Date stuff
+      console.log(req.session.data['date2']);
+      if (req.session.data['date2'] != undefined){
+      var dates = [req.body['date2']]; 
+      dates.unshift(req.session.data['first-date']);
+      req.session.data['dateArray'] = dates;
+      console.log(dates);
+      console.log('if')
     } else {
-      res.render('payments/confirm-charge', {
-        amountDue: req.session.amountDue, 
-        dates: dates, 
-        caz: caz,
-        vrn: formattedVrn
-      });
+        var dates = [req.session.data['first-date']]
+        req.session.data['dateArray']=dates;
+        console.log('else')
     }
+      
+       
+      charge = calculateCharge(formattedVrn, vehicleType, caz);
+      // charge = caz === 'leeds-weekly' ? charge : charge * dates.length;
+      charge = charge * dates.length;
+      req.session.amountDue = '£' + charge.toFixed(2);
   
-  });
+    
+      // var selectedDates = dates.join(', ');
+      if (req.session.data['date'] == undefined) {
+          res.render('payments/select-date', {
+              error: true,
+              errorMessage: "Select a date that you wish to pay for",
+              today: today
+          })
+      } else if (req.session.data['vrn'] == 'ERR0R' || req.session.data['vrn'] == 'err0r') {
+          res.render('payments/select-date-error', {
+              error: true,
+              errorMessage: "The charge has been paid for the following dates. Select another date to pay and continue.",
+              today: today
+          })
+      } else {
+        res.render('payments/confirm-charge', {
+          amountDue: req.session.amountDue, 
+          dates: dates, 
+          caz: caz,
+          vrn: formattedVrn
+        });
+      }
+    
+    });
 
 router.get('/payments/debit-credit-card', function (req, res) {
   res.render('payments/debit-credit-card', {amountDue: req.session.amountDue});
@@ -335,7 +404,7 @@ router.get('/payments/confirm-payment', function (req, res) {
     res.redirect('/')
   }
   var caz = req.session.data['caz'];
-  var dates = req.session.data['date'];
+  var dates = req.session.data['dateArray'];
   var vrn = formatVrn(req.session.data['vrn']);
 
 
@@ -354,7 +423,11 @@ router.post('/payments/confirm-payment', function (req, res) {
   }
   var email = req.session.data['email'];
   var caz = req.session.data['caz'];
-  var dates = req.session.data['date'];
+  if (req.session.data['dateArray'] == undefined){
+      req.session.data['dateArray'] = req.session.data[['singledates']];
+      console.log('confirm if statement');
+  }
+  var dates = req.session.data['dateArray'];
   var vrn = formatVrn(req.session.data['vrn']);
   var vehicleType = req.session.data['vehicle-type'];
    
@@ -797,4 +870,113 @@ router.post('/fleets/organisation-account/add-user', function(req, res) {
         res.redirect('/fleets/single-user/manage-vehicles')
     } 
 });
+
+//Leeds Weekly Taxi Radios
+router.post('/payments/select-date-weekly-2x', function (req, res) {
+    if (!req.session.data['vrn']) {
+      res.redirect('/')
+    }
+
+    req.session.data['first-date']=req.body['date'];
+    console.log(req.session.data['first-date']);
+
+    var dateMinus6= today.subtract(6, 'd').format("ddd MMM DD YYYY");
+    today.add(6, 'd');
+    var dateMinus5= today.subtract(5, 'd').format("ddd MMM DD YYYY");
+    today.add(5, 'd');
+    var dateMinus4= today.subtract(4, 'd').format("ddd MMM DD YYYY");
+    today.add(4, 'd');
+    var dateMinus3= today.subtract(3, 'd').format("ddd MMM DD YYYY");
+    today.add(3, 'd');
+    var dateMinus2= today.subtract(2, 'd').format("ddd MMM DD YYYY");
+    today.add(2, 'd');
+    var dateMinus1= today.subtract(1, 'd').format("ddd MMM DD YYYY");
+    today.add(1, 'd');
+    var dateAdd1= today.add(1, 'd').format("ddd MMM DD YYYY");
+    today.subtract(1, 'd');
+    var dateAdd2= today.add(2, 'd').format("ddd MMM DD YYYY");
+    today.subtract(2, 'd');
+    var dateAdd3= today.add(3, 'd').format("ddd MMM DD YYYY");
+    today.subtract(3, 'd');
+    var dateAdd4= today.add(4, 'd').format("ddd MMM DD YYYY");
+    today.subtract(4, 'd');
+    var dateAdd5= today.add(5, 'd').format("ddd MMM DD YYYY");
+    today.subtract(5, 'd');
+    var dateAdd6= today.add(6, 'd').format("ddd MMM DD YYYY");
+    today.subtract(6, 'd');
+
+    var datestring = req.session.data['date'].toString();
+    
+
+
+
+    if (req.session.data['date'] == undefined) {
+        res.render('/payments/select-date-weekly', {
+            error: true,
+            errorMessage: "Select a date that you wish to pay for",
+            today: today
+        })
+    } else if (req.session.data['select-another'] == 'select-another') {
+
+        if (datestring.includes(dateMinus6)) {
+            console.log('1');
+            var radio = 'minus6';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateMinus5)) {
+            console.log('2');
+            var radio = 'minus5';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateMinus4)) {
+            console.log('3');
+            var radio = 'minus4';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateMinus3)) {
+            console.log('4');
+            var radio = 'minus3';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateMinus2)) {
+            console.log('5');
+            var radio = 'minus2';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateMinus1)) {
+            console.log('6');
+            var radio = 'minus1';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateAdd6)) {
+            console.log('7');
+            var radio = 'add6';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateAdd5)) {
+            console.log('8');
+            var radio = 'add5';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateAdd4)) {
+            console.log('9');
+            var radio = 'add4';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateAdd3)) {
+            console.log('10');
+            var radio = 'add3';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateAdd2)) {
+            console.log('11');
+            var radio = 'add2';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } else if (datestring.includes(dateAdd1)) {
+            console.log('12');
+            var radio = 'add1';
+            res.render('payments/select-date-weekly-2a', { radio });
+        } 
+    } else {
+        req.session.data['date2']=undefined;
+        res.redirect('/payments/selected-date');
+    }
+
+    
+
+
+});
+
+
+
 module.exports = router
