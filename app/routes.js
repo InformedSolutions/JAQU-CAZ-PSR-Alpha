@@ -593,9 +593,11 @@ router.post('/fleets/single-user/login', function (req, res) {
       error: true,
       errorMessage: "Please enter your username and password"
     })
+  } else if (username=='manager') {
+      res.redirect('/fleets/organisation-account/dashboard')
   } else if (username != '' && password != ''){
     res.redirect('/fleets/single-user/fleet-account')
-  } else {
+  }  else {
     res.render('fleets/single-user/login', {
       error: true,
       errorMessage: "Invalid username or password"
