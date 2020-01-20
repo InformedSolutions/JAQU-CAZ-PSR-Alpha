@@ -32,38 +32,17 @@ Pay a Clean Air Zone charge
         </div>
         {% endif %}
 
-        <h1 class="govuk-heading-l">Upload your vehicle details</h1>
-        <p>To find out which vehicles are subject to charge in a Clean Air Zone.</p>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>
-                <a href="">Download the CSV</a>
-            </li>
-            <li>
-                Fill in all of your fleet's registration numbers
-            </li>
-            <li>
-                Upload it
-            </li>
-        </ul>
-
-        <p>If you need help, read the multiple vehicle <a href="">registration guide</a></p>
+        <h1 class="govuk-heading-l">Upload multiple vehicles</h1>
+        <p>To be able to pay for multiple vehicles and see which vehicles are subject to charge in each Clean Air Zone.</p>
+        <ol class="govuk-list govuk-list--number">
+            <li>Read the <a href="">multiple vehicle registration guide</a>.</li>
+            <li>Download the <a href="\public\images\docs\VehicleUploadTemplate.csv">CSV template</a>.</li>
+            <li>List your vehicle number plates (Vehicle Registration Numbers) in the template.</li>
+            <li>Upload the CSV file.</li>
+          </ol>
+        
         <form method="POST" class="form" action="fleets-confirmation">
-            {% if error %}
-            <div class="govuk-form-group govuk-form-group--error">
-                {% endif %}
-                {% if not error %}
                 <div class="govuk-form-group">
-                    {% endif %}
-                    <label class="govuk-label" for="file-upload-1">
-                        Upload a CSV file
-                    </label>
-                    {% if error %}
-                    <span id="file-upload-1-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> The CSV must be smaller than 2MB
-                    </span>
-                    <input class="govuk-file-upload govuk-file-upload--error" id="file-upload-1" name="file-upload-1"
-                        type="file" aria-describedby="file-upload-1-error">
-                    {% endif %}
                     <input class="govuk-file-upload govuk-file-upload" id="file-upload-1" name="file-upload-1"
                         type="file" aria-describedby="file-upload-1">
                 </div>
