@@ -19,12 +19,12 @@ Pay a Clean Air Zone charge
         
 
         <h1 class="govuk-heading-l">Upload multiple vehicles</h1>
-        <p>To be able to pay for multiple vehicles and see which vehicles are subject to charge in each Clean Air Zone.</p>
+        <p>Find out if your vehicles will be charged in each Clean Air Zone.</p>
         <ol class="govuk-list govuk-list--number">
-            <li>Read the <a href="registration-guide.html">multiple vehicle registration guide</a>.</li>
-            <li>Download the <a href="\public\images\docs\VehicleUploadTemplate.csv">CSV template</a>.</li>
-            <li>List your vehicle number plates (Vehicle Registration Numbers) in the template.</li>
-            <li>Upload the CSV file.</li>
+            <li>Download the <a href="\public\images\docs\VehicleUploadTemplate.csv">template</a>.</li>
+            <li>Enter all your number plates (vehicle registration numbers) in the first column.</li>
+            <li>Save. The name of the file does not matter.</li>
+            <li>Upload the file.</li>
           </ol>
         
         <form method="POST" class="form" action="fleets-confirmation">
@@ -40,7 +40,7 @@ Pay a Clean Air Zone charge
                 {% endif %}
 
                 <button type="submit" class="govuk-button" name="registered" value="true">
-                    Upload Fleet
+                    Upload file
                 </button>
         </form>
 
