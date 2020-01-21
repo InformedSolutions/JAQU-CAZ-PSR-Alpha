@@ -16,6 +16,7 @@ Pay a Clean Air Zone charge
     <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
         <p>A daily charge runs from midnight to midnight.</p>
+        <p>You can pay for the past 6 days and the next 7 days including today.</p>
         <form method="post" class="form" action="/fleets/single-user/confirm-charge">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
@@ -26,7 +27,7 @@ Pay a Clean Air Zone charge
                         <ul class="govuk-tabs__list">
                             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                                 <a class="govuk-tabs__tab" href="#past-day">
-                                    Previous 6 days
+                                    Past 6 days
                                 </a>
                             </li>
                             <li class="govuk-tabs__list-item">
@@ -36,8 +37,8 @@ Pay a Clean Air Zone charge
                             </li>
                         </ul>
                         <section class="govuk-tabs__panel" id="past-day">
-                            <h2 class="govuk-heading-l">Previous 6 days</h2>
-                            <p><strong>Select all boxes that apply to the journeys you have made</strong></p>
+                            <h2 class="govuk-heading-l">Past 6 days</h2>
+                            <p><strong>Tick all boxes that apply to the vehicles and dates where you have entered a Clean Air Zone</strong></p>
                             <table class="govuk-table">
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
@@ -71,7 +72,7 @@ Pay a Clean Air Zone charge
                         </section>
                         <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
                             <h2 class="govuk-heading-l">Next 7 days</h2>
-                            <p><strong>Select all boxes that apply to the journeys you will make</strong></p>
+                            <p><strong>Tick all boxes that apply to the vehicles and dates where you have entered a Clean Air Zone</strong></p>
                             <table class="govuk-table">
                                 <thead class="govuk-table__head"> 
                                     <tr class="govuk-table__row">
