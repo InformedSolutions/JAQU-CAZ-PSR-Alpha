@@ -7,20 +7,191 @@ text: "Back"
 }) }}
 {% endblock %}
 
+
 {% block pageTitle %}
 Pay a Clean Air Zone charge
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
         <h1 class="govuk-heading-l">
             Clean Air Zone charge
         </h1>
         <p>Vehicle registration ABC123.</p>
-        <p>Your vehicle does not meet emission standards and may be subject to charge depending on the category of Clean Air Zone.</p>
+        <p>Your vehicle does not meet emission standards and may be subject to charge depending on the category of Clean
+            Air Zone.</p>
+        <!-- <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Clean Air Zone</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">CAZ Class</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Charge</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">More details</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Birmingham</th>
+                <td class="govuk-table__cell">D</td>
+                <td class="govuk-table__cell">£8.00</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Leeds</th>
+                <td class="govuk-table__cell">B</td>
+                <td class="govuk-table__cell">No charge</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Bath and North East Somerset</th>
+                <td class="govuk-table__cell">D</td>
+                <td class="govuk-table__cell">£9.00</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Sheffield</th>
+                <td class="govuk-table__cell">B</td>
+                <td class="govuk-table__cell">No charge</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Manchester</th>
+                <td class="govuk-table__cell">C</td>
+                <td class="govuk-table__cell">£5.50</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Bristol</th>
+                <td class="govuk-table__cell">D</td>
+                <td class="govuk-table__cell">£10.00</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Coventry</th>
+                <td class="govuk-table__cell">D</td>
+                <td class="govuk-table__cell">£10.00</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Tyneside</th>
+                <td class="govuk-table__cell">B</td>
+                <td class="govuk-table__cell">No charge</td>
+                <td class="govuk-table__cell"><a href="">View details</a></td>
+              </tr>
+
+              
+            </tbody>
+          </table> -->
+
+          <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+            
+              <th scope="col" class="govuk-table__header" aria-sort="ascending">Name</th>
+            
+              <th scope="col" class="govuk-table__header" aria-sort="none">Elevation</th>
+            
+              <th scope="col" class="govuk-table__header" aria-sort="none">Continent</th>
+            
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">First summit</th>
+            
+            </tr>
+            </thead>
+            
+            <tbody class="govuk-table__body">
+            
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">Aconcagua</td>
+            
+              <td class="govuk-table__cell" data-sort-value="6961">6,961 meters</td>
+            
+              <td class="govuk-table__cell">South America</td>
+            
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">1897</td>
+            
+            </tr>
+            
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">Denali</td>
+            
+              <td class="govuk-table__cell" data-sort-value="6194">6,194 meters</td>
+            
+              <td class="govuk-table__cell">North America</td>
+            
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1913">1913</td>
+            
+            </tr>
+            
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">Elbrus</td>
+            
+              <td class="govuk-table__cell" data-sort-value="5642">5,642 meters</td>
+            
+              <td class="govuk-table__cell">Europe</td>
+            
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1874">1874</td>
+            
+            </tr>
+            
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">Everest</td>
+            
+              <td class="govuk-table__cell" data-sort-value="8850">8,850 meters</td>
+            
+              <td class="govuk-table__cell">Asia</td>
+            
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1953">1953</td>
+            
+            </tr>
+            
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">Kilimanjaro</td>
+            
+              <td class="govuk-table__cell" data-sort-value="5895">5,895 meters</td>
+            
+              <td class="govuk-table__cell">Africa</td>
+            
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1889">1889</td>
+            
+            </tr>
+            
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">Puncak Jaya</td>
+            
+              <td class="govuk-table__cell" data-sort-value="4884">4,884 meters</td>
+            
+              <td class="govuk-table__cell">Australia</td>
+            
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1962">1962</td>
+            
+            </tr>
+            
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">Vinson</td>
+            
+              <td class="govuk-table__cell" data-sort-value="4897">4,897 meters</td>
+            
+              <td class="govuk-table__cell">Antarctica</td>
+            
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1966">1966</td>
+            
+            </tr>
+            
+            </tbody>
+            </table> 
+
+        
 
     </div>
 </div>
