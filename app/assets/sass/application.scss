@@ -89,3 +89,5 @@ $govuk-assets-path: '/govuk/assets/';
     margin-right: 0;
     float: none;
   }
+
+  @import "components/_sortable-table";

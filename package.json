@@ -1,10 +1,10 @@
 {
-  "name": "express-prototype",
-  "description": "GOVUK prototyping app in Express",
-  "version": "9.0.0",
+  "name": "govuk-prototype-kit",
+  "description": "Rapidly create HTML prototypes of GOV.UK services",
+  "version": "9.5.0",
   "private": true,
   "engines": {
-    "node": ">10.0.0"
+    "node": "^12.0.0"
   },
   "scripts": {
     "start": "node start.js",
@@ -12,6 +12,7 @@
     "test": "npm run lint && gulp generate-assets && jest"
   },
   "dependencies": {
+    "@ministryofjustice/frontend": "0.0.17-alpha",
     "acorn": "^6.0.5",
     "ansi-colors": "^3.2.3",
     "basic-auth": "^2.0.0",
@@ -28,7 +29,7 @@
     "express-writer": "0.0.4",
     "fancy-log": "^1.3.3",
     "govuk-elements-sass": "^3.1.3",
-    "govuk-frontend": "^3.0.0",
+    "govuk-frontend": "^3.5.0",
     "govuk_frontend_toolkit": "^7.5.0",
     "govuk_template_jinja": "^0.24.1",
     "gulp": "^4.0.0",
@@ -37,10 +38,8 @@
     "gulp-sourcemaps": "^2.6.0",
     "keypather": "^3.0.0",
     "marked": "^0.4.0",
-    "moment": "^2.24.0",
     "notifications-node-client": "^4.1.0",
     "nunjucks": "^3.1.3",
-    "nunjucks-date-filter": "^0.1.1",
     "portscanner": "^2.1.1",
     "prompt": "^1.0.0",
     "require-dir": "^1.0.0",
@@ -56,6 +55,7 @@
   "devDependencies": {
     "glob": "^7.1.4",
     "jest": "^24.0.1",
+    "node-sass": "^4.12.0",
     "standard": "^12.0.1",
     "supertest": "^3.0.0"
   }
