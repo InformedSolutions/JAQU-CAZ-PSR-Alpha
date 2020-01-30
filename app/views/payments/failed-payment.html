@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}   
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Payment unsuccessful</h1>
+
+    <p>Reference number: 4534975304<br>GOV.UK Payment ID: sdfkj345345lkjlj</p>
+    <p>You may need these reference numbers if you contact us or your bank about this payment.</p>
+    <p>The charge for your journey is not paid. You may receive a penalty charge notice (PCN) if payment is not made within 7 days from driving in the zone.</p>
+
+    <h2 class="govuk-heading-m">
+        Contact us
+    </h2>
+
+    <p>
+        0300 457 8915.<br>Monday to Friday 08:00 to 19:00. Saturday 08:00 to 14:00.<br>Standard rates apply.
+    </p>
+
+    <form method="post" class="form" action="/index">
+        <button type="submit" class="govuk-button">
+           Pay a charge
+        </button>
+    </form>
+
+    </div>
+</div>
+
+{% endblock %}

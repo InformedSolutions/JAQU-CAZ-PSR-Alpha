@@ -4,7 +4,6 @@ const moment = require('moment')
 const today = moment();
 const todayString = today.format("DDDD d MMMM YYYY")
 
-var NotifyClient = require('notifications-node-client').NotifyClient, notify = new NotifyClient(process.env.NOTIFYAPIKEY);
 
 // keep this updated with the names of further CAZs
 var cazs = ['birmingham', 'leeds']
