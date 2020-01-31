@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Bradford
+        </h1>
+
+        <p>Vehicle registration <strong>ABC123</strong>.</p>
+        <p>Bradfords Somerset's Clean Air Zone will be charging vehicles that do not meet its emission standards from <strong>2021</strong>.</p>
+        <p>The vehicle is not subject to a daily charge.</p>
+        <p>This vehicle meets the emission standards set out in Bradford.</p>
+        <p>The zone will operate 24 hours a day, 7 days a week, every day of the year.</p>
+
+        <h2 class="govuk-heading-m">Clean Air Zone boundary</h2>
+
+        <p>Bradford's Clean Air Zone boundary is to be confirmed, check back here for more information.</p>
+
+       
+
+
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}

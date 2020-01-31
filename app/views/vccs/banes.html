@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Bath and N E Somerset
+        </h1>
+
+        <p>Vehicle registration <strong>ABC123</strong>.</p>
+        <p>Bath and N E Somerset's Clean Air Zone will be charging vehicles that do not meet its emission standards from <strong>Nov 2020</strong>.</p>
+        <p>The vehicle is subject to a daily charge of <strong>£7.50</strong>.</p>
+        <p>This vehicle does not meet the emission standards in Birmingham.</p>
+        <p>If your vehicle is subject to a charge you may still be eligible for an exemption or discount, <a
+                href="">find out if you qualify in Bath and N E Somerset</a>.</p>
+        <p>The zone will operate 24 hours a day, 7 days a week, every day of the year.</p>
+
+        <h2 class="govuk-heading-m">Clean Air Zone boundary</h2>
+
+        <p>Bath and N E Somerset's Clean Air Zone boundary is to be confirmed, check back here for more information.</p>
+
+        <h2 class="govuk-heading-m">What you can do</h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>
+                <a target="_blank" class="govuk-link"
+                    href="">Get support to upgrade
+                    or replace your vehicle in Bath and N E Somerset</a>
+            </li>
+            <li>
+                <a target="_blank" class="govuk-link"
+                    href="">Explore
+                    cycling and public transport options in Bath and N E Somerset</a>
+            </li>
+        </ul>
+
+
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}
