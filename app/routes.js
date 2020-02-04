@@ -5,6 +5,8 @@ const today = moment();
 const todayString = today.format("DDDD d MMMM YYYY")
 
 
+
+
 // keep this updated with the names of further CAZs
 var cazs = ['birmingham', 'leeds']
 
@@ -624,7 +626,7 @@ router.get('/fleets/single-user/select-caz', function(req, res) {
     if (req.session.vrns && req.session.vrns.length > 0) {
       res.render('fleets/single-user/select-caz');
     } else {
-      res.redirect('first-upload');
+      res.redirect('first-add-choice');
     }
   })
 
