@@ -17,7 +17,6 @@ Pay a Clean Air Zone charge
         <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
         <p>A daily charge runs from midnight to midnight.</p>
         <p>You can pay for the past 6 days and the next 7 days, which includes today.</p>
-        <form method="post" class="form" action="/fleets/single-user/confirm-charge">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-tabs" data-module="govuk-tabs">
@@ -40,6 +39,17 @@ Pay a Clean Air Zone charge
                             <h2 class="govuk-heading-l">Past 6 days</h2>
                             <p><strong>Tick all boxes that apply to the vehicles and dates where you have entered a
                                     Clean Air Zone</strong></p>
+                                    <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
+                                        <div class="govuk-form-group">
+                                            <label class="govuk-label" for="vrn-search">
+                                                Search for a number plate
+                                              </label>
+                                            <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text">
+                                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                                Search
+                                              </button>
+                                          </div>
+                                          </form>
                             <table class="govuk-table">
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
@@ -87,6 +97,17 @@ Pay a Clean Air Zone charge
                             <h2 class="govuk-heading-l">Next 7 days</h2>
                             <p><strong>Tick all boxes that apply to the vehicles and dates where you have entered a
                                     Clean Air Zone</strong></p>
+                                    <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
+                                        <div class="govuk-form-group">
+                                            <label class="govuk-label" for="vrn-search">
+                                                Search for a number plate
+                                              </label>
+                                            <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text">
+                                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                                Search
+                                              </button>
+                                          </div>
+                                          </form>
                             <table class="govuk-table">
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
@@ -188,7 +209,7 @@ Pay a Clean Air Zone charge
                     </div>
 
                 </fieldset>
-            </div>
+                <form method="post" class="form" action="/fleets/single-user/confirm-charge">
             <button type="submit" class="govuk-button">
                 Continue
             </button>

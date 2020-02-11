@@ -75,9 +75,9 @@ Pay a Clean Air Zone charge
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["AB12CDE","AF03WMY","BT02VYL","BO51WQE","B15JIK","B56FGF","BH75BJH","B057BOX","B66PPR","BL08JTZ"] %}
+                                    {% for vrn in ["F66PLK"] %}
                                     <tr class="govuk-table__row">
-                                        <td class="govuk-table__cell">{{vrn}}</td>
+                                        <td class="govuk-table__cell">{{data['vrn-search']}}</td>
                                         {% for i in range(6) %}
                                         <td class="govuk-table__cell">
                                             <div class="govuk-checkboxes__item">
@@ -135,9 +135,9 @@ Pay a Clean Air Zone charge
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["AB12CDE","AF03WMY","BT02VYL","BO51WQE","B15JIK","B56FGF","BH75BJH","B057BOX","B66PPR","BL08JTZ"] %}
+                                    {% for vrn in ["F66PLK"] %}
                                     <tr class="govuk-table__row">
-                                        <td class="govuk-table__cell">{{vrn}}</td>
+                                        <td class="govuk-table__cell">{{data['vrn-search']}}</td>
                                         {% for i in range(7) %}
                                         <td class="govuk-table__cell">
                                             <div class="govuk-checkboxes__item">
@@ -195,22 +195,21 @@ Pay a Clean Air Zone charge
                             </li>
                             </ul>
                             </nav>  -->
-                            <nav class="moj-pagination" id="pagination-label" style = "text-align:center">
+                            <!-- <nav class="moj-pagination" id="pagination-label" style = "text-align:center">
 
                                 <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
                                 
                                 <ul class="moj-pagination__list">
-                                
-                                
-                                <li class="moj-pagination__item  moj-pagination__item--next">
-                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-2.html">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+                                <li class="moj-pagination__item  moj-pagination__item--prev">
+                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-2.html">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
                                 </li>
+                                
                                 </ul>
-                                </nav>
+                                </nav> -->
                     </div>
 
                 </fieldset>
-             <form method="post" class="form" action="/fleets/single-user/confirm-charge">
+                <form method="post" class="form" action="/fleets/single-user/confirm-charge">
             <button type="submit" class="govuk-button">
                 Continue
             </button>
