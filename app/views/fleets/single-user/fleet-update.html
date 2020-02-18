@@ -17,8 +17,10 @@ text: "Back"
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-        <h1 class="govuk-heading-l">Manage your vehicles</h1>
-        <p>Use this page to add and remove vehicles from your account.<br>You can pay for these vehicles on the <a href="select-caz">Make a payment</a> page.</p>
+        <h1 class="govuk-heading-l">Your vehicles</h1>
+        <p><strong>Charge information for your vehicles in each Clean Air Zone.</strong></p>
+            
+        <p>You can pay for these vehicles on the <a href="select-caz">Make a payment</a> page.</p>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -46,8 +48,8 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">No charge</td>
                     {% elseif vrn == 'M56FGF' %}
                     <td class="govuk-table__cell" scope="row">Unknown</td>
-                    <td class="govuk-table__cell" scope="row">Unconfirmed</td>
-                    <td class="govuk-table__cell" scope="row">Unconfirmed</td>
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
                     {% else %}
                     <td class="govuk-table__cell" scope="row">Van</td>
                     <td class="govuk-table__cell" scope="row">£8</td>
@@ -79,12 +81,16 @@ text: "Back"
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>20</b> results</p>
             </nav> 
             <br>
-        <p>A vehicle labelled with 'No charge' under a Clean Air Zone means that it will not be charged when driving within that Clean Air Zone.</p>
+        <p><strong>Charge</strong> - if a charge is applicable then the amount payable will be shown.</p>
+        <p><strong>No charge</strong> - means you don't have to pay anything to drive in that Clean Air Zone.</p>
+        <p><strong>Undetermined</strong> - your compliance could not be determined. You should contact DVLA to make sure your vehicle information is correct. You still need to pay the charge. If you can prove your vehicle does meet the emissions standards you will be eligible for a refund.</p>
+        <p><strong>Add and remove vehicles</strong></p>
+        <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
         <form method="post" class="form" action="/fleets/single-user/fleet-update-add">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="add-vehicle-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Do you need to add another vehicle?
+                        Do you need to a single vehicle?
                     </legend>
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
@@ -107,7 +113,7 @@ text: "Back"
             <input type="hidden" name="rtn" value="false">
             <button type="submit" class="govuk-button">Continue</button>
            
-        </form> <p>If you need to add more vehicles you can override this list by <a href="reupload">uploading a new list of vehicles</a>.</p>
+        </form> 
     </div>
 
 
