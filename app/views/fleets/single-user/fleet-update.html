@@ -46,8 +46,8 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">No charge</td>
                     {% elseif vrn == 'M56FGF' %}
                     <td class="govuk-table__cell" scope="row">Unknown</td>
-                    <td class="govuk-table__cell" scope="row">N/A</td>
-                    <td class="govuk-table__cell" scope="row">N/A</td>
+                    <td class="govuk-table__cell" scope="row">Unconfirmed</td>
+                    <td class="govuk-table__cell" scope="row">Unconfirmed</td>
                     {% else %}
                     <td class="govuk-table__cell" scope="row">Van</td>
                     <td class="govuk-table__cell" scope="row">£8</td>
@@ -59,6 +59,26 @@ text: "Back"
                 {% endfor %}
             </tbody>
         </table>
+        <nav class="moj-pagination" id="pagination-label" style="margin-top:-30px">
+
+            <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+            
+            <ul class="moj-pagination__list">
+            
+            
+            <li class="moj-pagination__item moj-pagination__item--active">1</li>
+            
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
+            
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
+            
+            <li class="moj-pagination__item  moj-pagination__item--next">
+              <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+            </li>
+            </ul>
+            <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>20</b> results</p>
+            </nav> 
+            <br>
         <p>A vehicle labelled with 'No charge' under a Clean Air Zone means that it will not be charged when driving within that Clean Air Zone.</p>
         <form method="post" class="form" action="/fleets/single-user/fleet-update-add">
             <div class="govuk-form-group">
