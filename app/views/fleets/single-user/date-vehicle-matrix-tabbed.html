@@ -80,12 +80,16 @@ Pay a Clean Air Zone charge
                                         <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(6) %}
                                         <td class="govuk-table__cell">
+                                            {% if (i == 3 and vrn == 'AF03WMY') or (i == 2 and vrn == 'BO51WQE') or (vrn == 'B66PPR') or (i > 2 and vrn == 'B057BOX') %}
+                                            <p>Paid</p>
+                                            {% else %}
                                             <div class="govuk-checkboxes__item">
                                                 <input class="govuk-checkboxes__input" id="select" name="select"
                                                     type="checkbox" value="select">
                                                 <label class="govuk-label govuk-checkboxes__label" for="select">
                                                 </label>
                                             </div>
+                                            {% endif %}
                                         </td>
                                         {% endfor %}
                                     </tr>
@@ -129,12 +133,16 @@ Pay a Clean Air Zone charge
                                         <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(7) %}
                                         <td class="govuk-table__cell">
+                                            {% if (vrn == 'B66PPR') %}
+                                            <p>Paid</p>
+                                            {% else %}
                                             <div class="govuk-checkboxes__item">
                                                 <input class="govuk-checkboxes__input" id="select" name="select"
                                                     type="checkbox" value="select">
                                                 <label class="govuk-label govuk-checkboxes__label" for="select">
                                                 </label>
                                             </div>
+                                            {% endif %}
                                         </td>
                                         {% endfor %}
                                     </tr>
