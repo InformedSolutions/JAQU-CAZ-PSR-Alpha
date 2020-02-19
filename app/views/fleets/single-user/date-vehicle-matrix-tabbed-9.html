@@ -17,6 +17,7 @@ Pay a Clean Air Zone charge
         <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
         <p>A daily charge runs from midnight to midnight.</p>
         <p>You can pay for the past 6 days and the next 7 days, which includes today.</p>
+        
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
@@ -75,7 +76,7 @@ Pay a Clean Air Zone charge
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["M14FRT","MP06ZDB","MT41PRT","MT42TGH","N06KKD","N14TRT","NP98TRE","Q15RRE","Q50BGH","QC44TUR"] %}
+                                    {% for vrn in ["XB12CDE","XF03WMY","XT02VYL","XO51WQE","Y15JIK","Y56FGF","YH75BJH","Y057BOX","Y66PPR","YL08JTZ"] %}
                                     <tr class="govuk-table__row">
                                         <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(6) %}
@@ -124,7 +125,7 @@ Pay a Clean Air Zone charge
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["M14FRT","MP06ZDB","MT41PRT","MT42TGH","N06KKD","N14TRT","NP98TRE","Q15RRE","Q50BGH","QC44TUR] %}
+                                    {% for vrn in ["XB12CDE","XF03WMY","XT02VYL","XO51WQE","Y15JIK","Y56FGF","YH75BJH","Y057BOX","Y66PPR","YL08JTZ"] %}
                                     <tr class="govuk-table__row">
                                         <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(7) %}
@@ -190,18 +191,18 @@ Pay a Clean Air Zone charge
                                 
                                 <ul class="moj-pagination__list">
                                 <li class="moj-pagination__item  moj-pagination__item--prev">
-                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-2.html">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-8.html">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
                                 </li>
                                 
                                 <li class="moj-pagination__item  moj-pagination__item--next">
-                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-4.html">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-10.html">Next<span class="govuk-visually-hidden"> set of pages</span></a>
                                 </li>
                                 </ul>
                                 </nav>
                     </div>
 
                 </fieldset>
-                <form method="post" class="form" action="/fleets/single-user/confirm-charge">
+            <form method="post" class="form" action="/fleets/single-user/confirm-charge">
             <button type="submit" class="govuk-button">
                 Continue
             </button>
