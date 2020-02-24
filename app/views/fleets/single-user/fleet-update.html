@@ -19,8 +19,10 @@ text: "Back"
 
         <h1 class="govuk-heading-l">Your vehicles</h1>
         <p><strong>Charge information for your vehicles in each Clean Air Zone.</strong></p>
+        <p><strong>No charge</strong> - you don't have to pay the charge in that Clean Air Zone as your vehicle meets its emission standards.</p>
+        <p><strong>Undetermined</strong> - we could not calculate a charge based on your registration information. <br>
+            Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla">DVLA</a> to make sure it holds the correct information for you.</p>
             
-        <p>You can pay for these vehicles on the <a href="select-caz">Make a payment</a> page.</p>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -88,9 +90,7 @@ text: "Back"
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
             </nav> 
             <br>
-        <p><strong>Charge</strong> - if a charge is applicable then the amount payable will be shown.</p>
-        <p><strong>No charge</strong> - means you don't have to pay anything to drive in that Clean Air Zone.</p>
-        <p><strong>Undetermined</strong> - your compliance could not be determined. You should contact DVLA to make sure your vehicle information is correct. You still need to pay the charge. If you can prove your vehicle does meet the emissions standards you will be eligible for a refund.</p>
+            <p>You can pay for the vehicles with a charge on the <a href="select-caz">Make a payment</a> page.</p>
         <p><strong>Add and remove vehicles</strong></p>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
         <form method="post" class="form" action="/fleets/single-user/fleet-update-add">
