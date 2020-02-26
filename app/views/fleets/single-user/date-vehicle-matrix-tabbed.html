@@ -15,8 +15,23 @@ Pay a Clean Air Zone charge
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
-        <p>A daily charge period runs from midnight to midnight.</p>
+        <p><strong>This list only contains vehicles that are subject to a charge in Birmingham.</strong></p>
         <p>You can pay for the past 6 days and the next 7 days, which includes today.</p>
+        <p>A daily charge period runs from midnight to midnight.</p>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Why can't I see my date?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              If the date you want to pay for is not displayed, it may be because:<br><br>
+              <li>The 7 day period you had to pay has ended.<br>You may be subject to a penalty charge notice (PCN).</li><br>
+              <li>The date is too far in the future.<br>You should check back here closer to the date you want.
+              </li>
+            </div>
+          </details>
+        
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
@@ -50,6 +65,7 @@ Pay a Clean Air Zone charge
                             <h2 class="govuk-heading-l">Past 6 days</h2>
                             <p><strong>Tick all boxes that apply to the vehicles and dates where you have entered a
                                     Clean Air Zone</strong></p>
+                                    <p>If you have already paid for a date, it will show as Paid.</p>
                             <table class="govuk-table">
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">

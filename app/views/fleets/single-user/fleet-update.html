@@ -17,8 +17,8 @@ text: "Back"
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-        <h1 class="govuk-heading-l">Your vehicles</h1>
-        <p><strong>Charge information for your vehicles in each Clean Air Zone.</strong></p>
+        <h1 class="govuk-heading-l">Manage your vehicles and view charges</h1>
+        <p>Charge information for your vehicles in each Clean Air Zone.</p>
         <p><strong>No charge</strong> - you don't have to pay the charge in that Clean Air Zone as your vehicle meets its emission standards.</p>
         <p><strong>Undetermined</strong> - we could not calculate a charge based on your registration information. <br>
             Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla">DVLA</a> to make sure it holds the correct information for you.</p>
@@ -27,7 +27,7 @@ text: "Back"
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Registration Number</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Number plate</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Birmingham</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Leeds</th>
@@ -90,7 +90,9 @@ text: "Back"
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
             </nav> 
             <br>
+            <br>
             <p>You can pay for the vehicles with a charge on the <a href="select-caz">Make a payment</a> page.</p>
+            <br>
         <p><strong>Add vehicles</strong></p>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
         <form method="post" class="form" action="/fleets/single-user/fleet-update-add">
