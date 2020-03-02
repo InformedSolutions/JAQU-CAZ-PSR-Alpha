@@ -47,11 +47,17 @@ text: "Back"
     {% include 'includes/compliantCar.html' %}
     {% elseif ((data['vrn'] | capitalize) == 'Cas302') or ((data['vrn'] | capitalize) == 'Cas 302') %}
     {% include 'includes/CAS302.html' %}
+    {% elseif ((data['vrn'] | capitalize) == 'Bl4nk') or ((data['vrn'] | capitalize) == 'Bl 4nk') %}
+    {% include 'includes/incomplete.html' %}
     {% else %}
     {% include 'includes/car.html' %}
     {% endif %}
 
+    {% if ((data['vrn'] | capitalize) == 'Bl4nk') or ((data['vrn'] | capitalize) == 'Bl 4nk') %}
+    <form method="post" class="form" action="/payments/non-determined">
+    {% else %}
     <form method="post" class="form" action="/payments/confirm-vehicle">
+    {% endif %}
       {% if error %}
       <div class="govuk-form-group govuk-form-group--error">
       {% endif %}
