@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Taxi register search</h1>
+
+        <form action="/taxi-search" method="post" novalidate>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="vrn">
+                    Number plate
+                </label>
+                <span id="vrn-hint" class="govuk-hint">
+                    For example, CU57ABC
+                </span>
+                <input class="govuk-input govuk-input--width-10" id="vrn" name="vrn" type="text"
+                    aria-describedby="vrn-hint">
+            </div>
+            <label class="govuk-label govuk-label--m" for="vrn">
+                What would you like to do?
+            </label>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="historic-conditional" name="historic" type="radio"
+                        value="nonhistorical" data-aria-controls="conditional-historic-conditional">
+                    <label class="govuk-label govuk-radios__label" for="historic-conditional">
+                        Search for current information
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="historical" name="historic" type="radio" value="historical"
+                        data-aria-controls="conditional-historical">
+                    <label class="govuk-label govuk-radios__label" for="historical">
+                        Search for historical results
+                    </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-historical">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                Start date
+                            </legend>
+                            <span id="expiry-hint" class="govuk-hint">
+                                For example, 31 3 1980
+                            </span>
+                            <div class="govuk-date-input" id="expiry">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                                            Day
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                            id="expiry-day" name="expiry-day" type="text" pattern="[0-9]*"
+                                            inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                            id="expiry-month" name="expiry-month" type="text" pattern="[0-9]*"
+                                            inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                                            id="expiry-year" name="expiry-year" type="text" pattern="[0-9]*"
+                                            inputmode="numeric">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                End date
+                            </legend>
+                            <span id="expiry-hint" class="govuk-hint">
+                                For example, 31 3 1980
+                            </span>
+                            <div class="govuk-date-input" id="expiry">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                                            Day
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                            id="expiry-day" name="expiry-day" type="text" pattern="[0-9]*"
+                                            inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                            id="expiry-month" name="expiry-month" type="text" pattern="[0-9]*"
+                                            inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                                            id="expiry-year" name="expiry-year" type="text" pattern="[0-9]*"
+                                            inputmode="numeric">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+
+        </form>
+    </div>
+</div>
+{% endblock %}

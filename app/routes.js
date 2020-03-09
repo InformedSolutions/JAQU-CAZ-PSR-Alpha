@@ -978,6 +978,21 @@ router.post('/payments/select-date-weekly-2x', function (req, res) {
 
 });
 
+router.post('/taxi-search', function (req, res) {
+    var historic = req.body['historic'];
+    // Remove spacing and make letters uppercase
 
+
+    if (historic == "historical") {
+
+        res.redirect('/historic-search')
+
+    } else {
+
+        res.redirect('/nonhistoric-search')
+
+    }
+
+});
 
 module.exports = router
