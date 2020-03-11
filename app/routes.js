@@ -976,10 +976,17 @@ router.post('/payments/select-date-weekly-2x', function (req, res) {
     }
 
     
-
+   
 
 });
-
+ router.post('/fleets/single-user/date-vehicle-matrix-tabbed', function (req, res) {
+        console.log(req.session.vrns)
+    
+        if (req.session.vrns.indexOf("ABC123") > -1) {
+            
+            res.redirect('/fleets/single-user/no-chargeable-vehicles')
+        } else {res.redirect('/fleets/single-user/date-vehicle-matrix-tabbed')}
+    });
 
 
 module.exports = router
