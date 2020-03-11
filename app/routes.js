@@ -986,7 +986,7 @@ router.post('/payments/select-date-weekly-2x', function (req, res) {
             
             res.redirect('/fleets/single-user/no-chargeable-vehicles')
         } else {res.redirect('/fleets/single-user/date-vehicle-matrix-tabbed')}
-    });
+    }); 
 
 
 module.exports = router
