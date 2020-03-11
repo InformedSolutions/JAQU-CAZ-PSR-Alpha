@@ -42,7 +42,7 @@ Pay a Clean Air Zone charge
                     Clean Air Zone
                 </dt>
                 <dd class="govuk-summary-list__key">
-                    Birmingham
+                    {{data['caz']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                         
@@ -72,18 +72,31 @@ Pay a Clean Air Zone charge
                       </dd>
             </div>
         </dl>
+        
 
-        <h2 class="govuk-heading-m">Alternatives to paying the charge</h2>
+
+       
+        <h2 class="govuk-heading-m">Alternatives to paying the charge</h2> 
+        {% if (data['caz'] == "Birmingham") %}
         <ul class="govuk-list govuk-list--bullet">
             <li><a href="https://businessbreathes.co.uk" target="_blank">Get support to upgrade or replace your vehicles in Birmingham</a></li>
         </ul>
+        {% else %}
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://www.leeds.gov.uk/business/environmental-health-for-business/air-quality/support-for-buses-coaches-and-hgvs-clean-air-charging-zone" target="_blank">Get support to upgrade or replace your vehicles in Leeds</a></li>
+        </ul>
+        {% endif %}
+
+
+
+
         <p><a href="javascript:window.print()">Print this page</a></p>
 
     </div>
     <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m">Other tasks</h2>
         <ul class="govuk-list govuk-list--bullet">
-            <li><a href="/fleets/single-user/fleet-account">Pay for another Clean Air Zone</a></li>
+            <li><a href="select-caz">Pay for another Clean Air Zone</a></li>
         </ul>
     </div>
 </div>
