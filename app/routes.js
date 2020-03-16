@@ -741,17 +741,22 @@ router.get('/fleets/single-user/fleet-update', function(req, res) {
   var registered = true ? req.session.data['registered'] === 'true' : false;
   res.render('fleets/single-user/fleet-update', {
     registered: registered,
-    vrns: req.session.vrns
+    vrns: req.session.vrns,
+    manageTag: req.session.manageTag,
+    lastvrn: req.session.lastvrn
   })
+  req.session.manageTag='blank';
 })
 
 router.post('/fleets/single-user/fleet-update', function(req, res) {  
-    
     if (req.session.data['remove'] == 'yes') {
         if (req.query.vrn) {
             var vrns = req.session.vrns.filter(function (vrn) {
                 return vrn !== req.query.vrn;
+                
             });
+            req.session.manageTag='remove';
+            req.session.lastvrn=req.query.vrn;
             req.session.vrns = vrns;
         }
     }
@@ -759,18 +764,24 @@ router.post('/fleets/single-user/fleet-update', function(req, res) {
     var registered = true ? req.session.data['registered'] === 'true' : false;
     res.render('fleets/single-user/fleet-update', {
       registered: registered,
-      vrns: req.session.vrns
-    })
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn
+    }) 
+    req.session.managetag='blank';
   })
 
 // upload fleet
 router.post('/fleets/single-user/fleets-confirmation', function(req, res) {
   req.session.vrns = ['AB12CDE','AF03WMY','BT02VYL','JO51WQE','M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ']
+  req.session.manageTag='upload';
   res.redirect('fleet-update');
+  
 })
 
 router.post('/fleets/single-user/fleets-reconfirmation', function(req, res) {
     req.session.vrns = ['M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ','Z12TTP']
+    req.session.manageTag='upload';
     res.redirect('fleet-update');
   })
 
@@ -793,17 +804,25 @@ router.get('/fleets/single-user/fleets-confirmation', function(req, res) {
 })
 
 // add a vehicle to a fleet
-router.post('/fleets/single-user/add-vehicle', function(req,res) {
-  var vrn = req.session.data['vrn'];
-  if (vrn) {
-    if (req.session.vrns) {
-      req.session.vrns.push(vrn);
+router.post('/fleets/single-user/add-vehicle', function (req, res) {
+    var vrn = req.session.data['vrn'];
+    req.session.manageTag = 'blank';
+    if (vrn) {
+        req.session.manageTag = 'add';
+        if (req.session.vrns) {
+
+            if (req.session.vrns.indexOf(vrn) > -1) {
+                req.session.manageTag = 'duplicate';
+            } else { req.session.vrns.push(vrn); }
+        }
+        else {
+            req.session.vrns = [vrn];
+        }
+
+        req.session.lastvrn = vrn;
     }
-    else {
-      req.session.vrns = [vrn];
-    }
-  }
-  res.redirect('/fleets/single-user/fleet-update');
+    console.log(req.session.lastvrn);
+    res.redirect('/fleets/single-user/fleet-update');
 
 })
 
