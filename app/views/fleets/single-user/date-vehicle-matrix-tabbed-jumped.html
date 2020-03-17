@@ -19,15 +19,14 @@ Pay a Clean Air Zone charge
         <p>You can pay for the past 6 days and the next 7 days, which includes today.</p>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
-                    <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
+                    <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-jumped">
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="vrn-search">
-                                Search for a number plate
+                                Find a number plate
                               </label>
                             <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text" value="{{data['vrn-search']}}">
                             <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                                Search
-                              </button><p><a href="date-vehicle-matrix-tabbed.html">Clear search</a></p>
+                                Find
                           </div>
                           </form>
                     <div class="govuk-tabs" data-module="govuk-tabs">
@@ -76,9 +75,9 @@ Pay a Clean Air Zone charge
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["F66PLK"] %}
+                                    {% for vrn in [data['vrn-search'], "BZ6PLK", "CT06FOI","CZ66RWE","D21YTT","DY61SWS","EW55DDS","F66PLK","GY60RCP"] %}
                                     <tr class="govuk-table__row">
-                                        <td class="govuk-table__cell">{{data['vrn-search']}}</td>
+                                        <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(6) %}
                                         <td class="govuk-table__cell">
                                             <div class="govuk-checkboxes__item">
