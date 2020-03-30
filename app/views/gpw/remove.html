@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Whitelisted vehicle register</h1>
+
+        <p>Use this service to manage vehicles that are on the whitelisted vehicle register. Vehicles on the register
+            are exempt from charges in Clean Air Zones.</p>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+            <ul class="moj-sub-navigation__list">
+                <li class="moj-sub-navigation__item">
+                    <a class="moj-sub-navigation__link" href="homepage.html">Upload</a>
+                </li>
+
+                <li class="moj-sub-navigation__item">
+                    <a class="moj-sub-navigation__link" href="search.html">Search for a vehicle</a>
+                </li>
+
+                <li class="moj-sub-navigation__item">
+                    <a class="moj-sub-navigation__link" href="add.html">Add a vehicle</a>
+                </li>
+                <li class="moj-sub-navigation__item">
+                    <a class="moj-sub-navigation__link" aria-current="page" href="remove.html">Remove a vehicle</a>
+                </li>
+            </ul>
+
+        </nav>
+        <form method="post" class="form" action="confirm-remove">
+        <h2 class="govuk-heading-m">Remove a vehicle</h2>
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="vrn-remove">
+              Number plate
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="vrn-remove" name="vrn-remove" type="text">
+          </div>
+
+
+        <button type="submit" class="govuk-button" name="registered" value="true">
+            Remove
+        </button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
