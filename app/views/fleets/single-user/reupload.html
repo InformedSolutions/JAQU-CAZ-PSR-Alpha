@@ -32,14 +32,16 @@ text: "Back"
       </div>
       {% endif %}
 
-      <h1 class="govuk-heading-l">Upload your vehicles again</h1>
-      <p>To upload and override your existing fleet</p>
-      <ul class="govuk-list govuk-list--bullet">
-          <li><a href="">Download and fill in the CSV</a> with all your vehicle registration numbers</li>
-          <li>Upload it</li>
-
-      </ul>
-      <p>If you need help, read the multiple vehicle <a href="">registration guide</a></p>
+      <h1 class="govuk-heading-l">
+        Replace and upload a new list of vehicles</h1>
+      <p>
+        To find out if your vehicles will be charged in each Clean Air Zone:</p>
+        <ol class="govuk-list govuk-list--number">
+            <li>Download the <a href="\public\images\docs\VehicleUploadTemplate.csv">template</a>.</li>
+            <li>Enter all your number plates (vehicle registration numbers) in the first column.</li>
+            <li>Save. The name of the file does not matter.</li>
+            <li>Upload the file.</li>
+          </ol>
       <form method="POST" class="form" action="fleets-reconfirmation">
         {% if error %}
         <div class="govuk-form-group govuk-form-group--error">
@@ -66,7 +68,7 @@ text: "Back"
         {% endif %}
         
         <button type="submit" class="govuk-button" name="registered" value="true">
-            Upload Fleet
+            Upload the file
         </button>
       </form>
 

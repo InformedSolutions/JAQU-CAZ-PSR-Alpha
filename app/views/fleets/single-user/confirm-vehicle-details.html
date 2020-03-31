@@ -33,7 +33,8 @@ text: "Back"
     {% endif %}
   
     <h1 class="govuk-heading-l">
-      Are these details correct?
+      
+Are these the vehicle's details?
     </h1>
     {% if ((data['vrn'] | capitalize) == 'Abc123') or ((data['vrn'] | capitalize) == 'Abc 123') %}
     {% include 'includes/taxi.html' %}
