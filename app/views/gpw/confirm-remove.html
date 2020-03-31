@@ -7,6 +7,29 @@ Pay a Clean Air Zone charge
 {% block content %}
 
 <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        
+        <nav class="moj-side-navigation" aria-label="Side navigation">
+          <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item">
+              <a href="homepage.html" >Upload</a>
+            </li>
+        
+            <li class="moj-side-navigation__item">
+              <a href="search.html">Search for a vehicle</a>
+            </li>
+        
+            <li class="moj-side-navigation__item">
+              <a href="add.html">Add a vehicle</a>
+            </li>
+
+            <li class="moj-side-navigation__item moj-side-navigation__item--active">
+                <a href="remove.html" aria-current="location">Remove a vehicle</a>
+              </li>
+          </ul>
+        </nav>
+        
+        </div>
     <div class="govuk-grid-column-two-thirds">
         <div class="govuk-form-group">
             <form method="post" class="form" action="remove-removed">
