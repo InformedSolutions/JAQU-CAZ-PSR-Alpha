@@ -17,7 +17,7 @@ Pay a Clean Air Zone charge
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">
-            Are these vehicle details correct?
+            Your vehicle details
         </h1>
         <table class="govuk-table">
             <tbody class="govuk-table__body">
@@ -60,6 +60,7 @@ Pay a Clean Air Zone charge
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="confirm-vehicle-hint">
                         <div class="govuk-radios govuk-radios--inline">
+                            <p><strong>Are these details correct?</strong></p>
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="confirm-vehicle-1" name="confirm-vehicle"
                                     type="radio" value="yes">
@@ -75,6 +76,15 @@ Pay a Clean Air Zone charge
                                 </label>
                             </div>
                         </div>
+                        <br>
+                        <div class="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="confirm-1" name="confirm" type="checkbox" value="correct-details">
+                              <label class="govuk-label govuk-checkboxes__label" for="confirm-1">
+                                If your vehicle is a taxi or private hire vehicle (PHV) check this box
+                              </label>
+                            </div>
+                          </div>
                         <!-- <p>Is your vehicle a taxi or private hire vehicle (PHV)?</p> -->
                         <!-- <div class="govuk-radios govuk-radios--inline">
                             <div class="govuk-radios__item">
