@@ -46,17 +46,48 @@ Pay a Clean Air Zone charge
                 <input class="govuk-input govuk-input--width-20" id="vrn-add" name="vrn-add" type="text">
             </div>
             <div class="govuk-form-group">
-                <label class="govuk-label" for="sort">
+
+                <label class="govuk-label" for="add-reason">
                     Category
                 </label>
-                <select class="govuk-select" id="sort" name="sort">
-                    <option value="Early">Please select...</option>
-                    <option value="Early">Early adopter</option>
-                    <option value="Non-UK">Non-UK Vehicle</option>
-                    <option value="Problematic">Problematic VRN</option>
-                    <option value="Exemption">Exemption</option>
-                    <option value="Other">Other</option>
-                </select>
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio"
+                            value="england">
+                        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                            Early adopter
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live"
+                            type="radio" value="scotland">
+                        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                            Non-UK Vehicle
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live"
+                            type="radio" value="wales">
+                        <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                            Problematic VRN
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live"
+                            type="radio" value="northern-ireland">
+                        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                            Exemption
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live"
+                            type="radio" value="northern-ireland">
+                        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                            Other
+                        </label>
+                    </div>
+                </div>
+                </fieldset>
             </div>
             <div class="govuk-form-group">
                 <label class="govuk-label" for="vrn-add">
