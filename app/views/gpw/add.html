@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+        <nav class="moj-side-navigation" aria-label="Side navigation">
+            <ul class="moj-side-navigation__list">
+                <li class="moj-side-navigation__item">
+                    <a href="homepage.html">Upload</a>
+                </li>
+
+                <li class="moj-side-navigation__item">
+                    <a href="search.html">Search for a vehicle</a>
+                </li>
+
+                <li class="moj-side-navigation__item moj-side-navigation__item--active">
+                    <a href="add.html" aria-current="location">Add a vehicle</a>
+                </li>
+
+                <li class="moj-side-navigation__item">
+                    <a href="remove.html">Remove a vehicle</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Whitelisted vehicle register</h1>
+
+        <p>Use this service to manage vehicles that are on the whitelisted vehicle register. Vehicles on the register
+            are exempt from charges in Clean Air Zones.</p>
+
+        <form method="post" class="form" action="confirm-remove">
+            <h2 class="govuk-heading-m">Add a vehicle</h2>
+            <p>Fill in all the fields before adding a new vehicle to the whitelisted vehicle register.</p>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="vrn-add">
+                    Number plate
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="vrn-add" name="vrn-add" type="text">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="sort">
+                    Category
+                </label>
+                <select class="govuk-select" id="sort" name="sort">
+                    <option value="Early">Please select...</option>
+                    <option value="Early">Early adopter</option>
+                    <option value="Non-UK">Non-UK Vehicle</option>
+                    <option value="Problematic">Problematic VRN</option>
+                    <option value="Exemption">Exemption</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="vrn-add">
+                    Manufacturer
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="vrn-add" name="vrn-add" type="text">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="vrn-add">
+                    Reason
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="vrn-add" name="vrn-add" type="text">
+            </div>
+
+
+            <button type="submit" class="govuk-button" name="registered" value="true">
+                Add vehicle
+            </button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
