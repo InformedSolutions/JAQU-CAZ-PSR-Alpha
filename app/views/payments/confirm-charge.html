@@ -56,11 +56,13 @@ text: "Back"
                         <td class="govuk-table__cell">
                             {% if vrn == "ABC123" and caz == "leeds-weekly" %}
                             <a class="govuk-link" href="/payments/select-period">
+                            
                             {% else %}
                             <a class="govuk-link" href="/payments/select-date">
                             {% endif %}
                                 Change<span class="govuk-visually-hidden"> payment for</span>
                             </a>
+                            
                         </td>
                     </tr>
                     <tr class="govuk-table__row">
@@ -72,7 +74,7 @@ text: "Back"
               </table>
             <button type="submit" class="govuk-button">
                 Confirm
-            </button>
+            </button><p><a class="govuk-link" href="/payments/select-date-weekly-2a">Add another week</a></p>
         </form>
 
     </div>
