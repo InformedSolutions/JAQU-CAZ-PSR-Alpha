@@ -1,79 +1,46 @@
+
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-Pay a Clean Air Zone charge
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
 {% endblock %}
 
-{% block content %}
+{% block pageTitle %}
+  Pay a Clean Air Zone charge
+{% endblock %}
 
-<div class="govuk-grid-row">
+{% block content %}   
+
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">
-            Pay a Clean Air Zone charge
-        </h1>
+      <h1 class="govuk-heading-l">Sign In</h1>
+      <form method="POST" class="form" action="/offline-payments/caz-selection">
+        <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="username"><b>Username</b></label>
+            <input class="govuk-input" id="username" name="username" type="text" style="width: 60%;" spellcheck="false">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="password"><b>Password</b></label>
+          <input class="govuk-input" id="password" name="password" type="password" style="width: 60%;" spellcheck="false">
+      </div>  
+        </div>
 
-        <p>Use this service to pay a daily charge for driving in a Clean Air Zone if your vehicle does not meet Clean Air Standards.</p>
+        <br>
 
-        <p>Payment must be made a maximum of 7 days after you have driven in the zone or you may receive a penalty charge notice (PCN).</p>
-
-        <a href="/payments/enter-vehicle-details" role="button" draggable="false"
-            class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start"
-            data-module="govuk-button">
-            Start now
-            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
-                viewBox="0 0 33 40" role="presentation" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-        </a>
-
-        <h2 class="govuk-heading-m">
-            Before you start
-        </h2>
-
-        <p>
-            You’ll need the number plate (registration number) of the vehicle you want to drive.
-        </p>
-
-        <h2 class="govuk-heading-m">
-            Other ways to pay
-        </h2>
-
-        <p>
-            Pay by phone on 0300 457 8915<br>Monday to Friday 8.00am to 7.00pm. Saturday 8.00am to 2.00pm<br>Standard rates apply.
-        </p>
-        </details>
+        <p><a href="">Forgotten your password?</a></p>
         
-
-
-
-        <!-- <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
-      <p><a href="/payments/refund-scenarios">Can I claim a refund?</a></p>
-      <p><a href="/fleets/company-user/create-account">Create an account for your fleet</a></p>
-      <p><a href="/fleets/single-user/login">Access your fleet account</a></p> -->
+        <button type="submit" class="govuk-button">
+            Continue
+        </button>
+      </form>
 
     </div>
-    <div class="govuk-grid-column-one-third">
-
-        <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
-
-        <aside class="app-related-items" role="complementary">
-            <h2 class="govuk-heading-m" id="subsection-title">
-                Related content
-            </h2>
-            <nav role="navigation" aria-labelledby="subsection-title">
-                <ul class="govuk-list govuk-!-font-size-16">
-                    <li>
-                        <a class="govuk-link" target="_blank" href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone">
-                            Check if you qualify for an exemption or refund
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-    </div>
-
 </div>
 
 {% endblock %}

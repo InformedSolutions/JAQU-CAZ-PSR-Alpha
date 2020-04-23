@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    Confirm your payment
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Check your answers for {{ data['vrn'] }}</h1>
+        <form method="post" class="form" action="/offline-payments/add-another-vehicle-question">
+            <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"></td>
+                        <th class="govuk-table__header" scope="row"></th>
+                        <td class="govuk-table__cell"></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Registration number</td>
+                        <th class="govuk-table__header" scope="row">{{ data['vrn'] }}</th>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="/offline-payments/enter-vehicle-details">
+                                Change<span class="govuk-visually-hidden"> registration number</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Clean Air Zone</td>
+                        <th class="govuk-table__header" scope="row">Birmingham</th>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="/offline-payments/caz-selection">
+                                Change<span class="govuk-visually-hidden"> Clean Air Zone</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Payment for</td>
+                        <th class="govuk-table__header" scope="row">Thursday 23 April 2020, Friday 24 April 2020</th>
+                        <td class="govuk-table__cell">
+                            <a class="govuk-link" href="/offline-payments/date-selection">
+                                Change<span class="govuk-visually-hidden"> payment for</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Total charge</td>
+                        <th class="govuk-table__header" scope="row">£16.00</th>
+                        <td class="govuk-table__cell"></td>
+                    </tr>          
+                </tbody>
+              </table>
+            <button type="submit" class="govuk-button">
+                Confirm
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
