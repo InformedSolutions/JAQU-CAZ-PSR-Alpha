@@ -5,13 +5,13 @@ const router = express.Router()
 router.post('/offline-payments/add-another-vehicle-question-route', function (req, res) {
     var addAnother = req.body['add-another'];
 
-    if (addAnother != 'yes') 
+    if (addAnother != 'no') 
     {
-        res.redirect('no')
+        res.redirect('/offline-payments/enter-vehicle-details')
     } 
     else
     {
-        res.redirect('yes')
+        res.redirect('/offline-payments/check-all-answers')
     }
 });
 

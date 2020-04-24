@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Review your payment</h1>
+
+        <h2 class="govuk-heading-m">Summary</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Vehicles selected
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    2
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Clean Air Zone
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Birmingham
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Total charge
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    £48.00
+                </dd>
+            </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Vehicle 1</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Number plate
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    CAS300
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Remove<span class="govuk-visually-hidden"> vehicle 1</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Dates selected
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Thursday 23 April 2020, Friday 24 April 2020
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Total charge
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    £16.00
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+        </dl>
+        <h2 class="govuk-heading-m">Vehicle 2</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Number plate
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    CAS301
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Remove<span class="govuk-visually-hidden"> vehicle 1</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Dates selected
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Thursday 23 April 2020, Friday 24 April 2020, Saturday 25 April 2020, Sunday 26 April 2020
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Total charge
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    £32.00
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+        </dl>
+
+        <form action="/offline-payments/enter-card-details" method="post" novalidate>
+
+            <input type="hidden" name="answers-checked" value="true">
+
+            <button class="govuk-button" data-module="govuk-button">
+                Accept and continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

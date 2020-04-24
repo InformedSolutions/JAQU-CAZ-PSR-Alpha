@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                Payment complete
+            </h1>
+            <p style="color: white; font-size: 30px;">
+                Payment reference
+                <br>
+                <b>XYZ123ABC</b>
+            </p>
+            <p style="color: white; font-size: 30px;">
+                Payment ID
+                <br>
+                <b>nooja23b544k0p5cd0b2pclske</b>
+            </p>
+        </div>
+        <p>A receipt will be sent to example@email.com.</p>
+        <h2 class="govuk-heading-m">Payment has been paid for:</h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Clean Air Zone
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Birmingham
+                </dd>                        
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Vehicles
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    2
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Total charge
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    £48
+                </dd>
+                <dd class="govuk-summary-list__actions">
+            </div>
+        </dl>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Other tasks</h2>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/offline-payments/caz-selection">Pay for another Clean Air Zone</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
