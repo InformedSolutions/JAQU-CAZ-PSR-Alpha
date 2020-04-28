@@ -13,10 +13,14 @@ Pay a Clean Air Zone charge
         <p>This service works by you telling us which vehicles have driven in a zone. Your number plates (registration details) determine if your vehicles meet emission standards in the Clean Air Zones.
             If they don't, you can see what the charges are and pay them.
         </p>
-        {% if vrns.length>0 %}
-        {% else %}
+        {% if vrns.length==0 %}
         <div class="govuk-inset-text">
-            You need to upload all your number plates before making a payment.
+            You need to upload all your vehicles before making a payment.
+              </div>
+              {% endif %}
+        {% if vrns.length==1 %}
+        <div class="govuk-inset-text">
+            You need to add at least one more vehicle before making a payment.
               </div>
               {% endif %}
     </div>
@@ -37,7 +41,7 @@ Pay a Clean Air Zone charge
                     href="/fleets/single-user/select-caz">Set up a Direct Debit</a></strong></p>
         <p class="govuk-body">Instruct your bank to take one-off payments by Direct Debit.</p>
     </article> -->
-    {% if vrns.length>0 %}
+    {% if vrns.length>1 %}
     <article class="dashboard-total-group govuk-grid-column-one-third">
         <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
                     href="/fleets/single-user/select-caz">Make a payment</a></strong></p>

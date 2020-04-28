@@ -1008,4 +1008,19 @@ router.post('/payments/select-date-weekly-2x', function (req, res) {
     }); 
 
 
+router.post('/fleets/organisation-account/vehicle-amount-route', function (req, res) {
+    var vehicleAmount = req.body['vehicle-amount'];
+
+    if (vehicleAmount == "one") {
+
+        res.redirect('/fleets/organisation-account/less-than-two')
+
+    } else {res.redirect('/fleets/organisation-account/email-address')
+    }
+
+});
+
+
+
+
 module.exports = router
