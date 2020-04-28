@@ -47,7 +47,7 @@ Pay a Clean Air Zone charge
                 <li>The date is too far in the future.<br>You should check back here closer to the date you want.</li>
             </div>
         </details>
-        <form method="post" class="form" action="/payments/confirm-charge-week-dropdown">
+        <form method="post" class="form" action="/payments/confirm-charge-week-dropdown-2">
             <div class="govuk-form-group">
                 {% if error %}
                 <div class="govuk-form-group govuk-form-group--error">
@@ -72,40 +72,6 @@ Pay a Clean Air Zone charge
                                 <option value="updated">
                                     {{today | date("subtract", 6, "days") | date("ddd DD MMM YYYY") }} to
                                     {{today | date("add", 0, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="views">{{today | date("subtract", 5, "days") | date("ddd DD MMM YYYY") }}
-                                    to
-                                    {{today | date("add", 1, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">
-                                    {{today | date("subtract", 3, "days") | date("ddd DD MMM YYYY") }} to
-                                    {{today | date("add", 2, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">
-                                    {{today | date("subtract", 2, "days") | date("ddd DD MMM YYYY") }} to
-                                    {{today | date("add", 3, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">
-                                    {{today | date("subtract", 1, "days") | date("ddd DD MMM YYYY") }} to
-                                    {{today | date("add", 4, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments" selected>
-                                    {{today | date("subtract", 0, "days") | date("ddd DD MMM YYYY") }} (today) to
-                                    {{today | date("add", 5, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">{{today | date("add", 1, "days") | date("ddd DD MMM YYYY") }}
-                                    to
-                                    {{today | date("add", 6, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">{{today | date("add", 2, "days") | date("ddd DD MMM YYYY") }}
-                                    to
-                                    {{today | date("add", 7, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">{{today | date("add", 3, "days") | date("ddd DD MMM YYYY") }}
-                                    to
-                                    {{today | date("add", 8, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">{{today | date("add", 4, "days") | date("ddd DD MMM YYYY") }}
-                                    to
-                                    {{today | date("add", 9, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">{{today | date("add", 5, "days") | date("ddd DD MMM YYYY") }}
-                                    to
-                                    {{today | date("add", 10, "days") | date("ddd DD MMM YYYY") }}</option>
-                                <option value="comments">{{today | date("add", 6, "days") | date("ddd DD MMM YYYY") }}
-                                    to
-                                    {{today | date("add", 11, "days") | date("ddd DD MMM YYYY") }}</option>
-
                             </select>
                         </div>
                         <!-- <div class="govuk-form-group">
