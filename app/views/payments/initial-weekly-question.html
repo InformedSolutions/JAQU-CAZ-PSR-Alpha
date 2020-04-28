@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="post" class="form" action="/payments/initial-weekly-question-route">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        When would you like your weekly ticket to start?
+                    </h1>
+                </legend>
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="initial-weekly" name="initial-weekly" type="radio"
+                            value="today">
+                        <label class="govuk-label govuk-radios__label" for="initial-weekly">
+                            Today
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="initial-weekly-2" name="initial-weekly"
+                            type="radio" value="another-day">
+                        <label class="govuk-label govuk-radios__label" for="initial-weekly-2">
+                            Another day
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <button type="submit" class="govuk-button">
+            Continue
+        </button>
+    </form>
+    </div>
+
+</div>
+
+{% endblock %}

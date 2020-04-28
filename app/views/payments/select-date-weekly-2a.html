@@ -14,21 +14,6 @@ Pay a Clean Air Zone charge
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        {% if error %}
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
-            data-module="error-summary">
-            <h2 class="govuk-error-summary__title" id="error-summary-title">
-                There is a problem
-            </h2>
-            <div class="govuk-error-summary__body">
-                <ul class="govuk-list govuk-error-summary__list">
-                    <li>
-                        <a href="#date-error">{{errorMessage}}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        {% endif %}
         <h1 class="govuk-heading-l">Choose your dates</h1>
         <p>A weekly charge allows you to drive in Leeds for 7 consecutive days.</p>
         <p>A daily charge period runs from midnight to midnight.</p>
@@ -46,131 +31,12 @@ Pay a Clean Air Zone charge
                 <li>The date is too far in the future.<br>You should check back here closer to the date you want.</li>
             </div>
         </details>
-        <form method="post" class="form" action="/payments/selected-date-taxi">
+        <form method="post" class="form" action="/payments/confirm-charge-2-weeks">
             <div class="govuk-form-group">
-                {% if error %}
-                <div class="govuk-form-group govuk-form-group--error">
-                    {% endif %}
-                    {% if not error %}
                     <div class="govuk-form-group">
-                        {% endif %}
-                        {% if error %}
-                        <span id="date-error" class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
-                        </span>
-                        {% endif %}
                         <h2 class="govuk-heading-m">Week selection 2</h2>
                         <fieldset class="govuk-fieldset">
                             <div class="govuk-radios" required="required">
-                                {% if radio == 'add1' or radio == 'add2' or radio == 'add3' or radio == 'add4' or radio == 'add5' or radio == 'add6'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-1" name="date2" type="radio"
-                                        value="{{today | date('subtract', 6, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-1">
-                                        {{today | date("subtract", 6, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 0, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'add2' or radio == 'add3' or radio == 'add4' or radio == 'add5' or radio == 'add6'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-2" name="date2" type="radio"
-                                        value="{{today | date('subtract', 5, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-2">
-                                        {{today | date("subtract", 5, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 1, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'add3' or radio == 'add4' or radio == 'add5' or radio == 'add6'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-3" name="date2" type="radio"
-                                        value="{{today | date('subtract', 4, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-3">
-                                        {{today | date("subtract", 4, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 2, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'add4' or radio == 'add5' or radio == 'add6'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-4" name="date2" type="radio"
-                                        value="{{today | date('subtract', 3, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-4">
-                                        {{today | date("subtract", 3, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 3, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'add5' or radio == 'add6'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-5" name="date2" type="radio"
-                                        value="{{today | date('subtract', 2, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-5">
-                                        {{today | date("subtract", 2, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 4, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'add6'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-6" name="date2" type="radio"
-                                        value="{{today | date('subtract', 1, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-6">
-                                        {{today | date("subtract", 1, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 5, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                <!-- <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-7" name="date2" type="radio"
-                                        value="{{today}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-7">
-                                        <b>{{today | date("ddd DD MMM YYYY")}}</b> (Today) to
-                                        {{today | date("add", 6, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div> -->
-                                {% if radio == 'minus6'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-8" name="date2" type="radio"
-                                        value="{{today | date('add', 1, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-8">
-                                        {{today | date("add", 1, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 7, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'minus6' or radio == 'minus5'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-9" name="date2" type="radio"
-                                        value="{{today | date('add', 2, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-9">
-                                        {{today | date("add", 2, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 8, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'minus6' or radio == 'minus5' or radio == 'minus4' %}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-10" name="date2" type="radio"
-                                        value="{{today | date('add', 3, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-10">
-                                        {{today | date("add", 3, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 9, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'minus6' or radio == 'minus5' or radio == 'minus4' or radio == 'minus3'%}
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="date-11" name="date2" type="radio"
-                                        value="{{today | date('add', 4, 'days')}}">
-                                    <label class="govuk-label govuk-radios__label" for="date-11">
-                                        {{today | date("add", 4, "days") | date("ddd DD MMM YYYY") }} to
-                                        {{today | date("add", 10, "days") | date("ddd DD MMM YYYY") }}
-                                    </label>
-                                </div>
-                                {% endif %}
-                                {% if radio == 'minus6' or radio == 'minus5' or radio == 'minus4' or radio == 'minus3' or radio == 'minus2'%}
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="date-12" name="date2" type="radio"
                                         value="{{today | date('add', 5, 'days')}}">
@@ -179,8 +45,6 @@ Pay a Clean Air Zone charge
                                         {{today | date("add", 11, "days") | date("ddd DD MMM YYYY") }}
                                     </label>
                                 </div>
-                                {% endif %}
-                                {% if radio == 'minus6' or radio == 'minus5' or radio == 'minus4' or radio == 'minus3' or radio == 'minus2' or radio == 'minus1'%}
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="date-13" name="date2" type="radio"
                                         value="{{today | date('add', 6, 'days')}}">
@@ -189,7 +53,6 @@ Pay a Clean Air Zone charge
                                         {{today | date("add", 12, "days") | date("ddd DD MMM YYYY") }}
                                     </label>
                                 </div>
-                                {% endif %}
                             </div>
                         </fieldset>
                         <br>

@@ -966,6 +966,7 @@ router.post('/payments/select-date-weekly-2x', function (req, res) {
 
 });
 
+
 router.post('/taxi-search', function (req, res) {
     var historic = req.body['historic'];
     // Remove spacing and make letters uppercase
@@ -978,6 +979,23 @@ router.post('/taxi-search', function (req, res) {
     } else {
 
         res.redirect('/nonhistoric-search')
+
+    }
+
+});
+
+router.post('/payments/initial-weekly-question-route', function (req, res) {
+    var initialWeekly = req.body['initial-weekly'];
+    // Remove spacing and make letters uppercase
+
+
+    if (initialWeekly == "today") {
+
+        res.redirect('/payments/confirm-charge-week-today')
+
+    } else {
+
+        res.redirect('/payments/select-date-weekly')
 
     }
 
