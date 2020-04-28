@@ -13,7 +13,8 @@ Pay a Clean Air Zone charge
         <p>This service works by you telling us which vehicles have driven in a zone. Your number plates (registration details) determine if your vehicles meet emission standards in the Clean Air Zones.
             If they don't, you can see what the charges are and pay them.
         </p>
-        {% if vrns.length==0 %}
+        {% if vrns.length>0 %}
+        {% else %}
         <div class="govuk-inset-text">
             You need to upload all your vehicles before making a payment.
               </div>
