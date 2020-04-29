@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">  
+
+        <h1 class="govuk-heading-l">Leeds Clean Air Zone tariff</h1>
+        <p>The weekly charge for {{ data['vrn'] }} is: £50.00
+
+        <form method="post" class="form" action="/offline-payments/week-selection">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="confirm-hint">
+                <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="confirm-1" name="confirm" type="checkbox" value="correct-details">
+                  <label class="govuk-label govuk-checkboxes__label" for="confirm-1">
+                    This vehicle is not exempt from the Leeds Clean Air Zone charge.
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div> 
+        
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

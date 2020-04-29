@@ -1,0 +1,37 @@
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}   
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <h1 class="govuk-heading-l">
+        Incorrect vehicle details
+      </h1>
+      
+      <p>If your vehicle details are incorrect, you may need to update them with the DVLA.</p>
+      <p>You still need to pay the Clean Air Zone charge if you have driven or are planning to drive in a Clean Air Zone.</p>
+      <p>If your vehicle does meet emission standards, you can claim a refund when your registration details are updated.</p>
+      <form method="post" class="form" action="/offline-payments/tariff-page">
+        <button type="submit" class="govuk-button">
+            Continue
+        </button>
+    </form>
+      <p><a href="/offline-payments/enter-vehicle-details">Check another vehicle</a></p>
+
+    </div>
+</div>
+
+{% endblock %}
