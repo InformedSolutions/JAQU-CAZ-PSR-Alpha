@@ -17,7 +17,8 @@ text: "Back"
     <div class="govuk-grid-column-two-thirds">  
 
         <h1 class="govuk-heading-l">Leeds Clean Air Zone tariff</h1>
-        <p>The weekly charge for {{ data['vrn'] }} is: £50.00
+        <p>The weekly charge for <strong>{{ data['vrn'] }}</strong> is: <strong>£50.00</strong></p>
+        <p>Can you confirm your vehicle is not exempt in Leeds?</p>
 
         <form method="post" class="form" action="/offline-payments/week-selection">
           <div class="govuk-form-group">
