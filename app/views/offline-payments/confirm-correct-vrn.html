@@ -20,12 +20,12 @@ text: "Back"
       <h1 class="govuk-heading-l">
         We do not hold details for this vehicle
       </h1>
-      <p>We do not hold details for vehicles that are not registered in the UK.</p>
-      <p>If your vehicle does not meet Clean Air standards, you will have to pay the Clean Air Zone charge.</p>
-      <p>You can find out if your vehicle will be charged in the zone you want to drive in by checking the emission standards against your vehicle registration information.</p>
-      <p>Payment must be made a maximum of 7 days after you have driven in the zone or you may receive a penalty charge notice (PCN).</p>
+      <p>We are unable to check the compliance of vehicles that are not registered in the UK.</p>
+      <p>You can find out if your vehicle will be charged in Birmingham by checking it’s clean air standards against your vehicle registration information.</p>
+      <p>If your vehicle does not meet the standards, you will have to pay the Clean Air Zone charge.</p>
+      <p>You must make a payment a maximum of 7 days after you have driven in the zone or you may receive a penalty charge notice (PCN).</p>
 
-      <p>Confirm that the registration number <strong>{{ data['vrn'] }}</strong> is correct.</p>
+      <p>Can you confirm that the number plate <strong>{{ data['vrn'] }}</strong> is correct.</p>
 
       <form method="post" class="form" action="/offline-payments/vehicle-type">
           <div class="govuk-form-group">
@@ -34,7 +34,7 @@ text: "Back"
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="confirm-1" name="confirm" type="checkbox" value="correct-details">
                 <label class="govuk-label govuk-checkboxes__label" for="confirm-1">
-                 The registration number is correct.
+                 The number plate is correct.
                 </label>
               </div>
             </div>
