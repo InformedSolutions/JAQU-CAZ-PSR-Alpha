@@ -15,11 +15,18 @@ function formatVrn(vrn) {
 
 function calculateCharge(vrn, vehicleType, caz) {
   if (vrn == 'DEF789' || vrn == 'JKL987' || vehicleType == 'HGV' || vehicleType == "busCoach" || caz == "leeds-weekly"){
+      if (caz == "leeds" || caz == "birmingham" || caz == "leeds-weekly") {
       return 50.00;
+    } else {
+        return 100.00;
+    }
+
   } else if (caz == "leeds") {
     return 12.50;
   } else if (caz == "birmingham") {
-    return 8;
+    return 8.00;
+  } else if (caz == "bath") {
+      return 9.00;
   }
 }
 
@@ -147,6 +154,20 @@ router.post('/payments/leeds', function (req, res) {
     res.redirect('/payments/select-date')
   }
 });
+
+// Bath Charge page - checked exemption
+router.post('/payments/bath', function (req, res) {
+    var confirm = req.body['confirm'];
+  
+    if (confirm == '_unchecked'){
+      res.render('payments/bath', {
+        error: true,
+        errorMessage: "Confirm you have checked if you are eligible for an exemption"
+      })
+    } else {
+      res.redirect('/payments/select-date')
+    }
+  });
 
 // Unrecognised Vehicle - confirm details
 router.post('/payments/unrecognised-vehicle', function (req, res) {
