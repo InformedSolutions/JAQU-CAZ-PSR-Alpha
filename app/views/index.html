@@ -1,82 +1,56 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Clean Air Zones
+Pay a Clean Air Zone charge
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-        <h1 class="govuk-heading-xl">
-            Check if you'll be charged to drive in a Clean Air Zone
-        </h1>
-
-        <p>Use this service to find out if there will be a daily charge to drive your vehicle in a Clean Air Zone.</p>
-
-        <p>You might need to pay to drive in a Clean Air Zone if your vehicle does not meet emissions standards.</p>
-
-        <p>Bath, Birmingham and Leeds will have the first Clean Air Zones from early 2021.</p>
-
-        <div class="govuk-inset-text">
-            If you want to drive in London you should <a href="https://tfl.gov.uk/modes/driving/check-your-vehicle-35896">check if you need to pay to drive in the Ultra Low Emission Zone</a> on the Transport for London (TfL) website.
-          </div>
-
-        <a href="/vccs/enter-vehicle-details" role="button" draggable="false"
-            class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start"
-            data-module="govuk-button">
-            Start now
-            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
-                viewBox="0 0 33 40" role="presentation" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-        </a>
-
-        <h2 class="govuk-heading-m">
-            Before you start
-        </h2>
-
-        <p>You’ll need the number plate (registration number) of the vehicle you want to drive.</p>
-        <p>This service cannot check vehicles that are registered outside the UK.</p>
-
-        <h2 class="govuk-heading-m">
-            Contact Clean Air Zone Support
-        </h2>
-
-        <p>You can contact Clean Air Zone support if you cannot use the online service or you need help.</p>
-        <div class="govuk-inset-text">
-        <strong>Clean Air Zone Support</strong><br>
-        <a href="https://vehiclecheck.drive-clean-air-zone.service.gov.uk/contact_forms">Online contact form</a><br>
-        Telephone: 0345 873 6070<br>
-        Monday to Friday, 9am to 5pm<br>
-        <a href="https://www.gov.uk/call-charges">Find out about call charges</a><br>
-        </div>
-
-       
-
-    </div>
     <div class="govuk-grid-column-one-third">
+            
+        <nav class="moj-side-navigation" aria-label="Side navigation">
+          <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item moj-side-navigation__item--active">
+              <a href="/gpw/homepage" aria-current="location">Upload</a>
+            </li>
+        
+            <li class="moj-side-navigation__item">
+              <a href="/gpw/search">Search for a vehicle</a>
+            </li>
+        
+            <li class="moj-side-navigation__item">
+              <a href="/gpw/add">Add a vehicle</a>
+            </li>
 
-        <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+            <li class="moj-side-navigation__item">
+                <a href="/gpw/remove">Remove a vehicle</a>
+              </li>
+          </ul>
+        </nav>
+        
+        </div>
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Whitelisted vehicle register</h1>
 
-        <aside class="app-related-items" role="complementary">
-            <h2 class="govuk-heading-m" id="subsection-title">
-                Related content
-            </h2>
-            <nav role="navigation" aria-labelledby="subsection-title">
-                <ul class="govuk-list govuk-!-font-size-16">
-                    <li>
-                        <a class="govuk-link" href="#">
-                            Contact Clean Air Zones
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
+        <p>Use this service to manage vehicles that are on the whitelisted vehicle register. Vehicles on the register
+            are exempt from charges in Clean Air Zones.</p>          
+            
+        <h2 class="govuk-heading-m">Uploading your whitelist data</h2>
+        <p><strong>Before you start</strong></p>
+        <p>Your vehicle data should be in a .CSV file in a valid format, see <a href="#">data rules</a>. If your data is
+            not in the correct format, you will get errors and be unable to upload vehicle details.</p>
 
+        <div class="govuk-form-group">
+            <input class="govuk-file-upload govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file"
+                aria-describedby="file-upload-1">
+        </div>
+        <form method="post" class="form" action="/gpw/homepage-uploaded">
+        <button type="submit" class="govuk-button" name="registered" value="true">
+            Upload
+        </button>
+
+        </form>
     </div>
-
 </div>
-
 {% endblock %}
