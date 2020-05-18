@@ -416,39 +416,39 @@ router.get('/payments/confirm-payment', function (req, res) {
 
 });
 
-router.post('/payments/confirm-payment', function (req, res) {
-  if (!req.session.data['vrn']) {
-    res.redirect('/')
-  }
-  var email = req.session.data['email'];
-  var caz = req.session.data['caz'];
-  if (req.session.data['dateArray'] == undefined){
-      req.session.data['dateArray'] = req.session.data[['singledates']];
-      console.log('confirm if statement');
-  }
-  var dates = req.session.data['dateArray'];
-  var vrn = formatVrn(req.session.data['vrn']);
-  var vehicleType = req.session.data['vehicle-type'];
+// router.post('/payments/confirm-payment', function (req, res) {
+//   if (!req.session.data['vrn']) {
+//     res.redirect('/')
+//   }
+//   var email = req.session.data['email'];
+//   var caz = req.session.data['caz'];
+//   if (req.session.data['dateArray'] == undefined){
+//       req.session.data['dateArray'] = req.session.data[['singledates']];
+//       console.log('confirm if statement');
+//   }
+//   var dates = req.session.data['dateArray'];
+//   var vrn = formatVrn(req.session.data['vrn']);
+//   var vehicleType = req.session.data['vehicle-type'];
    
-  charge = calculateCharge(vrn, vehicleType, caz);
-  charge = charge * dates.length;
-  req.session.amountDue = '£' + charge.toFixed(2);
-  var localAuthority = caz === "leeds-weekly" ? "Leeds" : caz.charAt(0).toUpperCase() + caz.slice(1);
+//   charge = calculateCharge(vrn, vehicleType, caz);
+//   charge = charge * dates.length;
+//   req.session.amountDue = '£' + charge.toFixed(2);
+//   var localAuthority = caz === "leeds-weekly" ? "Leeds" : caz.charAt(0).toUpperCase() + caz.slice(1);
 
-  if (email != "") {
-    format = "dddd D MMMM YYYY";
-    emailDate = caz === 'leeds-weekly' ? moment(dates).format(format) : dates.map(d => moment(d).format(format));
-  }
+//   if (email != "") {
+//     format = "dddd D MMMM YYYY";
+//     emailDate = caz === 'leeds-weekly' ? moment(dates).format(format) : dates.map(d => moment(d).format(format));
+//   }
 
-  res.render('payments/confirm-payment', {
-    amountDue: req.session.amountDue, 
-    dates: dates, 
-    localAuthority: localAuthority,
-    caz: caz,
-    vrn: vrn
-  });
+//   res.render('payments/confirm-payment', {
+//     amountDue: req.session.amountDue, 
+//     dates: dates, 
+//     localAuthority: localAuthority,
+//     caz: caz,
+//     vrn: vrn
+//   });
 
-});
+// });
 
 router.post('/payments/confirm-payment-details', function (req, res) {
   var error = false;

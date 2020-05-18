@@ -30,6 +30,9 @@ Pay a Clean Air Zone charge
                         <label class="govuk-label govuk-radios__label" for="initial-weekly">
                             Today
                         </label>
+                        <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                            Your weekly charge will expire on {{today | date("add", 6, "days") | date("ddd DD MMM YYYY") }}
+                          </span>
                     </div>
                     <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="initial-weekly-2" name="initial-weekly"
