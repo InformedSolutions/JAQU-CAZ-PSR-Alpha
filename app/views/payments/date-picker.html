@@ -24,10 +24,14 @@ text: "Back"
             </span>
           </summary>
           <div class="govuk-details__text">
-              You can't pay any earlier than 7 days ahead.<br><br>You have to pay by midnight the day after you drive through a zone. If you are trying to make a payment later than this, you will need to wait for a penalty charge notice to arrive by post. This will be sent to the address the DVLA holds for the vehicle owner.
-          </div>
+            <p>If the date you want to pay for is not selectable, it may be because:</p>
+            <li>The 7 day period you had to pay has ended.<br>You may be subject to a penalty charge notice (PCN).
+            </li><br>
+
+            <li>The date is too far in the future.<br>You should check back here closer to the date you want.</li>
+        </div>
         </details>
-      <form method="post" class="form" action="/payments/selected-date">  
+      <form method="post" class="form" action="/payments/confirm-charge-week-today">  
         <div class="govuk-form-group" id="dates">
           <label class="govuk-label" for="start-date">
               <b>Start date</b><span style="margin-left: 155px; font-weight: bold;">End date</span>
@@ -53,9 +57,10 @@ var picker = new Lightpick({
   field: document.getElementById('start-date'),
   secondField: document.getElementById('end-date'),
   singleDate: false,
-  maxDays: 33,
-  minDate: moment(new Date()).subtract(1, 'days'),
-  maxDate: moment(new Date()).add(30, 'days'),
+  maxDays: 7,
+  minDays:7,
+  minDate: moment(new Date()).subtract(6, 'days'),
+  maxDate: moment(new Date()).add(13, 'days'),
   onSelect: function(start, end){
       document.getElementById('start-date').innerHTML = start;
       document.getElementById('end-date').innerHTML = end;
