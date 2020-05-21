@@ -826,15 +826,15 @@ router.post('/fleets/single-user/add-vehicle', function (req, res) {
 
 })
 
-router.post('/fleets/organisation-account/add-user', function(req, res) {
-    var ans = true ? req.session.data['add-user'] === 'yes' : false;
-    if (ans) {
-      res.redirect('/fleets/organisation-account/add-user');
-    }
-    else {
-      res.redirect('/fleets/organisation-account/dashboard');
-    }
-  })
+// router.post('/fleets/organisation-account/add-user', function(req, res) {
+//     var ans = true ? req.session.data['add-user'] === 'yes' : false;
+//     if (ans) {
+//       res.redirect('/fleets/organisation-account/add-user');
+//     }
+//     else {
+//       res.redirect('/fleets/organisation-account/dashboard');
+//     }
+//   })
 
 
   router.get('/add-vehicle-choice', function (req, res) {
