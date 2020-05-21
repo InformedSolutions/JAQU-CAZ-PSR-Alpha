@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}   
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Accounts are for multiple vehicles</h1>
+   
+    <p>If you are only paying for 1 vehicle, the easiest and quickest option is to go to <a href="https://st.paycleanairzonecharge.co.uk/">Pay a charge for a single vehicle</a>.</p>
+
+  </div>
+</div>
+
+{% endblock %}

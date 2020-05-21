@@ -1,0 +1,48 @@
+{% extends "layout_account.html" %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Your company account</h1>
+        <p>This service works by you telling us which vehicles have driven in a zone.
+            <br>
+            The charge for each vehicle is calculated from your vehicle registration information.
+        </p>
+        <div class="govuk-inset-text">
+            You need to upload your number plates (registration details) before you can make a payment.
+        </div>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <article class="dashboard-total-group govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
+                    href="{% if registered %}/fleets/single-user/fleet-update{% else %}/fleets/single-user/csv-upload{% endif %}">
+                    Manage your vehicles
+                </a></strong></p>
+        <p class="govuk-body">Upload your fleet registration details and add or remove vehicle from your account.</p>
+    </article>
+    
+    <article class="dashboard-total-group govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
+                    href="/fleets/single-user/select-caz">Make a payment</a></strong></p>
+        <p class="govuk-body">Pay Clean Air Zone charges for your vehicles.</p>
+    </article>
+    <article class="dashboard-total-group govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-9"><strong><a
+                    href="manage-users-added">
+                    Manage users
+                </a></strong></p>
+        <p class="govuk-body">Add, remove or manage users associated with this account</p>
+    </article>
+    
+    
+
+</div>
+
+{% endblock %}
