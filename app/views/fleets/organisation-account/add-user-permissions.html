@@ -1,0 +1,82 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" class="form" action="/fleets/organisation-account/user-add-confirmation">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="permissions-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Which permissions do you want {{data['name']}} to have?
+                        </h1>
+                    </legend>
+                    <span id="permissions-hint" class="govuk-hint">
+                        Select all that apply.
+                    </span>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions" name="permissions" type="checkbox"
+                                value="users">
+                            <label class="govuk-label govuk-checkboxes__label" for="permissions">
+                                Manage users
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-2" name="permissions" type="checkbox"
+                                value="history">
+                            <label class="govuk-label govuk-checkboxes__label" for="permissions-2">
+                                View payment history
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-3" name="permissions" type="checkbox"
+                                value="vehicles">
+                            <label class="govuk-label govuk-checkboxes__label" for="permissions-3">
+                                Manage vehicles
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-4" name="permissions" type="checkbox"
+                                value="payments">
+                            <label class="govuk-label govuk-checkboxes__label" for="permissions-4">
+                                Make payments
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-5" name="permissions" type="checkbox"
+                                value="directDebits">
+                            <label class="govuk-label govuk-checkboxes__label" for="permissions-5">
+                                Set up direct debits
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

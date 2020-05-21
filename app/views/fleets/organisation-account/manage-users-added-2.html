@@ -43,6 +43,11 @@ text: "Back"
                         <td class="govuk-table__cell" scope="row">markb@hotmail.co.uk</td>
                         <td class="govuk-table__cell" scope="row"><a href="">Manage</a></td>
                     </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" scope="row">{{data['name']}}</td>
+                        <td class="govuk-table__cell" scope="row">{{data['user-email']}}</td>
+                        <td class="govuk-table__cell" scope="row"><a href="manage-permissions-2">Manage</a></td>
+                    </tr>
             </tbody>
         </table>
         <form method="post" class="form" action="/fleets/organisation-account/add-user">
