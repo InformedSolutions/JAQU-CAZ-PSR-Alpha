@@ -47,6 +47,9 @@ Pay a Clean Air Zone charge
                 <button type="submit" class="govuk-button">
                     Continue
                 </button>
+                {% if data['vrn']!= CAS400 %}
+                <p><a href="add-another-vehicle-question.html">Cancel</a></p>
+                {% endif %}
         </form>
 
     </div>

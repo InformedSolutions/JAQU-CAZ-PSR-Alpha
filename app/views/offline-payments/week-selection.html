@@ -137,7 +137,11 @@ Pay a Clean Air Zone charge
                     <button type="submit" class="govuk-button">
                         Continue
                     </button><p><a href="charge-period.html">Pay for 1 day instead</a></p>
+                    {% if data['vrn']!= 'CAS400' and data['vrn'] != null %}
+                <p><a href="add-another-vehicle-question.html">Cancel</a></p>
+                {% endif %}
                 </div>
+                
                 
         </form>
     </div>
