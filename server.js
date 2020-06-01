@@ -102,8 +102,6 @@ nunjucksConfig.express = app
 var nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
 nunjucksAppEnv.addFilter('date', dateFilter);
 
-var nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
-
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
 
