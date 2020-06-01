@@ -435,22 +435,6 @@ router.post('/payments/confirm-payment', function (req, res) {
   req.session.amountDue = '£' + charge.toFixed(2);
   var localAuthority = caz === "leeds-weekly" ? "Leeds" : caz.charAt(0).toUpperCase() + caz.slice(1);
 
-  if (email != "") {
-    format = "dddd D MMMM YYYY";
-    emailDate = caz === 'leeds-weekly' ? moment(dates).format(format) : dates.map(d => moment(d).format(format));
-    notify.sendEmail(
-      // GOV.UK Notify template ID
-      '9b0ce7a5-8830-4d69-ae2f-7762c5ad76e7',
-      email, {
-        personalisation: {
-          'charge': req.session.amountDue,
-          'caz': localAuthority,
-          'vrn': vrn,
-          'dates': emailDate,
-          'paymentDate': moment(today).format('DD/MM/YYYY')
-        }
-      })
-  }
 
   res.render('payments/confirm-payment', {
     amountDue: req.session.amountDue, 
