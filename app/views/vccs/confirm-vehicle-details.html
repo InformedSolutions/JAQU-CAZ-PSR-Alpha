@@ -56,7 +56,11 @@ Pay a Clean Air Zone charge
             </tbody>
         </table>
 
+        {% if data['vrn'] == 'CU57ABC' %}
         <form method="post" class="form" action="/vccs/compliance-page">
+        {% else %}
+        <form method="post" class="form" action="/vccs/compliance-page-bc2">
+        {% endif %}
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="confirm-vehicle-hint">
                         <div class="govuk-radios govuk-radios--inline">
