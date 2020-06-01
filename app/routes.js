@@ -40,7 +40,11 @@ router.post('/confirm-vehicle-details', function (req, res) {
     var formattedVrn = vrn.toUpperCase().replace(/\s/g, '');
 
 
-    if (countryRegistered == "non-uk") {
+    if (countryRegistered == "non-uk" && formattedVrn == "CAS300") {
+
+        res.redirect('/payments/uk-details-found')
+    }
+    else if (countryRegistered == "non-uk"){
 
         res.redirect('/payments/non-uk-vehicle')
 
