@@ -57,11 +57,11 @@ Pay a Clean Air Zone charge
         </table>
 
         <p>You may be able to claim a refund in certain circumstances. Contact the local authority in the area you're driving in to find out more.</p>
-
+        {% if localAuthority == "Bath" %}
         <h2 class="govuk-heading-m">Alternatives to paying the charge</h2>
-        <ul class="govuk-list govuk-list--bullet"><li><a href="https://www.leeds.gov.uk/business/environmental-health-for-business/air-quality/support-for-buses-coaches-and-hgvs-clean-air-charging-zone" target="_blank">Get support to upgrade or replace your vehicle in Leeds</a></li>
-        <li><a href="https://cleanairleeds.co.uk/what-can-i-do/residents" target="_blank">Explore cycling and public transport options in Leeds</a></li></ul>
-
+        <ul class="govuk-list govuk-list--bullet"><li>Contact the local authority for support to upgrade or replace your vehicle in <a href="https://www.bathnes.gov.uk/bath-breathes-2021-overview/support">Bath</a></li>
+        <li>Explore <a href="https://www.bathnes.gov.uk/services/parking-and-travel/cycling">cycling</a> and <a href="https://beta.bathnes.gov.uk/public-transport">public transport</a> options in Bath</li></ul>
+        {% endif %}
     </div>
     <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m">Other tasks</h2>
