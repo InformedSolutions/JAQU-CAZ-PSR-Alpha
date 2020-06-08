@@ -80,6 +80,7 @@ text: "Back"
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Number plate</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Bath</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Birmingham</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Leeds</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
@@ -93,18 +94,22 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">{{vrn}}</td>
                     {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
+                    <td class="govuk-table__cell" scope="row">£100</td>
                     <td class="govuk-table__cell" scope="row">£50</td>
                     <td class="govuk-table__cell" scope="row">£50</td>
                     {% elseif vrn == 'MH75BJH' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
                     <td class="govuk-table__cell" scope="row">No charge</td>
                     <td class="govuk-table__cell" scope="row">No charge</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
                     {% elseif vrn == 'M56FGF' %}
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
                     <td class="govuk-table__cell" scope="row">Undetermined</td>
                     <td class="govuk-table__cell" scope="row">Undetermined</td>
                     <td class="govuk-table__cell" scope="row">Undetermined</td>
                     {% else %}
                     <td class="govuk-table__cell" scope="row">Van</td>
+                    <td class="govuk-table__cell" scope="row">£9</td>
                     <td class="govuk-table__cell" scope="row">£8</td>
                     <td class="govuk-table__cell" scope="row">No charge</td>
                     {% endif %}
