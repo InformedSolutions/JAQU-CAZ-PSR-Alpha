@@ -33,6 +33,12 @@
   {% include "includes/head.html" %}
 {% endblock %}
 
+{% block bodyStart %}
+  {% if doNotTrackEnabled == false and promoMode == 'true' and gtmId %}
+    {% include "includes/tracking_body.html" %}
+  {% endif %}
+{% endblock %}
+
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
