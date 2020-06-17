@@ -48,7 +48,7 @@ text: "Back"
               <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
             </span>
             {% endif %}
-            {% if ((data['vrn'] | capitalize) == 'Jkl987') or ((data['vrn'] | capitalize) == 'Jkl 987') or (data['vehicle-type'] == 'HGV') or (data['vehicle-type'] == 'busCoach') or ((data['vrn'] | capitalize) == 'Def789') or ((data['vrn'] | capitalize) == 'Def 789') or ((data['vrn'] | capitalize) == 'Abc123') or ((data['vrn'] | capitalize) == 'Abc 123') %}
+            {% if ((data['vrn'] | capitalize) == 'Jkl987') or ((data['vrn'] | capitalize) == 'Jkl 987') or (data['vehicle-type'] == 'HGV') or (data['vehicle-type'] == 'busCoach') or ((data['vrn'] | capitalize) == 'Def789') or ((data['vrn'] | capitalize) == 'Def 789') or ((data['vrn'] | capitalize) == 'Abc123') or ((data['vrn'] | capitalize) == 'Abc 123') or ((data['vrn'] | capitalize) == 'Van123') or ((data['vrn'] | capitalize) == 'Van 123') %}
             {% else %}
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
@@ -61,7 +61,7 @@ text: "Back"
                 </div>
               </details>
               {% endif %}
-              {% if ((data['vrn'] | capitalize) == 'Jkl987') or ((data['vrn'] | capitalize) == 'Jkl 987') or (data['vehicle-type'] == 'HGV') or (data['vehicle-type'] == 'busCoach') or ((data['vrn'] | capitalize) == 'Def789') or ((data['vrn'] | capitalize) == 'Def 789') or ((data['vrn'] | capitalize) == 'Abc123') or ((data['vrn'] | capitalize) == 'Abc 123') %}
+              {% if ((data['vrn'] | capitalize) == 'Jkl987') or ((data['vrn'] | capitalize) == 'Jkl 987') or (data['vehicle-type'] == 'HGV') or (data['vehicle-type'] == 'busCoach') or ((data['vrn'] | capitalize) == 'Def789') or ((data['vrn'] | capitalize) == 'Def 789') or ((data['vrn'] | capitalize) == 'Abc123') or ((data['vrn'] | capitalize) == 'Abc 123') or ((data['vrn'] | capitalize) == 'Van123') or ((data['vrn'] | capitalize) == 'Van 123') %}
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="caz-1" name="caz" type="radio" value="bath">
                 <label class="govuk-label govuk-radios__label" for="caz-1">

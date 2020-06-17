@@ -39,8 +39,8 @@ text: "Back"
     {% include 'includes/taxi.html' %}
     {% elseif ((data['vrn'] | capitalize) == 'Def789') or ((data['vrn'] | capitalize) == 'Def 789') %}
     {% include 'includes/hgv.html' %}
-    {% elseif ((data['vrn'] | capitalize) == 'Ghi567') or ((data['vrn'] | capitalize) == 'Ghi 567') %}
-    {% include 'includes/lgv.html' %}
+    {% elseif ((data['vrn'] | capitalize) == 'Van123') or ((data['vrn'] | capitalize) == 'Van 123') %}
+    {% include 'includes/van.html' %}
     {% elseif ((data['vrn'] | capitalize) == 'Jkl987') or ((data['vrn'] | capitalize) == 'Jkl 987') %}
     {% include 'includes/bus.html' %}
     {% elseif ((data['vrn'] | capitalize) == 'Cde345') or ((data['vrn'] | capitalize) == 'Cde 345') %}
