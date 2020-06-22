@@ -964,4 +964,27 @@ router.post('/payments/select-date-weekly-2x', function (req, res) {
 
 
 
+router.post('/vccs/contact', function (req, res) {
+  var contact = req.body['contact'];
+
+  if (contact == 'charges') {
+          res.redirect('/vccs/charges')
+  } else if (contact == 'london') {
+      res.redirect('/vccs/london')
+  } else if (contact == 'exemptions') {
+      res.redirect('/vccs/exemptions')
+  } else if (contact == 'data') {
+      res.redirect('/vccs/data')
+  } else if (contact == 'other') {
+      res.redirect('https://contact.dvla.gov.uk/caz/')
+  } else {
+      res.render('vccs/contact-1', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
+
+
+
 module.exports = router
