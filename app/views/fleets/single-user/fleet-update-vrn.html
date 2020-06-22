@@ -96,10 +96,10 @@ text: "Back"
             </thead>
             <tbody class="govuk-table__body">
 
-                {% for vrn in vrns %}
+                {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
 
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">{{vrn}}</td>
+                    <td class="govuk-table__cell" scope="row"><a href="vrn-info">{{vrn}}</a></td>
                     {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
                     <td class="govuk-table__cell" scope="row">£100</td>

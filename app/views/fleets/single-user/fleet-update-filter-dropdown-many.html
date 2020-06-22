@@ -82,44 +82,41 @@ text: "Back"
             <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a Clean
                 Air Zone charge service for an individual vehicle</a></p>
 
-
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Number plate</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Bath</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Birmingham</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Leeds</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Number plate</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Type</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort" name="sort">
+                        <option value="published">Bath</option>
+                        <option value="updated" selected>Birmingham</option>
+                        <option value="views">Bristol</option>
+                        <option value="comments">Leeds</option>
+                        <option value="comments">Leicester</option>
+                        <option value="comments">Tyneside</option>
+                      </select></th>
+                      <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><a href="fleet-update-filter-dropdown-many-2">Add another CAZ</a></th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"></th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
 
-                {% for vrn in vrns %}
+                {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
 
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row">{{vrn}}</td>
                     {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
-                    <td class="govuk-table__cell" scope="row">£100</td>
-                    <td class="govuk-table__cell" scope="row">£50</td>
                     <td class="govuk-table__cell" scope="row">£50</td>
                     {% elseif vrn == 'MH75BJH' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
                     <td class="govuk-table__cell" scope="row">No charge</td>
-                    <td class="govuk-table__cell" scope="row">No charge</td>
-                    <td class="govuk-table__cell" scope="row">No charge</td>
                     {% elseif vrn == 'M56FGF' %}
-                    <td class="govuk-table__cell" scope="row">Undetermined</td>
-                    <td class="govuk-table__cell" scope="row">Undetermined</td>
                     <td class="govuk-table__cell" scope="row">Undetermined</td>
                     <td class="govuk-table__cell" scope="row">Undetermined</td>
                     {% else %}
                     <td class="govuk-table__cell" scope="row">Van</td>
-                    <td class="govuk-table__cell" scope="row">£9</td>
                     <td class="govuk-table__cell" scope="row">£8</td>
-                    <td class="govuk-table__cell" scope="row">No charge</td>
                     {% endif %}
                     <td class="govuk-table__cell" scope="row"><a
                             href="/fleets/single-user/remove-confirm?vrn={{vrn}}">Remove</a></td>

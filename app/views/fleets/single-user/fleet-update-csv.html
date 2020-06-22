@@ -21,59 +21,67 @@ text: "Back"
 
         {% if manageTag == "add" %}
         <div class="moj-banner moj-banner--success">
-        
+
             <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
                 <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
-        
+
             <div class="moj-banner__message">
-                <span class="moj-banner__assistive">Success</span>You have successfully added {{lastvrn}} to your vehicle list.
+                <span class="moj-banner__assistive">Success</span>You have successfully added {{lastvrn}} to your
+                vehicle list.
             </div>
-        
+
         </div>
         {% elseif manageTag == "duplicate" %}
         <div class="moj-banner moj-banner--warning">
-        
+
             <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-                <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" /></svg>
-        
+                <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
+                </svg>
+
             <div class="moj-banner__message">
                 <span class="moj-banner__assistive">Warning</span>{{lastvrn}} already exists in your vehicle list.</div>
-        
+
         </div>
         {% elseif manageTag == "remove" %}
         <div class="moj-banner moj-banner--success">
-        
+
             <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
                 <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
-        
+
             <div class="moj-banner__message">
-                <span class="moj-banner__assistive">Success</span>You have successfully removed {{lastvrn}} from your vehicle
+                <span class="moj-banner__assistive">Success</span>You have successfully removed {{lastvrn}} from your
+                vehicle
                 list.</div>
-        
+
         </div>
         {% elseif manageTag == "upload" %}
         <div class="moj-banner moj-banner--success">
-        
+
             <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
                 <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
-        
+
             <div class="moj-banner__message">
-                <span class="moj-banner__assistive">Success</span>You have successfully uploaded 93 vehicles to your vehicle list.</div>
-        
+                <span class="moj-banner__assistive">Success</span>You have successfully uploaded 93 vehicles to your
+                vehicle list.</div>
+
         </div>
         {% endif %}
 
         <h1 class="govuk-heading-l">Manage your vehicles and view charges</h1>
         <p>Charge information for your vehicles in each Clean Air Zone.</p>
-        <p><strong>No charge</strong> - you don't have to pay the charge in that Clean Air Zone as your vehicle meets its emission standards.</p>
-        <p><strong>Undetermined</strong> - we could not calculate a charge based on your registration information. 
-            Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla" target="_blank">DVLA</a> to make sure it holds the correct information for you. The charge still needs to be paid but must be done per individual vehicle. 
-            <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a Clean Air Zone charge service for an individual vehicle</a></p>
-            
+        <p><strong>No charge</strong> - you don't have to pay the charge in that Clean Air Zone as your vehicle meets
+            its emission standards.</p>
+        <p><strong>Undetermined</strong> - we could not calculate a charge based on your registration information.
+            Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
+                target="_blank">DVLA</a> to make sure it holds the correct information for you. The charge still needs
+            to be paid but must be done per individual vehicle.
+            <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a Clean
+                Air Zone charge service for an individual vehicle</a></p>
+
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -87,8 +95,8 @@ text: "Back"
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
-               
-                {% for vrn in vrns %}
+
+                {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
 
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row">{{vrn}}</td>
@@ -113,7 +121,8 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£8</td>
                     <td class="govuk-table__cell" scope="row">No charge</td>
                     {% endif %}
-                    <td class="govuk-table__cell" scope="row"><a href="/fleets/single-user/remove-confirm?vrn={{vrn}}">Remove</a></td>
+                    <td class="govuk-table__cell" scope="row"><a
+                            href="/fleets/single-user/remove-confirm?vrn={{vrn}}">Remove</a></td>
                 </tr>
 
                 {% endfor %}
@@ -122,64 +131,41 @@ text: "Back"
         <nav class="moj-pagination" id="pagination-label" style="margin-top:-30px">
 
             <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
-            
+
             <ul class="moj-pagination__list">
-            
-            
-            <li class="moj-pagination__item moj-pagination__item--active">1</li>
-            
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
-            
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">4</a></li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">5</a></li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">6</a></li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">7</a></li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">8</a></li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">9</a></li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">10</a></li>
-            
-            <li class="moj-pagination__item  moj-pagination__item--next">
-              <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
-            </li>
+
+
+                <li class="moj-pagination__item moj-pagination__item--active">1</li>
+
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
+
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">4</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">5</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">6</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">7</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">8</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">9</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">10</a></li>
+
+                <li class="moj-pagination__item  moj-pagination__item--next">
+                    <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of
+                            pages</span></a>
+                </li>
             </ul>
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
-            </nav> 
-            <br>
-            <br>
-            <p><a href="\public\images\Vehicle Compliance Results.csv">Get your vehicle results sent to you by email</a></p>
-            <br>
-            <p>You can pay for the vehicles with a charge on the <a href="select-caz">Make a payment</a> page.</p>
-        <p><strong>Add vehicles</strong></p>
+        </nav>
+        <br>
+        <br>
+        <p><a href="\public\images\Vehicle Compliance Results.csv">Get your vehicle results sent to you by email</a></p>
+        <br>
+        <p>You can pay for the vehicles with a charge on the <a href="select-caz">Make a payment</a> page.</p>
+        <h2 class="govuk-heading-m">Add vehicles</h2>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
-        <form method="post" class="form" action="/fleets/single-user/fleet-update-add">
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="add-vehicle-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Do you need to add a single vehicle?
-                    </legend>
-                    <div class="govuk-radios govuk-radios--inline">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-vehicle" name="add-vehicle" type="radio"
-                                value="yes">
-                            <label class="govuk-label govuk-radios__label" for="add-vehicle">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-vehicle-2" name="add-vehicle" type="radio"
-                                value="no">
-                            <label class="govuk-label govuk-radios__label" for="add-vehicle-2">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            <input type="hidden" name="rtn" value="false">
-            <button type="submit" class="govuk-button">Continue</button>
-           
-        </form> 
+        <p><a href="/fleets/single-user/fleet-update-add">Add individual vehicles one by one</a>.</p>
+        <br>
+        <p><a href="fleet-account">Return to Your account</a></p>
+
     </div>
 
 

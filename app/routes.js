@@ -1040,5 +1040,60 @@ router.get('/fleets/single-user/fleet-update-csv', function(req, res) {
   })
 
 
+  //fleet update get for variants
+router.get('/fleets/single-user/fleet-update-filter-dropdown', function(req, res) {  
+    if (req.query.vrn) {
+      var vrns = req.session.vrns.filter(function( vrn ) {
+        return vrn !== req.query.vrn;
+      });
+      req.session.vrns = vrns;
+    }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn
+    })
+    req.session.manageTag='blank';
+  })
+
+  router.get('/fleets/single-user/fleet-update-filter-dropdown-many', function(req, res) {  
+    if (req.query.vrn) {
+      var vrns = req.session.vrns.filter(function( vrn ) {
+        return vrn !== req.query.vrn;
+      });
+      req.session.vrns = vrns;
+    }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown-many', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn
+    })
+    req.session.manageTag='blank';
+  })
+
+  router.get('/fleets/single-user/fleet-update-filter-dropdown-many-2', function(req, res) {  
+    if (req.query.vrn) {
+      var vrns = req.session.vrns.filter(function( vrn ) {
+        return vrn !== req.query.vrn;
+      });
+      req.session.vrns = vrns;
+    }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown-many-2', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn
+    })
+    req.session.manageTag='blank';
+  })
+
 
 module.exports = router
