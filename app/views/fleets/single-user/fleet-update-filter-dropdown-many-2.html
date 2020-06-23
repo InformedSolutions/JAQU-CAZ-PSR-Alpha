@@ -73,14 +73,21 @@ text: "Back"
 
         <h1 class="govuk-heading-l">Manage your vehicles and view charges</h1>
         <p>Charge information for your vehicles in each Clean Air Zone.</p>
-        <p><strong>No charge</strong> - you don't have to pay the charge in that Clean Air Zone as your vehicle meets
-            its emission standards.</p>
-        <p><strong>Undetermined</strong> - we could not calculate a charge based on your registration information.
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                What does undetermined mean?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              We could not calculate a charge based on your registration information.
             Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
                 target="_blank">DVLA</a> to make sure it holds the correct information for you. The charge still needs
             to be paid but must be done per individual vehicle.
             <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a Clean
                 Air Zone charge service for an individual vehicle</a></p>
+            </div>
+          </details>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -166,17 +173,16 @@ text: "Back"
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
         </nav>
         <br>
-        <br>
-        <p>You can pay for the vehicles with a charge on the <a href="select-caz">Make a payment</a> page.</p>
-        <br>
         <h2 class="govuk-heading-m">Add vehicles</h2>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
         <p><a href="/fleets/single-user/fleet-update-add">Add individual vehicles one by one</a>.</p>
         <br>
-        <p><a href="fleet-account">Return to Your account</a></p>
-
-
+        <form method="post" class="form" action="/fleets/single-user/select-caz">
+            <button type="submit" class="govuk-button">
+                Make a payment
+            </button>
         </form>
+        <p><a href="fleet-account">Return to Your account</a></p>
     </div>
 
 
