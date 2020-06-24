@@ -38,7 +38,7 @@ text: "Back"
             <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
                 <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
-                </svg>
+            </svg>
 
             <div class="moj-banner__message">
                 <span class="moj-banner__assistive">Warning</span>{{lastvrn}} already exists in your vehicle list.</div>
@@ -75,33 +75,37 @@ text: "Back"
         <p>Charge information for your vehicles in each Clean Air Zone.</p>
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                What does undetermined mean?
-              </span>
+                <span class="govuk-details__summary-text">
+                    What does undetermined mean?
+                </span>
             </summary>
             <div class="govuk-details__text">
-              We could not calculate a charge based on your registration information.
-            Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
-                target="_blank">DVLA</a> to make sure it holds the correct information for you. The charge still needs
-            to be paid but must be done per individual vehicle.
-            <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a Clean
-                Air Zone charge service for an individual vehicle</a></p>
+                We could not calculate a charge based on your registration information.
+                Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
+                    target="_blank">DVLA</a> to make sure it holds the correct information for you. The charge still
+                needs
+                to be paid but must be done per individual vehicle.
+                <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a
+                    Clean
+                    Air Zone charge service for an individual vehicle</a></p>
             </div>
-          </details>
+        </details>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Number plate</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"><select class="govuk-select" id="sort" name="sort">
-                        <option value="published">Bath</option>
-                        <option value="updated" selected>Birmingham</option>
-                        <option value="views">Bristol</option>
-                        <option value="comments">Leeds</option>
-                        <option value="comments">Leicester</option>
-                        <option value="comments">Tyneside</option>
-                      </select></th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">
+                        <select class="govuk-select" id="sort" name="sort"
+                            onchange="if (this.value) window.location.href=this.value">
+                            <option value="fleet-update-filter-dropdown-bath">Bath</option>
+                            <option value="updated" selected>Birmingham</option>
+                            <option value="views">Bristol</option>
+                            <option value="comments">Leeds</option>
+                            <option value="comments">Leicester</option>
+                            <option value="comments">Tyneside</option>
+                        </select></th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
                 </tr>
             </thead>
