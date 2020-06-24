@@ -111,7 +111,7 @@ text: "Back"
                 {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
 
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">{{vrn}}</td>
+                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">{{vrn}}</a></td>
                     {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
                     <td class="govuk-table__cell" scope="row">£50</td>
@@ -160,6 +160,7 @@ text: "Back"
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
         </nav>
         <br>
+        <p><a href="\public\images\Vehicle Compliance Results.csv">Get your charge results sent to you by email</a></p>
         <h2 class="govuk-heading-m">Add vehicles</h2>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
         <p><a href="/fleets/single-user/fleet-update-add">Add individual vehicles one by one</a>.</p>
