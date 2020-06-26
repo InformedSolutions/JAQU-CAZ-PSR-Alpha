@@ -117,7 +117,21 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row"><a href="vrn-info">{{vrn}}</a></td>
                     {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
+                    {% if one == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% elseif one == 'birmingham'%}
                     <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif one == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£60</td>
+                    {% elseif one == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif one == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif one == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% endif %}
                     {% elseif vrn == 'MH75BJH' %}
                     <td class="govuk-table__cell" scope="row">HGV</td>
                     <td class="govuk-table__cell" scope="row">No charge</td>
@@ -126,7 +140,21 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">Undetermined</td>
                     {% else %}
                     <td class="govuk-table__cell" scope="row">Van</td>
+                    {% if one == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% elseif one == 'birmingham'%}
                     <td class="govuk-table__cell" scope="row">£8</td>
+                    {% elseif one == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£10</td>
+                    {% elseif one == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% endif %}
                     {% endif %}
                     <td class="govuk-table__cell" scope="row"><a
                             href="/fleets/single-user/remove-confirm?vrn={{vrn}}">Remove</a></td>
