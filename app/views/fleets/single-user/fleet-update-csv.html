@@ -103,7 +103,7 @@ text: "Back"
             </thead>
             <tbody class="govuk-table__body">
 
-                {% for vrn in vrns %}
+                {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
 
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row">{{vrn}}</td>
@@ -163,6 +163,8 @@ text: "Back"
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
         </nav>
         <br>
+        <p><a href="\public\images\Vehicle Compliance Results.csv">Get your charge results sent to you by email</a></p>
+
         <h2 class="govuk-heading-m">Add vehicles</h2>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
         <p><a href="/fleets/single-user/fleet-update-add">Add individual vehicles one by one</a>.</p>
@@ -173,6 +175,7 @@ text: "Back"
             </button>
         </form>
         <p><a href="fleet-account">Return to Your account</a></p>
+
     </div>
 
 
