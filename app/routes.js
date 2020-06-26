@@ -1060,11 +1060,8 @@ router.get('/fleets/single-user/fleet-update-filter-dropdown', function(req, res
   })
 
   router.get('/fleets/single-user/fleet-update-filter-dropdown-many', function(req, res) {  
-    if (req.query.vrn) {
-      var vrns = req.session.vrns.filter(function( vrn ) {
-        return vrn !== req.query.vrn;
-      });
-      req.session.vrns = vrns;
+    if (req.query.one) {
+    req.session.one= req.query.one
     }
   
     var registered = true ? req.session.data['registered'] === 'true' : false;
@@ -1072,25 +1069,70 @@ router.get('/fleets/single-user/fleet-update-filter-dropdown', function(req, res
       registered: registered,
       vrns: req.session.vrns,
       manageTag: req.session.manageTag,
-      lastvrn: req.session.lastvrn
+      lastvrn: req.session.lastvrn,
+      one: req.session.one
+    })
+    req.session.manageTag='blank';
+  })
+
+  router.get('/fleets/single-user/fleet-update-filter-dropdown', function(req, res) {  
+    if (req.query.one) {
+    req.session.one= req.query.one
+    }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn,
+      one: req.session.one
     })
     req.session.manageTag='blank';
   })
 
   router.get('/fleets/single-user/fleet-update-filter-dropdown-many-2', function(req, res) {  
-    if (req.query.vrn) {
-      var vrns = req.session.vrns.filter(function( vrn ) {
-        return vrn !== req.query.vrn;
-      });
-      req.session.vrns = vrns;
-    }
+    if (req.query.one) {
+        req.session.one= req.query.one
+        }
+
+        if (req.query.two) {
+            req.session.two= req.query.two
+            }
   
     var registered = true ? req.session.data['registered'] === 'true' : false;
     res.render('fleets/single-user/fleet-update-filter-dropdown-many-2', {
       registered: registered,
       vrns: req.session.vrns,
       manageTag: req.session.manageTag,
-      lastvrn: req.session.lastvrn
+      lastvrn: req.session.lastvrn,
+      one: req.session.one,
+      two: req.session.two
+    })
+    req.session.manageTag='blank';
+  })
+
+  router.get('/fleets/single-user/fleet-update-filter-dropdown-many-3', function(req, res) {  
+    if (req.query.one) {
+        req.session.one= req.query.one
+        }
+
+        if (req.query.two) {
+            req.session.two= req.query.two
+            }
+            if (req.query.three) {
+                req.session.three= req.query.three
+                }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown-many-3', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn,
+      one: req.session.one,
+      two: req.session.two,
+      three: req.session.three
     })
     req.session.manageTag='blank';
   })
