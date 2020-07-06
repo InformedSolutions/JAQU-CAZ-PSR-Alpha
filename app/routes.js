@@ -775,14 +775,14 @@ router.post('/fleets/single-user/fleet-update', function(req, res) {
 router.post('/fleets/single-user/fleets-confirmation', function(req, res) {
   req.session.vrns = ['AB12CDE','AF03WMY','BT02VYL','JO51WQE','M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ']
   req.session.manageTag='upload';
-  res.redirect('fleet-update-filter-dropdown-many');
+  res.redirect('fleet-update-filter-dropdown');
   
 })
 
 router.post('/fleets/single-user/fleets-reconfirmation', function(req, res) {
     req.session.vrns = ['M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ','Z12TTP']
     req.session.manageTag='upload';
-    res.redirect('fleet-update-filter-dropdown-many');
+    res.redirect('fleet-update-filter-dropdown');
   })
 
 // update the fleet - post
