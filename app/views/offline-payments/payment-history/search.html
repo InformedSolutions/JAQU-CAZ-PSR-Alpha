@@ -1,0 +1,55 @@
+{% extends "layout_offline_payments.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Which Clean Air Zone do you want to pay for?</h1>
+        <form method="post" class="form" action="/offline-payments/enter-vehicle-details">
+            <div class="govuk-form-group">
+                <span id="hint" class="govuk-hint">
+                    How do you want to search for a payment?
+                </span>
+                <fieldset class="govuk-fieldset" aria-describedby="cazHint">
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="caz-1" name="caz" type="radio" value="bath">
+                            <label class="govuk-label govuk-radios__label" for="caz-1">
+                                Number plate
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="caz-2" name="caz" type="radio" value="birmingham">
+                            <label class="govuk-label govuk-radios__label" for="caz-2">
+                                User
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="caz-3" name="caz" type="radio" value="leeds">
+                            <label class="govuk-label govuk-radios__label" for="caz-3">
+                                Payment reference
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
