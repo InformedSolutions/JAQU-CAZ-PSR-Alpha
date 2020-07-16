@@ -1,0 +1,51 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Charge details</h1>
+        <p><strong>User ID:</strong> example@email.com</p>
+        <p><strong>Clean Air Zone:</strong> Leeds</p>
+        <p><strong>Payment reference:</strong> 16739</p>
+        <p><strong>GOV.UK payment ID:</strong> jqnrqko5h2n07elmuca44gns76</p>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Registration Number</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Dates</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">CAS300</td>
+                    <td class="govuk-table__cell" scope="row">Wednesday 15 July 2020<br>Thursday 16 July 2020<br>Friday 17 July 2020</td>
+                    <td class="govuk-table__cell" scope="row">£150</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">CAS301</td>
+                    <td class="govuk-table__cell" scope="row">Wednesday 15 July 2020
+                    </td>
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p><a href="">Return to payment history</a></p>
+
+
+    </div>
+</div>
+
+{% endblock %}
