@@ -34,17 +34,7 @@ Pay a Clean Air Zone charge
         
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
-                    <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
-                        <div class="govuk-form-group">
-                            <label class="govuk-label" for="vrn-search">
-                                Search for a number plate
-                              </label>
-                            <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text">
-                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                                Search
-                              </button>
-                          </div>
-                          </form>
+                    
                     <div class="govuk-tabs" data-module="govuk-tabs">
                         <h2 class="govuk-tabs__title">
                             Contents
@@ -210,19 +200,18 @@ Pay a Clean Air Zone charge
                             </ul>
                             </nav>  -->
                             
-                            <nav class="moj-pagination" id="pagination-label" style = "text-align:center">
-
-                                <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
-                                
-                                <ul class="moj-pagination__list">
-                                
-                                
-                                <li class="moj-pagination__item  moj-pagination__item--next">
-                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-2.html">Next<span class="govuk-visually-hidden"> set of pages</span></a>
-                                </li>
-                                </ul>
-                                </nav>
-                                
+                            
+                            <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="vrn-search">
+                                        Search for a number plate
+                                      </label>
+                                    <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text">
+                                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                        Search
+                                      </button>
+                                  </div>
+                                  </form>    
                     </div>
 
                 </fieldset>

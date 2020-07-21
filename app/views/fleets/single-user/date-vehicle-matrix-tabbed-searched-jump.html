@@ -66,9 +66,9 @@ Pay a Clean Air Zone charge
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    {% for vrn in ["F66PLK"] %}
+                                    {% for vrn in ["CAS400","CAS401","CAS402","CAS403","CAS404","CAS405","CAS406","CAS407","CAS408","CAS409"] %}
                                     <tr class="govuk-table__row">
-                                        <td class="govuk-table__cell">{{data['vrn-search']}}</td>
+                                        <td class="govuk-table__cell">{{vrn}}</td>
                                         {% for i in range(6) %}
                                         <td class="govuk-table__cell">
                                             <div class="govuk-checkboxes__item">
