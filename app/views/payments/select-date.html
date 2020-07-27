@@ -35,7 +35,7 @@ text: "Back"
         <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                Why can't I see my date?
+                Why can't I see my dates?
               </span>
             </summary>
             <div class="govuk-details__text">
@@ -45,17 +45,10 @@ text: "Back"
                     <li>The date is too far in the future.<br>You should check back here closer to the date you want.</li>    </div>
           </details>
         <form method="post" class="form" action="/payments/selected-date">
-            {% if error %}
-            <div class="govuk-form-group govuk-form-group--error">
-            {% endif %}
-            {% if not error %} 
             <div class="govuk-form-group">
-            {% endif %}
-            {% if error %}
-              <span id="date-error" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
+              <span id="waste-hint" class="govuk-hint">
+                Select all that apply.
               </span>
-              {% endif %}
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-checkboxes" required="required">
                             <div class="govuk-checkboxes__item">
