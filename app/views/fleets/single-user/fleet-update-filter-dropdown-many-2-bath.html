@@ -72,7 +72,7 @@ text: "Back"
         {% endif %}
 
         <h1 class="govuk-heading-l">Manage your vehicles and view charges</h1>
-        <p>Charge information for your vehicles in each Clean Air Zone.</p>
+        <p>The table shows the charges you would pay for each of your vehicles if they drive in a Clean Air Zone.</p>
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
@@ -80,14 +80,17 @@ text: "Back"
               </span>
             </summary>
             <div class="govuk-details__text">
-              We could not calculate a charge based on your registration information.
-            Contact <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
-                target="_blank">DVLA</a> to make sure it holds the correct information for you. The charge still needs
-            to be paid but must be done per individual vehicle.
+              A charge could not be calculated based on your registration information. If the details we hold are incorrect you should contact
+                 <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
+                target="_blank">DVLA</a>.
+                <br>
+                <br>
+                 The charge still needs to be paid but must be done per individual vehicle. 
             <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a Clean
                 Air Zone charge service for an individual vehicle</a></p>
             </div>
           </details>
+
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -103,7 +106,7 @@ text: "Back"
                         <option value="comments">Tyneside</option>
                       </select></th>
                       <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort" name="sort">
-                        <option value="published">Select CAZ...</option>
+                        <option value="published">Select zone...</option>
                         <option value="published" selected>Bath</option>
                         <option value="updated">Birmingham</option>
                         <option value="views">Bristol</option>
@@ -111,7 +114,7 @@ text: "Back"
                         <option value="comments">Leicester</option>
                         <option value="comments">Tyneside</option>
                       </select> <a href="fleet-update-filter-dropdown-many">X</a></th>
-                      <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><a href="fleet-update-filter-dropdown-many-3">Add another CAZ</a></th>
+                      <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><a href="fleet-update-filter-dropdown-many-3">Add another zone</a></th>
                     <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"></th>
                 </tr>
             </thead>
@@ -173,7 +176,7 @@ text: "Back"
             <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
         </nav>
         <br>
-        <p><a href="\public\images\Vehicle Compliance Results.csv">Get your charge results sent to you by email</a></p>
+        <p><a href="\public\images\Vehicle Compliance Results.csv">Download a spreadsheet (CSV) of the charges you would pay to drive in all Clean Air Zones</a></p>
         <h2 class="govuk-heading-m">Add vehicles</h2>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
         <p><a href="/fleets/single-user/fleet-update-add">Add individual vehicles one by one</a>.</p>
