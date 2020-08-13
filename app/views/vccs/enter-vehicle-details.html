@@ -16,12 +16,11 @@ Pay a Clean Air Zone charge
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Enter the registration details of the vehicle you want to check</h1>
+        <h1 class="govuk-heading-l">Enter the number plate of the vehicle</h1>
         <form method="POST" class="form" action="/vccs/confirm-vehicle-details">
 
             <div class="govuk-form-group">
-
-                <p>Registration details (number plate)<br>For example, CU57ABC</p>
+                <p>For example, CU57ABC</p>
                 <input class="govuk-input govuk-input--width-10" id="vrn" name="vrn" type="text"
                     value="{{ data['vrn'] }}">
             </div>
