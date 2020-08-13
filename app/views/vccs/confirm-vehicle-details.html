@@ -55,14 +55,7 @@ Pay a Clean Air Zone charge
                 </tr>
             </tbody>
         </table>
-
-        {% if data['vrn'] | capitalize == 'Aaa 123' or data['vrn'] | capitalize == 'Aaa123' %}
-        <form method="post" class="form" action="/vccs/compliance-page">
-        {% elif data['vrn'] | capitalize == 'Bbb 123' or data['vrn'] | capitalize == 'Bbb123' %}
-        <form method="post" class="form" action="/vccs/compliance-page-bc2">
-        {% else %}
-        <form method="post" class="form" action="/vccs/compliance-page-bc3">
-        {% endif %}
+        <form method="post" class="form" action="/vccs/compliance-page-linked">
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="confirm-vehicle-hint">
                         <div class="govuk-radios govuk-radios--inline">
@@ -81,6 +74,7 @@ Pay a Clean Air Zone charge
                                 </label>
                             </div>
                         </div>
+                        <br>
                         <p>Is your vehicle a taxi or private hire vehicle (PHV)?</p>
                         <div class="govuk-radios govuk-radios--inline">
                             <div class="govuk-radios__item">
