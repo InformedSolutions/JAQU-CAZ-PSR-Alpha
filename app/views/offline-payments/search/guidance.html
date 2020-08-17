@@ -1,0 +1,79 @@
+{% extends "layout_offline_payments.html" %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Classes and standards</h1>
+        <table class="govuk-table">
+            <caption class="govuk-table__caption">Clean Air Zone framework</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">Vehicle type</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">Chargeable in</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">CAZ class</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">Minimum Euro standard</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">Euro category</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Bus and coach</td>
+                <td class="govuk-table__cell">Bath, Birmingham, Leeds</td>
+                <td class="govuk-table__cell">A, B, C, D (all)</td>
+                <td class="govuk-table__cell">Euro VI</td>
+                <td class="govuk-table__cell"><strong>M3</strong><br>(GVW over 5000kg and more than 8 seats in addition to the driver)</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Taxi, PHV, minibus</td>
+                <td class="govuk-table__cell">Bath, Birmingham, Leeds</td>
+                <td class="govuk-table__cell">A, B, C, D (all)</td>
+                <td class="govuk-table__cell">Euro 6 (diesel)<br>Euro 4 (petrol)</td>
+                <td class="govuk-table__cell"><strong>M2</strong><br>Minibus (GVW not exceeding 5000 kg, and more than 8 seats in addition to the driver)<br><br>Passenger vehicle with up to 8 seats in addition to the driver</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">HGV</td>
+                <td class="govuk-table__cell">Bath, Birmingham, Leeds</td>
+                <td class="govuk-table__cell">B, C, D</td>
+                <td class="govuk-table__cell">Euro VI</td>
+                <td class="govuk-table__cell"><strong>N2</strong><br>(GVW over 3500 kg)<br><br><strong>N3</strong><br>(GVW over 5000 kg)</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Van</td>
+                <td class="govuk-table__cell">Bath, Birmingham</td>
+                <td class="govuk-table__cell">C, D</td>
+                <td class="govuk-table__cell">Euro 6 (diesel)<br>Euro 4 (petrol)</td>
+                <td class="govuk-table__cell"><strong>N1</strong><br>(GVW not exceeding 3500 kg)</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Cars</td>
+                <td class="govuk-table__cell">Birmingham</td>
+                <td class="govuk-table__cell">D</td>
+                <td class="govuk-table__cell">Euro 6 (diesel)<br>Euro 4 (petrol)</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Motobikes</td>
+                <td class="govuk-table__cell">Birmingham</td>
+                <td class="govuk-table__cell">D (optional)</td>
+                <td class="govuk-table__cell">Euro 3</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+            </tbody>
+          </table>
+        
+    </div>
+</div>
+
+{% endblock %}
