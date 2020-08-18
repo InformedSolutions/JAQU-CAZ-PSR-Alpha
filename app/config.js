@@ -4,7 +4,7 @@
 
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'Clean Air Zones',
+  serviceName: 'Drive in a Clean Air Zone',
   vccsName: 'Check if your vehicle will be charged',
   overallName: 'Drive in a Clean Air Zone',
 
