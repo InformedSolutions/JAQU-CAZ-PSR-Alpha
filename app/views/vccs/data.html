@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Drive in a Clean Air Zone
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Vehicle data
+        </h1>
+      
+      <p>If the inofmration we have for your vehicle is not correct you can update your V5 Certificate (log book) with <a href="https://www.gov.uk/change-vehicle-details-registration-certificate">DVLA</a><br><br>
+        If the information is correct but you are unhappy with charge result please be aware the data accuracy of this service is always improving. It is recommended you recheck your vehicle shortly before you intend to pay to drive in any Clean Air Zones.</p>
+
+        <h3 class="govuk-heading-m">Do you still need to speak to someone?</h3>
+
+        <form method="post" class="form" action="https://contact.dvla.gov.uk/caz/">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="confirm-vehicle-hint">
+                        <div class="govuk-radios govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="confirm-vehicle-1" name="confirm-vehicle"
+                                    type="radio" value="yes">
+                                <label class="govuk-label govuk-radios__label" for="confirm-vehicle-1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="confirm-vehicle-2" name="confirm-vehicle"
+                                    type="radio" value="no">
+                                <label class="govuk-label govuk-radios__label" for="confirm-vehicle-2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="govuk-button" data-module="govuk-button">
+                    Continue
+                  </button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

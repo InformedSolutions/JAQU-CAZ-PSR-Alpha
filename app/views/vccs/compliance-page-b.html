@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">
+            Clean Air Zone charge
+        </h1>
+        <div style="border-color:#0b0c0c" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+              Important information about vehicle data
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  The data accuracy of this service is always improving. It is recommended you recheck your vehicle shortly before you intend to drive in any Clean Air Zones.
+                </li>
+              </ul>
+            </div>
+          </div>
+        <p>Results for number plate <strong>ABC123</strong>.</p>
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header" aria-sort="ascending">Clean Air Zone</th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none">Daily charge</th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none">Charging starts</th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none">Map</th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none">Local authority</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Bath</td>
+                    <td class="govuk-table__cell">No charge</td>
+                    <td class="govuk-table__cell">November 2020</td>
+                    <td class="govuk-table__cell"><a href="https://www.bathnes.gov.uk/bath-breathes-2021-overview/the-zone-boundary" target="_blank">Zone boundary</a></td>
+                    <td class="govuk-table__cell"><a href="https://www.bathnes.gov.uk/bath-breathes-2021-overview" target="_blank">Bath</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Birmingham</td>
+                    <td class="govuk-table__cell">£8.00</td>
+                    <td class="govuk-table__cell">Summer 2020</td>
+                    <td class="govuk-table__cell"><a href="https://www.birmingham.gov.uk/info/20076/pollution/1763/a_clean_air_zone_for_birmingham/2" target="_blank">Zone boundary</a></td>
+                    <td class="govuk-table__cell"><a href="https://www.brumbreathes.co.uk/" target="_blank">Birmingham</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Leeds</td>
+                    <td class="govuk-table__cell">No charge</td>
+                    <td class="govuk-table__cell">Summer 2020</td>
+                    <td class="govuk-table__cell"><a href="https://leedscc.maps.arcgis.com/apps/webappviewer/index.html?id=fd8765f4fa614c64808e32a15ed5ee71" target="_blank">Zone boundary</a></td>
+                    <td class="govuk-table__cell"><a href="https://www.leeds.gov.uk/business/environmental-health-for-business/air-quality" target="_blank">Leeds</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>You do not need to pay until summer 2020 when the zones are live.</p>
+        <p>The zones will operate 24 hours a day, 7 days a week, every day of the year.</p>
+        <h2 class="govuk-heading-m">Why is there a difference in the results?</h2>
+        <p>There are <a href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone#types-of-clean-air-zones" target="_blank">4 categories of Clean Air Zone</a>; each one charges different types of vehicle. For example, Birmingham charges private cars (CAZ D) but Leeds does not (CAZ B).
+        </p>
+        <p>
+            We calculate the charge on whether your vehicle meets the minimum emission standards and whether its type will be charged in that zone.
+        </p>
+
+        
+        
+
+
+        <h2 class="govuk-heading-m">Exemptions, refunds and alternatives to driving</h2>
+        <p>Contact the local authority of the Clean Air Zone you want to drive in for more information on:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>exemptions</li>
+            <li>refunds</li>
+            <li>support to upgrade or replace your vehicle</li>
+            <li>cycling and public transport options</li>
+        </ul>
+        <br>
+
+        <div>
+            <h2 class="govuk-heading-m">Make your next car electric</h2>
+            <p><img src="\public\images\GoUltraLow.png" style="float:left; margin-right:10px">Fully electric vehicles could cost from as little as 2p per mile to run - less than a quarter of the cost
+                of the most fuel-efficient petrol or diesel vehicles. Make your next car electric. 
+                <a href="https://www.goultralow.com/ev-owners/benefits/" target="_blank">Click to find out how much you
+                    could save</a>.</p>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block pageScripts %}
+
+<script>
+    new MOJFrontend.SortableTable({
+        table: [
+            $('table')[0]
+        ]
+    });
+</script>
+{% endblock %}

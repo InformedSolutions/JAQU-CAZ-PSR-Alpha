@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Clean Air Zone charge
+        </h1>
+        <p>Vehicle registration ABC123.</p>
+        <p>Your vehicle does not meet emission standards and may be subject to charge depending on the category of Clean
+            Air Zone.</p>
+
+
+            <div class="govuk-tabs" data-module="govuk-tabs">
+                <h2 class="govuk-tabs__title">
+                  Contents
+                </h2>
+                <ul class="govuk-tabs__list">
+                  <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                    <a class="govuk-tabs__tab" href="#active">
+                      Active
+                    </a>
+                  </li>
+                  <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#inactive">
+                      Inactive
+                    </a>
+                  </li>
+                </ul>
+                <section class="govuk-tabs__panel" id="active">
+
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header" aria-sort="ascending">Clean Air Zone</th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none">CAZ Class</th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none">Charge</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="birmingham.html">Birmingham</a></td>
+                    <td class="govuk-table__cell">D</td>
+                    <td class="govuk-table__cell">£8.00</td>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="placeholder.html">Leeds</a></td>
+                    <td class="govuk-table__cell">B</td>
+                    <td class="govuk-table__cell">No charge</td>
+                </tr>
+            </tbody>
+        </table>
+        </section>
+        <section class="govuk-tabs__panel" id="inactive">
+            <table class="govuk-table">
+
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" aria-sort="ascending">Clean Air Zone</th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none">CAZ Class</th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none">Charge</th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none">Start date</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="banes.html">Bath & N E Somerset</a></td>
+                        <td class="govuk-table__cell">C</td>
+                        <td class="govuk-table__cell">£7.50</td>
+                        <td class="govuk-table__cell">Nov 2020</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="bradford.html">Bradford</a></td>
+                        <td class="govuk-table__cell">B</td>
+                        <td class="govuk-table__cell">No charge</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Bristol</a></td>
+                        <td class="govuk-table__cell">D</td>
+                        <td class="govuk-table__cell">£6.00</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Broxbourne</a></td>
+                        <td class="govuk-table__cell">B</td>
+                        <td class="govuk-table__cell">No charge</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Coventry</a></td>
+                        <td class="govuk-table__cell">D</td>
+                        <td class="govuk-table__cell">£8.00</td>
+                        <td class="govuk-table__cell">Jan 2021</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Greater Manchester</a></td>
+                        <td class="govuk-table__cell">C</td>
+                        <td class="govuk-table__cell">£5.50</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Leicester</a></td>
+                        <td class="govuk-table__cell">D</td>
+                        <td class="govuk-table__cell">£7.00</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Liverpool</a></td>
+                        <td class="govuk-table__cell">C</td>
+                        <td class="govuk-table__cell">£5.50</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Newcastle</a></td>
+                        <td class="govuk-table__cell">D</td>
+                        <td class="govuk-table__cell">£5.50</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Portsmouth</a></td>
+                        <td class="govuk-table__cell">B</td>
+                        <td class="govuk-table__cell">No charge</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Sheffield</a></td>
+                        <td class="govuk-table__cell">C</td>
+                        <td class="govuk-table__cell">£6.00</td>
+                        <td class="govuk-table__cell">Jan 2021</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="placeholder.html">Stoke</a></td>
+                        <td class="govuk-table__cell">B</td>
+                        <td class="govuk-table__cell">No charge</td>
+                        <td class="govuk-table__cell">TBC</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block pageScripts %}
+
+<script>
+    new MOJFrontend.SortableTable({
+        table: [
+            $('table')[0]
+        ]
+    });
+</script>
+<script>
+    new MOJFrontend.SortableTable({
+        table: [
+            $('table')[1]
+        ]
+    });
+</script>
+{% endblock %}

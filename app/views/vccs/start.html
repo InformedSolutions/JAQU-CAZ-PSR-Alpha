@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Clean Air Zones
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+            Check if you'll be charged to drive in a Clean Air Zone
+        </h1>
+
+        <p>Use this service to find out if there will be a daily charge to drive your vehicle in a Clean Air Zone.</p>
+
+        <p>You might need to pay to drive in a Clean Air Zone if your vehicle does not meet emissions standards.</p>
+
+        <p>Bath, Birmingham and Leeds will have the first Clean Air Zones from early 2021.</p>
+
+        <div class="govuk-inset-text">
+            If you want to drive in London you should <a href="https://tfl.gov.uk/modes/driving/check-your-vehicle-35896">check if you need to pay to drive in the Ultra Low Emission Zone</a> on the Transport for London (TfL) website.
+          </div>
+
+        <a href="/vccs/enter-vehicle-details" role="button" draggable="false"
+            class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start"
+            data-module="govuk-button">
+            Start now
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
+                viewBox="0 0 33 40" role="presentation" focusable="false">
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+        </a>
+
+        <h2 class="govuk-heading-m">
+            Before you start
+        </h2>
+
+        <p>You’ll need the number plate (registration number) of the vehicle you want to drive.</p>
+        <p>This service cannot check vehicles that are registered outside the UK.</p>
+
+        <h2 class="govuk-heading-m">
+            Contact Clean Air Zone Support
+        </h2>
+
+        <p>You can contact Clean Air Zone support if you cannot use the online service or you need help.</p>
+        <div class="govuk-inset-text">
+        <strong>Clean Air Zone Support</strong><br>
+        <a href="/vccs/contact-1.html">Online contact form</a><br>
+        Telephone: 0345 873 6070<br>
+        Monday to Friday, 9am to 5pm<br>
+        <a href="https://www.gov.uk/call-charges">Find out about call charges</a><br>
+        </div>
+
+       
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+
+        <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+        <aside class="app-related-items" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li>
+                        <a class="govuk-link" href="/vccs/contact-1.html">
+                            Contact Clean Air Zones
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+    </div>
+
+</div>
+
+{% endblock %}
