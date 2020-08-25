@@ -32,7 +32,7 @@ text: "Back"
       </div>
       {% endif %}
 
-      <h1 class="govuk-heading-xl">Vehicle registration details</h1>
+      <h1 class="govuk-heading-xl">Enter the number plate of the vehicle</h1>
       <form method="POST" class="form" action="/confirm-vehicle-details">
         {% if error %}
         <div class="govuk-form-group govuk-form-group--error">
@@ -40,7 +40,6 @@ text: "Back"
         {% if not error %} 
         <div class="govuk-form-group">
         {% endif %}
-        <h2 class="govuk-heading-m">Registration number</h2>
           <span id="vrn-hint" class="govuk-hint">
             For example, CU57ABC
           </span>

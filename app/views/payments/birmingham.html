@@ -34,7 +34,7 @@ text: "Back"
 
         
 
-        <h1 class="govuk-heading-l">Pay a Birmingham Clean Air Zone charge</h1>
+        <h1 class="govuk-heading-l">Pay a daily Birmingham Clean Air Zone charge</h1>
         <p>The daily charge for your vehicle is:</p>
 
         {% if ((data['vrn'] | capitalize) == 'Def789') or ((data['vrn'] | capitalize) == 'Def 789') %}
@@ -45,12 +45,12 @@ text: "Back"
         <h2 class="govuk-heading-m">£8.00</h2>
         {% endif %}
 
-        <p>You only need to pay once per day (the daily charge period runs from midnight to midnight).</p>
+        <p>The charge period runs from midnight to midnight.</p>
         <div class="govuk-warning-text">
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
                 <span class="govuk-warning-text__assistive">Warning</span>
-                If you don't pay by midnight on the next working day after you have driven in the zone, you will be sent a fine.
+                You have up to 7 days to pay the charge after driving in the zone, or you may pay a penalty charge notice (PCN).
             </strong>
         </div>
         <form method="post" class="form" action="/payments/birmingham">
@@ -70,7 +70,7 @@ text: "Back"
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="confirm-1" name="confirm" type="checkbox" value="correct-details">
                   <label class="govuk-label govuk-checkboxes__label" for="confirm-1">
-                    I confirm that I am not exempt from the Birmingham Clean Air Zone charge (full details about who is exempt from paying the charge in Birmingham can be found <a href="" target="_blank">here</a>).
+                    I confirm that I am not exempt from the Birmingham Clean Air Zone charge <br> (<a href="https://www.brumbreathes.co.uk/exemptions-and-additional-support">Find out who is exempt from paying the charge in Birmingham</a>).
                   </label>
                 </div>
               </div>
@@ -81,7 +81,7 @@ text: "Back"
                 Continue
             </button>
         </form>
-        <p><a href="">Discover alternatives to having to pay</a></p>
+        <p><a href="https://www.brumbreathes.co.uk/info/6/upgrading-car/5/upgrading-car-1">Contact the local authority for support to upgrade or replace your vehicle in Birmingham.</a></p>
     </div>
 </div>
 
