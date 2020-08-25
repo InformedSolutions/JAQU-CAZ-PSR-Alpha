@@ -21,39 +21,14 @@ Pay a Clean Air Zone charge
         </h1>
 
         <h2 class="govuk-heading-m">Vehicle details</h2>
-        
-        <table class="govuk-table">
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell govuk-!-width-one-half" scope="row"></td>
-                    <td class="govuk-table__cell"></td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">Vehicle registration</td>
-                    <th class="govuk-table__cell" style="text-transform: uppercase">{{ data['vrn'] }}</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">CAZ vehicle type</td>
-                    <th class="govuk-table__cell">Car</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">Make</td>
-                    <th class="govuk-table__cell">Peugeot</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">Model</td>
-                    <th class="govuk-table__cell">206</th>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">Colour</td>
-                    <th class="govuk-table__cell">Silver</th>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" scope="row">Fuel type</td>
-                    <th class="govuk-table__cell">Diesel</th>
-                </tr>
-            </tbody>
-        </table>
+       
+        {% if ((data['vrn'] | capitalize) == 'Abc123') or ((data['vrn'] | capitalize) == 'Abc 123') %}
+        {% include 'includes/taxi.html' %}
+
+        {% else %}
+        {% include 'includes/van.html' %}
+        {% endif %}
+
         <form method="post" class="form" action="/vccs/compliance-page-linked">
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="confirm-vehicle-hint">
@@ -74,23 +49,6 @@ Pay a Clean Air Zone charge
                             </div>
                         </div>
                         <br>
-                        <p>Is your vehicle a taxi or private hire vehicle (PHV)?</p>
-                        <div class="govuk-radios govuk-radios--inline">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="confirm-vehicle-4" name="confirm-vehicle4"
-                                    type="radio" value="yes">
-                                <label class="govuk-label govuk-radios__label" for="confirm-vehicle-4">
-                                    Yes
-                                </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="confirm-vehicle-5" name="confirm-vehicle4"
-                                    type="radio" value="no">
-                                <label class="govuk-label govuk-radios__label" for="confirm-vehicle-5">
-                                    No
-                                </label>
-                            </div>
-                        </div>
                     </fieldset>
                 </div>
                 <button type="submit" class="govuk-button">
