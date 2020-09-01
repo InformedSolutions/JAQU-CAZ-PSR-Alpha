@@ -93,16 +93,17 @@ text: "Back"
             </div>
         </details>
         <form method="post" class="form" action="/fleets/single-user/fleet-update-searched">
-            <div class="govuk-form-group" style="margin-bottom: -10px;">
+            <div class="govuk-form-group" style="margin-bottom: -30px;">
                 <label class="govuk-label" for="vrn-search">
                     Search for a number plate
                 </label>
-                <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text">
+                <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text" value="ABC">
                 <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
                     Search
                 </button>
             </div>
         </form>
+        <p><a href="fleet-update-filter-dropdown-many.html">Clear search</a></p>
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -131,7 +132,7 @@ text: "Back"
             </thead>
             <tbody class="govuk-table__body">
 
-                {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
+                {% for vrn in ['ABC111', 'ABC123', 'ABC1234', 'ABC569', 'DABC55', 'GR15ABC', 'TR12ABC', 'TR13ABC', 'TR14ABC', 'UT44ABC'] %}
 
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">{{vrn}}</a></td>
@@ -189,32 +190,16 @@ text: "Back"
 
             <ul class="moj-pagination__list">
 
-                <li class="moj-pagination__item  moj-pagination__item--prev">
-                    <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of
-                            pages</span></a>
-                </li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">1</a></li>
+                
+                <li class="moj-pagination__item moj-pagination__item--active">1</li>
                 <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
-                <li class="moj-pagination__item">...</li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">13</a></li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">14</a></li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">15</a></li>
-                <li class="moj-pagination__item moj-pagination__item--active">16</li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">17</a></li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">18</a></li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">19</a></li>
-                <li class="moj-pagination__item">...</li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">56</a></li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">57</a></li>
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">58</a></li>
 
                 <li class="moj-pagination__item  moj-pagination__item--next">
                     <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of
                             pages</span></a>
                 </li>
             </ul>
-            <p class="moj-pagination__results">Showing <b>151</b> to <b>160</b> of <b>576</b> results</p>
+            <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>13</b> results</p>
         </nav>
         <br>
         <p style="float: right;">Results per page: <select class="govuk-select" id="sort" name="sort">
@@ -223,16 +208,17 @@ text: "Back"
                 <option value="">20</option>
                 <option value="">50</option>
                 <option value="">100</option>
-                <option value="">250</option>
+                <option value="">500</option>
+                <option value="">1000</option>
 
             </select></p>
-        <div class="govuk-checkboxes__item" style="float:left;">
+        <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
             <label class="govuk-label govuk-checkboxes__label" for="waste">
                 Hide vehicles that are not charged in any Zone
             </label>
         </div>
-        <br><br><br><br>
+        <br><br><br>
         <p><a href="\public\images\Vehicle Compliance Results.csv">Download a spreadsheet (CSV) of the charges you would
                 pay to drive in all Clean Air Zones</a></p>
 
