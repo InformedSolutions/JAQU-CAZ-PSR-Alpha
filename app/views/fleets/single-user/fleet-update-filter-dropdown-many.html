@@ -73,25 +73,11 @@ text: "Back"
 
         <h1 class="govuk-heading-l">Manage your vehicles and view charges</h1>
         <p>The table shows the charges you would pay for each of your vehicles if they drive in a Clean Air Zone.</p>
-        <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                    What does undetermined mean?
-                </span>
-            </summary>
-            <div class="govuk-details__text">
-                A charge could not be calculated based on your registration information. If the details we hold are
-                incorrect you should contact
-                <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
-                    target="_blank">DVLA</a>.
-                <br>
-                <br>
-                The charge still needs to be paid but must be done per individual vehicle.
-                <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a
-                    Clean
-                    Air Zone charge service for an individual vehicle</a></p>
-            </div>
-        </details>
+        <div class="govuk-inset-text">
+            <b>Live</b> - you must pay a charge to drive in the zone <br>
+            <b>Upcoming</b> - you do not need to pay until charging starts, you can see the dates on our <a
+                href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone#cleanairzones">guidance page</a>
+        </div>
         <form method="post" class="form" action="/fleets/single-user/fleet-update-searched">
             <div class="govuk-form-group" style="margin-bottom: -10px;">
                 <label class="govuk-label" for="vrn-search">
@@ -221,9 +207,9 @@ text: "Back"
 
                 <option value="">10</option>
                 <option value="">20</option>
+                <option value="">30</option>
+                <option value="">40</option>
                 <option value="">50</option>
-                <option value="">100</option>
-                <option value="">250</option>
 
             </select></p>
         <div class="govuk-checkboxes__item" style="float:left;">
@@ -235,12 +221,26 @@ text: "Back"
         <br><br><br><br>
         <p><a href="\public\images\Vehicle Compliance Results.csv">Download a spreadsheet (CSV) of the charges you would
                 pay to drive in all Clean Air Zones</a></p>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    What does undetermined mean?
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                A charge could not be calculated based on your registration information. If the details we hold are
+                incorrect you should contact
+                <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
+                    target="_blank">DVLA</a>.
+                <br>
+                <br>
+                The charge still needs to be paid but must be done per individual vehicle.
+                <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a
+                    Clean
+                    Air Zone charge service for an individual vehicle</a></p>
+            </div>
+        </details>
 
-        <div class="govuk-inset-text">
-            <b>Live</b> - you must pay a charge to drive in the zone <br>
-            <b>Upcoming</b> - you do not need to pay until charging starts, you can see the dates on our <a
-                href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone#cleanairzones">guidance page</a>
-        </div>
 
         <h2 class="govuk-heading-m">Add vehicles</h2>
         <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
