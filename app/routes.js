@@ -996,7 +996,24 @@ router.post('/accounts-start', function (req, res) {
   } else if (cazaction == 'create-account') {
       res.redirect('https://accountpay.cleanairzone.defra.gov.uk/organisations')
   } else {
-      res.render('vccs/contact-1', {
+      res.render('start-pages/start-accounts-3', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
+
+router.post('/accounts-march2', function (req, res) {
+  var cazaction = req.body['cazaction'];
+
+  if (cazaction == 'vccs') {
+          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+  } else if (cazaction == 'sign-in') {
+      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+  } else if (cazaction == 'pay-iod') {
+      res.redirect('https://pay.cleanairzone.defra.gov.uk')
+  } else {
+      res.render('start-pages/start-accounts-march-2', {
           error: true,
           errorMessage: "Select an answer"
       })
