@@ -986,5 +986,21 @@ router.post('/vccs/contact', function (req, res) {
 });
 
 
+router.post('/accounts-start', function (req, res) {
+  var cazaction = req.body['cazaction'];
+
+  if (cazaction == 'vccs') {
+          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+  } else if (cazaction == 'sign-in') {
+      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+  } else if (cazaction == 'create-account') {
+      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/organisations')
+  } else {
+      res.render('vccs/contact-1', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
 
 module.exports = router

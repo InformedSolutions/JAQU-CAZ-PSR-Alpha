@@ -33,7 +33,7 @@ text: "Back"
     {% endif %}
 
     <h1 class="govuk-heading-l">What would you like to do?</h1>
-    <form method="post" class="form" action="/payments/paymentPages">
+    <form method="post" class="form" action="/accounts-start">
       <div class="govuk-form-group">
         {% if error %}
         <div class="govuk-form-group govuk-form-group--error">
@@ -49,15 +49,21 @@ text: "Back"
             {% endif %}
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="caz-2" name="caz" type="radio" value="birmingham">
-              <label class="govuk-label govuk-radios__label" for="caz-2">
-                Sign in
-              </label>
+              <input class="govuk-radios__input" id="cazaction-2" name="cazaction" type="radio" value="vccs">
+              <label class="govuk-label govuk-radios__label" for="cazaction-2">
+                Check a single vehicle
+                <div id="sort-code-hint" class="govuk-hint">
+                  Find out if your vehicle will be charged to drive in a Clean Air Zones.
+                </div>
+              </label> 
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="caz-3" name="caz" type="radio" value="leeds">
-              <label class="govuk-label govuk-radios__label" for="caz-3">
-                Create a business account
+              <input class="govuk-radios__input" id="cazaction-3" name="cazaction" type="radio" value="sign-in">
+              <label class="govuk-label govuk-radios__label" for="cazaction-3">
+                Check multiple vehicles
+                <div id="sort-code-hint" class="govuk-hint">
+                  Create an account or sign in to check multiple vehicles.
+                </div>
               </label>
             </div>
           </div>
