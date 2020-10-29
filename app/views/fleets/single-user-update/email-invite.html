@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">You have been invited to set up an account</h1>
+        <p>You have been invited to join Company Name's Clean Air Zone account.</p>
+        <p>Create a password so that you can sign in.</p>
+        <form method="POST" class="form" action="account-complete">
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="password">
+                    Password
+                </label>
+                <span id="account-number-hint" class="govuk-hint">
+                    Must be at least 8 characters long, include at least 1 upper case letter and a number
+                  </span>
+                <input class="govuk-input govuk-input--width-20" id="password" name="password" type="password"
+                    aria-describedby="password-hint">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="confirm-password">
+                    Confirm Password
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="confirm-password" name="confirm-password"
+                    type="password" aria-describedby="password-hint">
+            </div>
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

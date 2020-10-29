@@ -1,0 +1,106 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                Payment complete
+            </h1>
+            <p style="color: white; font-size: 30px;">
+                Payment reference
+                <br>
+                <b>FL123ABCD</b>
+            </p>
+            <p style="color: white; font-size: 30px;">
+                Payment ID
+                <br>
+                <b>phokjvd38mnkh482uteguns6p7</b>
+            </p>
+        </div>
+        <p>A receipt will be sent to example@email.com.</p>
+        <p>You can use the payment reference above as proof of payment.</p>
+        <h2 class="govuk-heading-m">You have paid for:</h2>
+        
+        
+        
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                    Clean Air Zone
+                </dt>
+                <dd class="govuk-summary-list__key">
+                    {{data['caz']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                        
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                    Entries paid for
+                </dt>
+                <dd class="govuk-summary-list__key">
+                    10
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                        
+                      </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                    Total charge
+                </dt>
+                <dd class="govuk-summary-list__key">
+                    £206
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="post-charge-details">
+                          View details
+                        </a>
+                      </dd>
+            </div>
+        </dl>
+        
+
+
+       
+        <h2 class="govuk-heading-m">Alternatives to paying the charge</h2> 
+        <p>If you own, lease, or operate vehicles that do not meet the emissions standards, you may qualify for financial help to modify, retrofit or replace your vehicles.</p>
+        {% if (data['caz'] == "Birmingham") %}
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Find out about upgrades and retrofits for your vehicles by visiting <a href="https://businessbreathes.co.uk" target="_blank">Birmingham City Council website</a></li>
+        </ul>
+        {% else %}
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Find out about upgrades and retrofits for buses, coaches ad HGVs by visiting <a href="https://www.leeds.gov.uk/business/environmental-health-for-business/air-quality/support-for-buses-coaches-and-hgvs-clean-air-charging-zone" target="_blank">Leeds City Council website</a></li>
+            <li>Find out about upgrades and retrofits for taxis and Private Hire Vehicles by visiting <a href="https://www.leeds.gov.uk/business/environmental-health-for-business/air-quality/support-for-buses-coaches-and-hgvs-clean-air-charging-zone" target="_blank">Leeds City Council website</a></li>
+        </ul>
+        {% endif %}
+
+
+
+
+        <p><a href="javascript:window.print()">Print this page</a></p>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Other tasks</h2>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="select-caz">Pay for another Clean Air Zone</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

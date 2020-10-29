@@ -1,0 +1,200 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
+        <p><strong>This list only contains vehicles that are subject to a charge in {{data['caz']}}.</strong></p>
+        <p>You can pay for the past 6 days and the next 7 days, which includes today.</p>
+        <p>A daily charge period runs from midnight to midnight.</p>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Why can't I see my date?
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                If the date you want to pay for is not displayed, it may be because:<br><br>
+                <li>The 7 day period you had to pay has ended.<br>You may be subject to a penalty charge notice (PCN).
+                </li><br>
+                <li>The date is too far in the future.<br>You should check back here closer to the date you want.
+                </li>
+            </div>
+        </details>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+
+                <div class="govuk-tabs" data-module="govuk-tabs">
+                    <h2 class="govuk-tabs__title">
+                        Contents
+                    </h2>
+                    <ul class="govuk-tabs__list">
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                            <a class="govuk-tabs__tab" href="#past-day">
+                                Past 6 days
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#past-week">
+                                Next 7 days
+                            </a>
+                        </li>
+                    </ul>
+                    <section class="govuk-tabs__panel" id="past-day">
+                        <h2 class="govuk-heading-l">Past 6 days</h2>
+                        <p><strong>Check a box for each vehicle and date it drove in a Clean Air Zone.</strong></p>
+                        <p><strong>Select all that apply.</strong></p>
+                        <p>If you have already paid for a date, it will show as Paid.</p>
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header">Number plate</th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('subtract', 6, 'days') | date("ddd D") }}<br>{{date | date('subtract', 6, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('subtract', 5, 'days') | date("ddd D") }}<br>{{date | date('subtract', 5, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('subtract', 4, 'days') | date("ddd D") }}<br>{{date | date('subtract', 4, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('subtract', 3, 'days') | date("ddd D") }}<br>{{date | date('subtract', 3, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('subtract', 2, 'days') | date("ddd D") }}<br>{{date | date('subtract', 2, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('subtract', 1, 'days') | date("ddd D") }}<br>{{date | date('subtract', 1, 'days') | date("MMM") }}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                {% for vrn in ["AB12CDE","AF03WMY","BT02VYL","BO51WQE","B15JIK","B56FGF","BH75BJH","B057BOX","B66PPR","BL08JTZ"] %}
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">{{vrn}}</td>
+                                    {% for i in range(6) %}
+                                    <td class="govuk-table__cell">
+                                        {% if (i == 3 and vrn == 'AF03WMY') or (i == 2 and vrn == 'BO51WQE') or (vrn == 'B66PPR') or (i > 2 and vrn == 'B057BOX') %}
+                                        <p>Paid</p>
+                                        {% else %}
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="select" name="select"
+                                                type="checkbox" value="select">
+                                            <label class="govuk-label govuk-checkboxes__label" for="select">
+                                            </label>
+                                        </div>
+                                        {% endif %}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+                        <h2 class="govuk-heading-l">Next 7 days</h2>
+                        <p><strong>Check a box for each vehicle and date it will drive in a Clean Air Zone.</strong></p>
+                        <p><strong>Select all that apply.</strong></p>
+                        <p>If you have already paid for a date, it will show as Paid.</p>
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header">Number plate</th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date("ddd D") }}<br>{{date | date("MMM") }}</th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('add', 1, 'days') | date("ddd D") }}<br>{{date | date('add', 1, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('add', 2, 'days') | date("ddd D") }}<br>{{date | date('add', 2, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('add', 3, 'days') | date("ddd D") }}<br>{{date | date('add', 3, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('add', 4, 'days') | date("ddd D") }}<br>{{date | date('add', 4, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('add', 5, 'days') | date("ddd D") }}<br>{{date | date('add', 5, 'days') | date("MMM") }}
+                                    </th>
+                                    <th scope="col" class="govuk-table__header">
+                                        {{date | date('add', 6, 'days') | date("ddd D") }}<br>{{date | date('add', 6, 'days') | date("MMM") }}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                {% for vrn in ["AB12CDE","AF03WMY","BT02VYL","BO51WQE","B15JIK","B56FGF","BH75BJH","B057BOX","B66PPR","BL08JTZ"] %}
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">{{vrn}}</td>
+                                    {% for i in range(7) %}
+                                    <td class="govuk-table__cell">
+                                        {% if (vrn == 'B66PPR') %}
+                                        <p>Paid</p>
+                                        {% else %}
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="select" name="select"
+                                                type="checkbox" value="select">
+                                            <label class="govuk-label govuk-checkboxes__label" for="select">
+                                            </label>
+                                        </div>
+                                        {% endif %}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </section>
+
+
+
+                    <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="vrn-search">
+                                Search for a number plate
+                            </label>
+                            <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search"
+                                type="text">
+                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                    <nav class="moj-pagination" id="pagination-label" style="text-align:center; margin-top:-100px; margin-bottom: 75px">
+
+                        <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+
+                        <ul class="moj-pagination__list">
+
+                            <li class="moj-pagination__item  moj-pagination__item--next">
+                                <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of
+                                        pages</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </fieldset>
+            <form method="post" class="form" action="/fleets/single-user/confirm-charge">
+                <button type="submit" class="govuk-button">
+                    Continue
+                </button>
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+
+        <h1 class="govuk-heading-l">Upload multiple vehicles</h1>
+        <p>To find out if your vehicles will be charged in each Clean Air Zone:</p>
+        <ol class="govuk-list govuk-list--number">
+            <li>Download the <a href="\public\images\docs\VehicleUploadTemplate.csv">template</a>.</li>
+            <li>Enter all your number plates (vehicle registration numbers) in the first column.</li>
+            <li>Save. The name of the file does not matter.</li>
+            <li>Upload the file.</li>
+          </ol>
+        
+        <form method="POST" class="form" action="/fleets/single-user/local-exemption">
+                <div class="govuk-form-group">
+                    <input class="govuk-file-upload govuk-file-upload" id="file-upload-1" name="file-upload-1"
+                        type="file" aria-describedby="file-upload-1">
+                </div>
+
+                <br>
+
+                {% if data['rtn'] %}
+                <input type="hidden" name="rtn" value="true">
+                {% endif %}
+
+                <button type="submit" class="govuk-button" name="registered" value="true">
+                    Upload file
+                </button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

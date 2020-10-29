@@ -1,0 +1,35 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+
+        <h1 class="govuk-heading-l">Local vehicle exemptions</h1>
+        <p>Some vehicles which don't meet emissions standards still qualify for a temporary or permanent exemption from the Clean Air Zone charges.</p>
+        <p>It is your responsibility to check if your vehicles are eligible for an exemption from the local authority in the Clean Air Zone you are driving in.</p>
+        
+        
+        <form method="POST" class="form" action="fleets-confirmation">
+                    <button type="submit" class="govuk-button" name="registered" value="true">
+                    Continue
+                </button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

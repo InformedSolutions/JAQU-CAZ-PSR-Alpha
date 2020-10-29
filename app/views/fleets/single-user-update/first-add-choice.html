@@ -1,0 +1,54 @@
+{% extends "layout_account.html" %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/add-vehicle-choice" method="post" novalidate>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            You must first add vehicles to your account in order to make a payment
+                        </h1>
+                    </legend>
+                    <span id="sign-in-hint" class="govuk-hint">
+                        Choose how you would like to add vehicles to your account.
+                      </span>
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="add-choice" name="add-choice" type="radio"
+                                value="upload">
+                            <label class="govuk-label govuk-radios__label govuk-label--s" for="add-choice">
+                                CSV upload
+                            </label>
+                            <span id="add-choice" class="govuk-hint govuk-radios__hint">
+                                Upload a list of the vehicles you would like adding to your account.
+                            </span>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="add-choice-2" name="add-choice" type="radio"
+                                value="manual">
+                            <label class="govuk-label govuk-radios__label govuk-label--s" for="add-choice-2">
+                                Manual entry
+                            </label>
+                            <span id="add-choice-2" class="govuk-hint govuk-radios__hint">
+                                Enter your vehicles one by one.
+                            </span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
