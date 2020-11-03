@@ -163,6 +163,7 @@ Pay a Clean Air Zone charge
 
 
                     <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
+                       <br>
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="vrn-search">
                                 Search for a number plate
@@ -173,6 +174,17 @@ Pay a Clean Air Zone charge
                                 Search
                             </button>
                         </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="sort">
+                              Sort by groupings
+                            </label>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="published">Select grouping</option>
+                              <option value="updated" selected>Example grouping 1</option>
+                              <option value="updated" selected>Example grouping 2</option>
+                          </div>
+
                     </form>
                     <nav class="moj-pagination" id="pagination-label" style="text-align:center; margin-top:-100px; margin-bottom: 75px">
 

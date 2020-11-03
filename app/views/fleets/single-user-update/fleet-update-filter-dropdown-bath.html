@@ -106,6 +106,7 @@ text: "Back"
                             <option value="comments">Leicester</option>
                             <option value="comments">Tyneside</option>
                         </select></th>
+                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Grouping</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
                 </tr>
             </thead>
@@ -128,6 +129,14 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">Van</td>
                     <td class="govuk-table__cell" scope="row">£9</td>
                     {% endif %}
+                    <td class="govuk-table__cell" scope="row">
+                        <select class="govuk-select" id="sort" name="sort">
+                          <option value="published">x</option>
+                          <option value="updated" selected>Grouping</option>
+                          <option value="views">x</option>
+                          <option value="comments">x</option>
+                        </select>
+                      </td>
                     <td class="govuk-table__cell" scope="row"><a
                             href="/fleets/single-user/remove-confirm?vrn={{vrn}}">Remove</a></td>
                 </tr>
