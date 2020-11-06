@@ -1,0 +1,90 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" class="form" action="/fleets/single-user-update/vehicle-grouping">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="permissions-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Save payment
+                        </h1>
+                    </legend>
+
+                    
+            <div class="govuk-form-group">
+
+                <label class="govuk-label" for="name">Draft name</label>
+                <input class="govuk-input" id="name" name="name" type="text" style="width: 60%;" autocomplete="name"
+                    spellcheck="false" value="{{name}}">
+            </div>
+
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+    
+                 <p>
+                      Who would you like to review this payment?
+                    </p>
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+                      <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                        claire.doherty@informed.com
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                      <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                        fiona.murray@defra.gov.uk
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+                      <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                        No one
+                      </label>
+                    </div>
+                  </div>
+              
+                </fieldset>
+              </div>
+                   
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </br>
+            <a href="#">Cancel</a>
+
+        </form>
+
+     
+
+
+    </div>
+    
+</div>
+
+{% endblock %}
