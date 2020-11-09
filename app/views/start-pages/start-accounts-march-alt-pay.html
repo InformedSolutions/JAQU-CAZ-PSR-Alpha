@@ -32,8 +32,8 @@ text: "Back"
     </div>
     {% endif %}
 
-    <h1 class="govuk-heading-l">What would you like to do?</h1>
-    <form method="post" class="form" action="/accounts-march2">
+    <h1 class="govuk-heading-l">How many vehicles do you want to pay for?</h1>
+    <form method="post" class="form" action="/accounts-marchaltpay">
       <div class="govuk-form-group">
         {% if error %}
         <div class="govuk-form-group govuk-form-group--error">
@@ -49,32 +49,17 @@ text: "Back"
             {% endif %}
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cazaction-2" name="cazaction" type="radio" value="vccs">
+              <input class="govuk-radios__input" id="cazaction-2" name="cazaction" type="radio" value="pay-one">
               <label class="govuk-label govuk-radios__label" for="cazaction-2">
-                <strong>Check a single vehicle</strong>
-                <div id="sort-code-hint" class="govuk-hint">
-                  Find out if your vehicle will be charged to drive in a Clean Air Zones.
-                </div>
+                One
               </label> 
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cazaction-3" name="cazaction" type="radio" value="pay-iod">
+              <input class="govuk-radios__input" id="cazaction-3" name="cazaction" type="radio" value="pay-multiple">
               <label class="govuk-label govuk-radios__label" for="cazaction-3">
-                <strong>Pay a charge for a single vehicle</strong>
-                <div id="sort-code-hint" class="govuk-hint">
-                If you have driven or are planning on driving in a Clean Air Zones that is charging. 
-                </div>
+                More than two (business account)
               </label>
             </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="cazaction-3" name="cazaction" type="radio" value="sign-in">
-            <label class="govuk-label govuk-radios__label" for="cazaction-3">
-              <strong>Check and pay for multiple vehicles</strong>
-              <div id="sort-code-hint" class="govuk-hint">
-                Create a business account or sign in to check and pay for multiple vehicles.
-              </div>
-            </label>
-          </div>
           </div>
         </fieldset>
       </div>

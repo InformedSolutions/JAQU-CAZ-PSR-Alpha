@@ -1020,4 +1020,50 @@ router.post('/accounts-march2', function (req, res) {
   }
 });
 
+router.post('/accounts-marchalt2', function (req, res) {
+  var cazaction = req.body['cazaction'];
+
+  if (cazaction == 'check') {
+          res.redirect('/start-pages/start-accounts-march-alt-check')
+  } else if (cazaction == 'pay') {
+      res.redirect('/start-pages/start-accounts-march-alt-pay')
+  } else {
+      res.render('start-pages/start-accounts-march-alt-2', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
+
+router.post('/accounts-marchaltcheck', function (req, res) {
+  var cazaction = req.body['cazaction'];
+
+  if (cazaction == 'check-one') {
+          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+  } else if (cazaction == 'check-multiple') {
+      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+  } else {
+      res.render('start-pages/start-accounts-march-alt-check', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
+
+router.post('/accounts-marchaltpay', function (req, res) {
+  var cazaction = req.body['cazaction'];
+
+  if (cazaction == 'pay-one') {
+          res.redirect('https://pay.cleanairzone.defra.gov.uk')
+  } else if (cazaction == 'pay-multiple') {
+      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+  } else {
+      res.render('start-pages/start-accounts-march-alt-check', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
+
+
 module.exports = router
