@@ -990,7 +990,7 @@ router.post('/accounts-start', function (req, res) {
   var cazaction = req.body['cazaction'];
 
   if (cazaction == 'vccs') {
-          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+          res.redirect('vccs/enter-vehicle-details')
   } else if (cazaction == 'sign-in') {
       res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
   } else if (cazaction == 'create-account') {
@@ -1007,7 +1007,7 @@ router.post('/accounts-march2', function (req, res) {
   var cazaction = req.body['cazaction'];
 
   if (cazaction == 'vccs') {
-          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+          res.redirect('vccs/enter-vehicle-details')
   } else if (cazaction == 'sign-in') {
       res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
   } else if (cazaction == 'pay-iod') {
@@ -1039,7 +1039,7 @@ router.post('/accounts-marchaltcheck', function (req, res) {
   var cazaction = req.body['cazaction'];
 
   if (cazaction == 'check-one') {
-          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+          res.redirect('vccs/enter-vehicle-details')
   } else if (cazaction == 'check-multiple') {
       res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
   } else {
