@@ -1011,7 +1011,7 @@ router.post('/accounts-march2', function (req, res) {
   } else if (cazaction == 'sign-in') {
       res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
   } else if (cazaction == 'pay-iod') {
-      res.redirect('https://pay.cleanairzone.defra.gov.uk')
+      res.redirect('https://t2m.io/XG3Yuwni')
   } else {
       res.render('start-pages/start-accounts-march-2', {
           error: true,
@@ -1054,7 +1054,7 @@ router.post('/accounts-marchaltpay', function (req, res) {
   var cazaction = req.body['cazaction'];
 
   if (cazaction == 'pay-one') {
-          res.redirect('https://pay.cleanairzone.defra.gov.uk')
+          res.redirect('https://t2m.io/XG3Yuwni')
   } else if (cazaction == 'pay-multiple') {
       res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
   } else {
