@@ -1,0 +1,58 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Add a user</h1>
+
+        <p>
+            Invite team members to help manage your company account.
+        </p>
+
+        <p>Once set up you can choose whether they can invite other users to use the account, make payments, set up Direct Debits and manage vehicles.</p>
+
+        <form method="POST" class="form" action="/fleets/single-user/add-user-permissions">
+
+            <div class="govuk-form-group">
+
+                <label class="govuk-label" for="name">Name</label>
+                <input class="govuk-input" id="name" name="name" type="text" style="width: 60%;" autocomplete="name"
+                    spellcheck="false" value="{{name}}">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="user-email">
+                    Enter their email address
+                </label>
+                <span id="user-email-hint" class="govuk-hint">
+                    This will be used to send an invite to create an account.
+                </span>
+                <input class="govuk-input" id="user-email" name="user-email" type="user-email"
+                    aria-describedby="user-email-hint" autocomplete="user-email" spellcheck="false">
+            </div>
+
+
+
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

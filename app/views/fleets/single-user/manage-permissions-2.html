@@ -1,0 +1,107 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" class="form" action="/fleets/single-user/manage-users-added-2">
+            <h1 class="govuk-heading-l">Manage user</h1>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="permissions-hint">
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption">User details</caption>
+                        <thead class="govuk-table__head">
+                          <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Name</th>
+                            <th scope="col" class="govuk-table__header">Email address</th>
+                            <th scope="col" class="govuk-table__header"></th>
+                          </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">{{data['name']}}</td>
+                            <td class="govuk-table__cell">{{data['user-email']}}</td>
+                            <td class="govuk-table__cell"><a href="remove">Remove</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p><strong>User permissions</strong></p>
+                      <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-3" name="permissions" type="checkbox"
+                                value="vehicles" checked>
+                            <label class="govuk-label govuk-checkboxes__label govuk-label--s" for="permissions-3">
+                                Manage vehicles
+                            </label>
+                            <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                Add and remove vehicles
+                              </span>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-5" name="permissions" type="checkbox"
+                                value="directDebits" checked>
+                            <label class="govuk-label govuk-checkboxes__label govuk-label--s" for="permissions-5">
+                                Set up Direct Debits
+                            </label>
+                            <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                Create Direct Debit mandates
+                              </span>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-4" name="permissions" type="checkbox"
+                                value="payments" checked>
+                            <label class="govuk-label govuk-checkboxes__label govuk-label--s" for="permissions-4">
+                                Make payments
+                            </label>
+                            <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                By credit/debit card and Direct Debit
+                              </span>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions" name="permissions" type="checkbox"
+                                value="users" checked>
+                            <label class="govuk-label govuk-checkboxes__label govuk-label--s" for="permissions">
+                                Manage users
+                            </label>
+                            <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                Add and remove users and edit permissions
+                              </span>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="permissions-2" name="permissions" type="checkbox"
+                                value="history" checked>
+                            <label class="govuk-label govuk-checkboxes__label govuk-label--s" for="permissions-2">
+                                View payment history
+                            </label>
+                            <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                View all charges paid by the company
+                              </span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+            <button type="submit" class="govuk-button">
+                Save changes
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "layout_account-no-nav.html" %}
 
 {% block beforeContent %}
 {{ govukBackLink({
@@ -9,7 +9,7 @@ text: "Back"
 {% endblock %}
 
 {% block pageTitle %}
-  Pay a Clean Air Zone charge
+  Drive in a Clean Air Zone
 {% endblock %}
 
 {% block content %}   
@@ -47,7 +47,7 @@ text: "Back"
           {% endif %}
         <fieldset class="govuk-fieldset">
         <div class="govuk-form-group">
-            <label class="govuk-label govuk-date-input__label" for="username"><b>Username</b></label>
+            <label class="govuk-label govuk-date-input__label" for="username"><b>Email address</b></label>
             <input class="govuk-input" id="username" name="username" type="text" style="width: 60%;" spellcheck="false">
         </div>
         <div class="govuk-form-group">
@@ -64,6 +64,9 @@ text: "Back"
             Continue
         </button>
       </form>
+
+      <p>
+        If you don’t have an account you can <a href=""">create an account</a></p>
 
     </div>
 </div>

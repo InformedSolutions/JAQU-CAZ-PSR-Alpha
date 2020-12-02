@@ -1,0 +1,139 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Help</h1>
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section ">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                    When the zones start charging
+                  </span>
+                </h2>
+              </div>
+                <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="col">CAZ</th>
+                                <th class="govuk-table__header" scope="col">Charging starts</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row">Bath</th>
+                                <td class="govuk-table__cell">15 March 2021</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row">Birmingham</th>
+                                <td class="govuk-table__cell">1 June 2021</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                    Zone boundaries
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+               <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col">CAZ</th>
+                            <th class="govuk-table__header" scope="col">Map</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Bath</th>
+                            <td class="govuk-table__cell">
+                                <a target="_blank" class="govuk-link" rel="noopener" aria-label="Zone boundary (opens in a new window)" id="bath-map" href="http://www.bathnes.gov.uk/zonemaps">Zone boundary (opens in a new window)</a>
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Birmingham</th>
+                            <td class="govuk-table__cell">
+                                <a target="_blank" class="govuk-link" rel="noopener" aria-label="Zone boundary (opens in a new window)" id="birmingham-map" href="https://www.birmingham.gov.uk/info/20076/pollution/1763/a_clean_air_zone_for_birmingham/2">Zone boundary (opens in a new window)</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="govuk-accordion__section ">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                   Exemptions
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                <p>There are some national and local exemptions from the charge.</p>
+                    <h3 class="govuk-heading-s">National</h3>
+                     <p>Vehicles that do not have to pay the charge as they are automatically entitled to a national exemption:</p>
+                     <ul class="govuk-list govuk-list--bullet">
+                        <li>vehicle that’s ultra low emission</li>
+                        <li>disabled passenger tax class vehicle</li>
+                        <li>military vehicle</li>
+                        <li>historic vehicle</li>
+                        <li>vehicle retrofitted with technology accredited by the <a target="_blank" class="govuk-link" rel="noopener" aria-label="Clean Vehicle Retrofit Accreditation Scheme (opens in a new window)" id="cvras" href="https://energysavingtrust.org.uk/service/clean-vehicle-retrofit-accreditation-scheme">Clean Vehicle Retrofit Accreditation Scheme (opens in a new window)</a>
+                        (CVRAS)</li>
+                    </ul>
+                    <h3 class="govuk-heading-s">Local</h3>
+                    <p>Local exemptions are specific to the local authority of each CAZ and are managed by them. You usually
+                    have to apply for local exemptions.</p>
+                    <p>You can find out more about local exemptions for driving in:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><a id="bath-exemption" href="http://www.bathnes.gov.uk/CAZexemptions">Bath</a></li>
+                        <li><a id="birmingham-exemption" href="https://www.brumbreathes.co.uk/exemptions-and-additional-support">Birmingham</a></li>
+                    </ul>
+              </div>
+            </div>
+            <div class="govuk-accordion__section ">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                   Contact Clean Air Zone Support
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                <p>You can contact Clean Air Zone Support if you cannot use the online service or you need help.</p>
+                    <div class="govuk-details">
+                        <div class="govuk-details__text">
+                            <strong>Clean Air Zone Support</strong><br>
+                            <a target="_blank" class="govuk-link" rel="noopener" aria-label="Online contact form (opens in a new window)" id="contact-form" href="https://contact-preprod.dvla.gov.uk/">Online contact form (opens in a new window)</a>
+                            <br> Telephone: 0300 029 8888
+                            <br>Monday to Friday, 8am to 4:30pm<br>
+                            <a target="_blank" class="govuk-link" rel="noopener" aria-label="Find out about call charges (opens in a new window)" id="call-charges" href="https://www.gov.uk/call-charges">Find out about call charges (opens in a new window)</a>
+                        </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+          
+          
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Add a vehicle grouping</h1>
+
+        <p>
+            Create groupings of your vehicle list to easily access a sub section when making payments.
+        </p>
+
+        <form method="POST" class="form" action="/fleets/single-user-update/add-group">
+
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Add a group
+              </button>
+
+        </form>
+
+        <a href="#">Return to Account home</a>
+
+    </div>
+</div>
+
+{% endblock %}

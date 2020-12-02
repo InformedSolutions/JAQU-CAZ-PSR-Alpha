@@ -1,0 +1,33 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+
+        <h1 class="govuk-heading-l">Uploading multiple vehicles</h1>
+        <p>You can upload multiple vehicles at once to allow you to pay for multiple vehicles and check whether they are subject to charge.</p>
+        <p>To get started, <a href="\public\images\docs\VehicleUploadTemplate.csv">dowload the CSV template</a>. You can open the file in a spreadsheet program.</p>
+        <p>You will need to enter the number plates (Vehicle Registration Number) of all your vehicles. Do not enter anything else into the CSV file.</p>
+        <p>Once you have entered all the number plates of your vehicles, save the file and upload it. The name of the file does not matter.</p>
+        <p>The upload may take a couple of minutes, when this has completed you will be able to see where they are subject to charge and pay for multiple vehicles at once.</p>
+        <p><a href="csv-upload.html">Return to upload</a></p>
+        
+
+    </div>
+</div>
+
+{% endblock %}

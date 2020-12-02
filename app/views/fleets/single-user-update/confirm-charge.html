@@ -1,0 +1,79 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Review your payment</h1>
+        <form method="post" class="form" action="/fleets/single-user/fleet-debit-credit-card">
+            <div class="govuk-form-group">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Clean Air Zone
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{data['caz']}}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="select-caz">
+                                Change<span class="govuk-visually-hidden"> Clean Air Zone</span>
+                            </a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Entries selected
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            10
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="date-vehicle-matrix-tabbed">
+                                Change<span class="govuk-visually-hidden"> dates</span>
+                            </a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Total charge
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            £206
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="charge-details">View details</a>
+                        </dd>
+                    </div>
+                </dl>
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="confirm-1" name="confirm" type="checkbox" value="correct-details">
+                      <label class="govuk-label govuk-checkboxes__label" for="confirm-1">
+                        I confirm my vehicles are not exempt from paying the Birmingham Clean Air Zone charge.<br>(Find out more about exemptions from <a href="https://www.brumbreathes.co.uk/exemptions-and-additional-support" target="_blank">Birmingham City Council</a>).
+                      </label>
+                    </div>
+                    <br>
+                    
+                    <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                        Save and continue
+                      </button>
+                      
+                      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                        Save as draft
+                      </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout_account.html" %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Manage vehicle groupings</h1>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption">Groupings</caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Number of vehicles</th>
+                    <th class="govuk-table__header" scope="col"></th>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Example group 1</td>
+                    <td class="govuk-table__cell" scope="row">10</td>
+                    <td class="govuk-table__cell" scope="row"><a href="manage-permissions">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Example group 2</td>
+                    <td class="govuk-table__cell" scope="row">300</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="post" class="form" action="/fleets/single-user-update/add-group">
+            
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Add a grouping
+              </button>
+        </form>
+        <p>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

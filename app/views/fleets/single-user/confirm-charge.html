@@ -14,8 +14,8 @@ Pay a Clean Air Zone charge
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Confirm your payment</h1>
-        <form method="post" class="form" action="/fleets/single-user/choose-payment-method">
+        <h1 class="govuk-heading-l">Review your payment</h1>
+        <form method="post" class="form" action="/fleets/single-user/fleet-debit-credit-card">
             <div class="govuk-form-group">
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
@@ -23,10 +23,10 @@ Pay a Clean Air Zone charge
                             Clean Air Zone
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            Birmingham
+                            {{data['caz']}}
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
+                            <a class="govuk-link" href="select-caz">
                                 Change<span class="govuk-visually-hidden"> Clean Air Zone</span>
                             </a>
                         </dd>
@@ -36,10 +36,10 @@ Pay a Clean Air Zone charge
                             Entries selected
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            13
+                            10
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
+                            <a class="govuk-link" href="date-vehicle-matrix-tabbed">
                                 Change<span class="govuk-visually-hidden"> dates</span>
                             </a>
                         </dd>
@@ -49,13 +49,21 @@ Pay a Clean Air Zone charge
                             Total charge
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            £230
+                            £206
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="charge-details">View details</a>
                         </dd>
                     </div>
                 </dl>
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="confirm-1" name="confirm" type="checkbox" value="correct-details">
+                      <label class="govuk-label govuk-checkboxes__label" for="confirm-1">
+                        I confirm my vehicles are not exempt from paying the Birmingham Clean Air Zone charge.<br>(Find out more about exemptions from <a href="https://www.brumbreathes.co.uk/exemptions-and-additional-support" target="_blank">Birmingham City Council</a>).
+                      </label>
+                    </div>
+                    <br>
                 <button type="submit" class="govuk-button">
                     Continue
                 </button>

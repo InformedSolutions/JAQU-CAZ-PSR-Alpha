@@ -31,13 +31,13 @@ text: "Back"
       </div>
       {% endif %}
 
-    <h1 class="govuk-heading-l">Create account</h1>
+    <h1 class="govuk-heading-l">Create an account</h1>
 
     <span id="passport-issued-hint" class="govuk-hint">
-      You can upload and pay the charge for multiple vehicles.
+        Upload and pay the charge for multiple vehicles.
     </span>
 
-    <form method="POST" class="form" action="email-address">
+    <form method="POST" class="form" action="/fleets/organisation-account/vehicle-amount">
         {% if error %}
           <div class="govuk-form-group govuk-form-group--error">
         {% endif %}

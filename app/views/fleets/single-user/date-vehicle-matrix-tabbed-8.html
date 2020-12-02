@@ -1,0 +1,213 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
+        <p>A daily charge runs from midnight to midnight.</p>
+        <p>You can pay for the past 6 days and the next 7 days, which includes today.</p>
+        
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <form method="post" class="form" action="/fleets/single-user/date-vehicle-matrix-tabbed-searched">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="vrn-search">
+                                Search for a number plate
+                              </label>
+                            <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text">
+                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                Search
+                              </button>
+                          </div>
+                          </form>
+                    <div class="govuk-tabs" data-module="govuk-tabs">
+                        <h2 class="govuk-tabs__title">
+                            Contents
+                        </h2>
+                        <ul class="govuk-tabs__list">
+                            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                                <a class="govuk-tabs__tab" href="#past-day">
+                                    Past 6 days
+                                </a>
+                            </li>
+                            <li class="govuk-tabs__list-item">
+                                <a class="govuk-tabs__tab" href="#past-week">
+                                    Next 7 days
+                                </a>
+                            </li>
+                        </ul>
+                        <section class="govuk-tabs__panel" id="past-day">
+                            <h2 class="govuk-heading-l">Past 6 days</h2>
+                            <p><strong>Tick all boxes that apply to the vehicles and dates where you have entered a
+                                    Clean Air Zone</strong></p>
+                            <table class="govuk-table">
+                                <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                        <th scope="col" class="govuk-table__header">Registration</th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('subtract', 6, 'days') | date("ddd D") }}<br>{{date | date('subtract', 6, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('subtract', 5, 'days') | date("ddd D") }}<br>{{date | date('subtract', 5, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('subtract', 4, 'days') | date("ddd D") }}<br>{{date | date('subtract', 4, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('subtract', 3, 'days') | date("ddd D") }}<br>{{date | date('subtract', 3, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('subtract', 2, 'days') | date("ddd D") }}<br>{{date | date('subtract', 2, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('subtract', 1, 'days') | date("ddd D") }}<br>{{date | date('subtract', 1, 'days') | date("MMM") }}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                    {% for vrn in ["WB12CDE","WF03WMY","WT02VYL","WO51WQE","W15JIK","W56FGF","WH75BJH","W057BOX","W66PPR","WL08JTZ"] %}
+                                    <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">{{vrn}}</td>
+                                        {% for i in range(6) %}
+                                        <td class="govuk-table__cell">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="select" name="select"
+                                                    type="checkbox" value="select">
+                                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                                </label>
+                                            </div>
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </section>
+                        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+                            <h2 class="govuk-heading-l">Next 7 days</h2>
+                            <p><strong>Tick all boxes that apply to the vehicles and dates where you have entered a
+                                    Clean Air Zone</strong></p>
+                            <table class="govuk-table">
+                                <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                        <th scope="col" class="govuk-table__header">Registration</th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date("ddd D") }}<br>{{date | date("MMM") }}</th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('add', 1, 'days') | date("ddd D") }}<br>{{date | date('add', 1, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('add', 2, 'days') | date("ddd D") }}<br>{{date | date('add', 2, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('add', 3, 'days') | date("ddd D") }}<br>{{date | date('add', 3, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('add', 4, 'days') | date("ddd D") }}<br>{{date | date('add', 4, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('add', 5, 'days') | date("ddd D") }}<br>{{date | date('add', 5, 'days') | date("MMM") }}
+                                        </th>
+                                        <th scope="col" class="govuk-table__header">
+                                            {{date | date('add', 6, 'days') | date("ddd D") }}<br>{{date | date('add', 6, 'days') | date("MMM") }}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                    {% for vrn in ["WB12CDE","WF03WMY","WT02VYL","WO51WQE","W15JIK","W56FGF","WH75BJH","W057BOX","W66PPR","WL08JTZ"] %}
+                                    <tr class="govuk-table__row">
+                                        <td class="govuk-table__cell">{{vrn}}</td>
+                                        {% for i in range(7) %}
+                                        <td class="govuk-table__cell">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="select" name="select"
+                                                    type="checkbox" value="select">
+                                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                                </label>
+                                            </div>
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </section>
+                        <!-- <nav class="moj-pagination" id="pagination-label">
+
+                            <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+                            
+                            <ul class="moj-pagination__list">
+                            <li class="moj-pagination__item  moj-pagination__item--prev">
+                              <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+                            </li>
+                            
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1">a</a></li>
+                            
+                            <li class="moj-pagination__item moj-pagination__item--active">b</li>
+                            
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">c</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">d</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">e</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">f</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">g</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">h</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">i</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">j</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">k</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">l</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">m</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">n</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">o</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">p</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">q</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">r</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">s</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">t</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">u</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">v</a></li>
+                            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3">w</a></li>
+
+                            
+                            <li class="moj-pagination__item  moj-pagination__item--next">
+                              <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+                            </li>
+                            </ul>
+                            </nav>  -->
+                            <nav class="moj-pagination" id="pagination-label" style = "text-align:center">
+
+                                <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+                                
+                                <ul class="moj-pagination__list">
+                                <li class="moj-pagination__item  moj-pagination__item--prev">
+                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-7.html">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+                                </li>
+                                
+                                <li class="moj-pagination__item  moj-pagination__item--next">
+                                  <a class="moj-pagination__link" href="date-vehicle-matrix-tabbed-9.html">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+                                </li>
+                                </ul>
+                                </nav>
+                    </div>
+
+                </fieldset>
+            <form method="post" class="form" action="/fleets/single-user/confirm-charge">
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

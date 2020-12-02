@@ -1,0 +1,173 @@
+
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Drive in a Clean Air Zone
+{% endblock %}
+
+{% block content %}   
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Payment history</h1>
+
+       <p>Use this page to view payments made by you or your company administrators.</p>
+
+        <div class="moj-action-bar">     
+          <div class="moj-action-bar__filter"></div>     
+          <div class="moj-button-menu">
+            <div class="moj-button-menu__wrapper">
+              <form method="post" class="form" action="/fleets/single-user/history">
+              <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
+                Show filters
+              </button>
+              </form>
+            </div>
+          </div>
+        
+        </div>
+        
+        
+        <br>
+        
+      <tbody class="govuk-table__body">
+        
+
+       <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date of payment</th>
+            <th scope="col" class="govuk-table__header">Payment made by</th>
+            <th scope="col" class="govuk-table__header">Clean Air Zone</th>
+            <th scope="col" class="govuk-table__header">Entries paid for</th>
+            <th scope="col" class="govuk-table__header">Amount paid</th>
+            <th scope="col" class="govuk-table__header">Charge details</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">24/08/2020</th>
+            <td class="govuk-table__cell">Administrator</td>
+            <td class="govuk-table__cell">Bath</td>
+            <td class="govuk-table__cell">15</td>
+            <td class="govuk-table__cell">£325</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">19/08/2020</th>
+            <td class="govuk-table__cell">Joe Bloggs</td>
+            <td class="govuk-table__cell">Bath</td>
+            <td class="govuk-table__cell">13</td>
+            <td class="govuk-table__cell">£230</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">17/07/2020</th>
+            <td class="govuk-table__cell">Joe Bloggs</td>
+            <td class="govuk-table__cell">Birmingham</td>
+            <td class="govuk-table__cell">13</td>
+            <td class="govuk-table__cell">£230</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">13/02/2020</th>
+            <td class="govuk-table__cell">Administrator</td>
+            <td class="govuk-table__cell">Bath</td>
+            <td class="govuk-table__cell">15</td>
+            <td class="govuk-table__cell">£325</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">10/02/2020</th>
+            <td class="govuk-table__cell">Joe Bloggs</td>
+            <td class="govuk-table__cell">Bath</td>
+            <td class="govuk-table__cell">13</td>
+            <td class="govuk-table__cell">£230</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">17/01/2020</th>
+            <td class="govuk-table__cell">Joe Bloggs</td>
+            <td class="govuk-table__cell">Birmingham</td>
+            <td class="govuk-table__cell">13</td>
+            <td class="govuk-table__cell">£230</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">13/01/2020</th>
+            <td class="govuk-table__cell">Administrator</td>
+            <td class="govuk-table__cell">Bath</td>
+            <td class="govuk-table__cell">15</td>
+            <td class="govuk-table__cell">£325</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">05/01/2020</th>
+            <td class="govuk-table__cell">Administrator</td>
+            <td class="govuk-table__cell">Birmingham</td>
+            <td class="govuk-table__cell">20</td>
+            <td class="govuk-table__cell">£638</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">29/12/2019</th>
+            <td class="govuk-table__cell">Jane Doe</td>
+            <td class="govuk-table__cell">Birmingham</td>
+            <td class="govuk-table__cell">40</td>
+            <td class="govuk-table__cell">£1300</td>
+            <td class="govuk-table__cell"><a href="details1">View details</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <nav class="moj-pagination" id="pagination-label" style="margin-top:-30px">
+
+        <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+
+        <ul class="moj-pagination__list">
+
+            <li class="moj-pagination__item  moj-pagination__item--prev">
+                <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of
+                        pages</span></a>
+            </li>
+            <li class="moj-pagination__item moj-pagination__item--active">1</li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
+            <li class="moj-pagination__item">...</li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">9</a></li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">10</a></li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">11</a></li>
+    
+
+            <li class="moj-pagination__item  moj-pagination__item--next">
+                <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of
+                        pages</span></a>
+            </li>
+        </ul>
+        <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>115</b> results</p>
+    </nav>
+    <p style="float: right;">Results per page: <select class="govuk-select" id="sort" name="sort">
+
+      <option value="">10</option>
+      <option value="">20</option>
+      <option value="">30</option>
+      <option value="">40</option>
+      <option value="">50</option>
+
+  </select></p>
+      <br><p><a href="\public\images\Vehicle Compliance Results.csv">Download a spreadsheet (CSV) of payment history</a></p>
+
+    </div>
+</div>
+
+
+{% endblock %}

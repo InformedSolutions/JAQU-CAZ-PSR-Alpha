@@ -1,0 +1,59 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" class="form" action="/fleets/single-user-update/vehicle-grouping">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="permissions-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            What would you like to call your grouping?
+                        </h1>
+                    </legend>
+
+                    
+            <div class="govuk-form-group">
+
+                <label class="govuk-label" for="name">Grouping name</label>
+                <input class="govuk-input" id="name" name="name" type="text" style="width: 60%;" autocomplete="name"
+                    spellcheck="false" value="{{name}}">
+            </div>
+                   
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </br>
+            <a href="#">Cancel</a>
+
+        </form>
+
+     
+
+
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -17,10 +17,10 @@ text: "Back"
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Manage your fleet adminstrators</h1>
+        <h1 class="govuk-heading-l">Manage your users</h1>
 
         <table class="govuk-table">
-            <caption class="govuk-table__caption">Fleet adminstrators</caption>
+            <caption class="govuk-table__caption">Users</caption>
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header" scope="col">Name</th>
@@ -31,47 +31,27 @@ text: "Back"
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row">Alfonzo Marks</td>
                     <td class="govuk-table__cell" scope="row">alfonzo.marks@gmail.com</td>
-                    <td class="govuk-table__cell" scope="row"><a href="">Remove</a></td>
+                    <td class="govuk-table__cell" scope="row"><a href="manage-permissions">Manage</a></td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row">Sally Hill</td>
                     <td class="govuk-table__cell" scope="row">sally.hill@outlook.com</td>
-                    <td class="govuk-table__cell" scope="row"><a href="">Remove</a></td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Manage</a></td>
                 </tr>
                 <tr class="govuk-table__row">
                         <td class="govuk-table__cell" scope="row">Marcus Botham</td>
                         <td class="govuk-table__cell" scope="row">markb@hotmail.co.uk</td>
-                        <td class="govuk-table__cell" scope="row"><a href="">Remove</a></td>
+                        <td class="govuk-table__cell" scope="row"><a href="">Manage</a></td>
                     </tr>
             </tbody>
         </table>
         <form method="post" class="form" action="/fleets/organisation-account/add-user">
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="add-user-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Do you need to add another fleet administrator?
-                    </legend>
-                    <div class="govuk-radios govuk-radios--inline">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-user" name="add-user" type="radio"
-                                value="yes">
-                            <label class="govuk-label govuk-radios__label" for="add-user">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-user-2" name="add-user" type="radio"
-                                value="no">
-                            <label class="govuk-label govuk-radios__label" for="add-user-2">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            <button type="submit" class="govuk-button">Continue</button>
+            
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Add another user
+              </button>
         </form>
-        <p><a href="/fleets/single-user/email-invite">For demonstration purposes</a></p>
+        <p>
     </div>
 
 

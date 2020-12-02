@@ -1,0 +1,96 @@
+{% extends "layout_account.html" %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Manage your users</h1>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption">Users</caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Email address</th>
+                    <th class="govuk-table__header" scope="col"></th>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Alfonzo Marks</td>
+                    <td class="govuk-table__cell" scope="row">alfonzo.marks@gmail.com</td>
+                    <td class="govuk-table__cell" scope="row"><a href="manage-permissions">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Sally Hill</td>
+                    <td class="govuk-table__cell" scope="row">sally.hill@outlook.com</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Marcus Botham</td>
+                    <td class="govuk-table__cell" scope="row">markb@hotmail.co.uk</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Will Russell-Yarde</td>
+                    <td class="govuk-table__cell" scope="row">will.ry@hotmail.co.uk</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Geoff Henderson</td>
+                    <td class="govuk-table__cell" scope="row">geoffhendy@gmail.com</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Mary Harden</td>
+                    <td class="govuk-table__cell" scope="row">maryh@hotmail.co.uk</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Sammy Ewen</td>
+                    <td class="govuk-table__cell" scope="row">samanthaewen@hotmail.co.uk</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Marlene Holt</td>
+                    <td class="govuk-table__cell" scope="row">marlh@hotmail.com</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Larry Dyson</td>
+                    <td class="govuk-table__cell" scope="row">lard@hotmail.co.uk</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Roran Summers</td>
+                    <td class="govuk-table__cell" scope="row">roran.summers@hotmail.co.uk</td>
+                    <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="post" class="form" action="/fleets/single-user/add-user">
+
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Add a user
+            </button>
+        </form>
+        <p>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

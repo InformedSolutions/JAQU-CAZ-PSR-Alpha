@@ -1,0 +1,313 @@
+{% extends "layout_account.html" %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+
+        {% if manageTag == "add" %}
+        <div class="moj-banner moj-banner--success">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Success</span>You have successfully added {{lastvrn}} to your
+                vehicle list.
+            </div>
+
+        </div>
+        {% elseif manageTag == "duplicate" %}
+        <div class="moj-banner moj-banner--warning">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
+                </svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Warning</span>{{lastvrn}} already exists in your vehicle list.</div>
+
+        </div>
+        {% elseif manageTag == "remove" %}
+        <div class="moj-banner moj-banner--success">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Success</span>You have successfully removed {{lastvrn}} from your
+                vehicle
+                list.</div>
+
+        </div>
+        {% elseif manageTag == "upload" %}
+        <div class="moj-banner moj-banner--success">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Success</span>You have successfully uploaded 93 vehicles to your
+                vehicle list.</div>
+
+        </div>
+        {% endif %}
+
+        <h1 class="govuk-heading-l">Manage your vehicles and view charges</h1>
+        <p>The table shows the charges you would pay for each of your vehicles if they drive in a Clean Air Zone.</p>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                What does undetermined mean?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              A charge could not be calculated based on your registration information. If the details we hold are incorrect you should contact
+                 <a href="https://www.gov.uk/change-vehicle-details-registration-certificate/how-to-tell-dvla"
+                target="_blank">DVLA</a>.
+                <br>
+                <br>
+                 The charge still needs to be paid but must be done per individual vehicle. 
+            <a href="http://st.paycleanairzonecharge.co.uk/vehicles/enter_details" target="_blank">Use the Pay a Clean
+                Air Zone charge service for an individual vehicle</a></p>
+            </div>
+          </details>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Number plate</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Type</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort" name="sort" onchange="if (this.value) window.location.href=this.value">
+                        <option value="fleet-update-filter-dropdown-many-3?one=bath" {% if one == 'bath'%}selected{% endif %}>Bath (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?one=birmingham" {% if one == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?one=leeds" {% if one == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?one=bristol" {% if one == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?one=leicester" {% if one == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?one=tyneside" {% if one == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                      </select></th>
+                      <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort2" name="sort2" onchange="if (this.value) window.location.href=this.value">
+                        <option value="">Select zone...</option>
+                        <option value="fleet-update-filter-dropdown-many-3?two=bath" {% if two == 'bath'%}selected{% endif %}>Bath (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?two=birmingham" {% if two == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?two=leeds" {% if two == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?two=bristol" {% if two == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?two=leicester" {% if two == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?two=tyneside" {% if two == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                      </select> <a href="fleet-update-filter-dropdown-many-2">X</a></th>
+                      <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort3" name="sort3" onchange="if (this.value) window.location.href=this.value">
+                        <option value="">Select zone...</option>
+                        <option value="fleet-update-filter-dropdown-many-3?three=bath" {% if three == 'bath'%}selected{% endif %}>Bath (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?three=birmingham" {% if three == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?three=leeds" {% if three == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?three=bristol" {% if three == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?three=leicester" {% if three == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
+                        <option value="fleet-update-filter-dropdown-many-3?three=tyneside" {% if three == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                      </select> <a href="fleet-update-filter-dropdown-many-2">X</a></th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+                {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">{{vrn}}</a></td>
+                    {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
+                    <td class="govuk-table__cell" scope="row">HGV</td>
+                    {% if one == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% elseif one == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif one == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£60</td>
+                    {% elseif one == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif one == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif one == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% endif %}
+                    {% if two == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% elseif two == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif two == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£60</td>
+                    {% elseif two == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif two == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif two == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% elseif three == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif three == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£60</td>
+                    {% elseif three == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif three == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif three == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% elseif vrn == 'MH75BJH' %}
+                    <td class="govuk-table__cell" scope="row">HGV</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% if two %}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three %}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% elseif vrn == 'M56FGF' %}
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    {% if two %}
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three %}
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">Van</td>
+                    {% if one == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% elseif one == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£8</td>
+                    {% elseif one == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£10</td>
+                    {% elseif one == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% endif %}
+                    {% if two == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% elseif two == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£8</td>
+                    {% elseif two == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£10</td>
+                    {% elseif two == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif two == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif two == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% elseif three == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£8</td>
+                    {% elseif three == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£10</td>
+                    {% elseif three == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif three == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif three == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% endif %}
+                    <td class="govuk-table__cell" scope="row"><a
+                            href="/fleets/single-user/remove-confirm?vrn={{vrn}}">Remove</a></td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        <nav class="moj-pagination" id="pagination-label" style="margin-top:-30px">
+
+            <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+
+            <ul class="moj-pagination__list">
+
+
+                <li class="moj-pagination__item moj-pagination__item--active">1</li>
+
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
+
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">4</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">5</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">6</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">7</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">8</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">9</a></li>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">10</a></li>
+
+                <li class="moj-pagination__item  moj-pagination__item--next">
+                    <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of
+                            pages</span></a>
+                </li>
+            </ul>
+            <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>93</b> results</p>
+        </nav>
+        <br>
+        <p><a href="\public\images\Vehicle Compliance Results.csv">Download a spreadsheet (CSV) of the charges you would pay to drive in all Clean Air Zones</a></p>
+        
+        <div class="govuk-inset-text">
+            <b>Live</b> - you must pay a charge to drive in the zone <br>
+            <b>Upcoming</b> - you do not need to pay until charging starts, you can see the dates on our <a href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone#cleanairzones">guidance page</a>
+        </div>
+        
+        <h2 class="govuk-heading-m">Add vehicles</h2>
+        <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
+        <p><a href="/fleets/single-user/fleet-update-add">Add individual vehicles one by one</a>.</p>
+        <br>
+        <form method="post" class="form" action="/fleets/single-user/select-caz">
+            <button type="submit" class="govuk-button">
+                Make a payment
+            </button>
+        </form>
+        <p><a href="fleet-account">Return to Your account</a></p>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

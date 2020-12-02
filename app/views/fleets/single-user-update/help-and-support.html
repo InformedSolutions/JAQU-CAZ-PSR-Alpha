@@ -1,0 +1,75 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+
+        <h1 class="govuk-heading-l">Help and contact</h1>
+
+        <h2 class="govuk-heading-m">Where the Clean Air Zones are</h2>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">CAZ</th>
+                    <th class="govuk-table__header" scope="col">Map</th>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Bath</td>
+                    <td class="govuk-table__cell" scope="row"><a href="https://beta.bathnes.gov.uk/view-map-baths-clean-air-zone">Zone boundary</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Birmingham</td>
+                    <td class="govuk-table__cell" scope="row"><a href="https://www.birmingham.gov.uk/info/20076/pollution/1763/a_clean_air_zone_for_birmingham/2">Zone boundary</a></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2 class="govuk-heading-m">Exemptions</h2>
+
+        <p>There are some national and local exemptions from the charge.</p>
+        <p>You’re automatically entitled to a national exemption, and do not have to pay a charge, if you have a:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>vehicle that’s ultra low emission</li>
+            <li>disabled passenger tax class vehicle</li>
+            <li>military vehicle</li>
+            <li>historic vehicle</li>
+            <li>vehicle retrofitted with technology accredited by the <a href="https://energysavingtrust.org.uk/transport/freight-and-retrofit/clean-vehicle-retrofit-accreditation-scheme-cvras"></a>Clean Vehicle Retrofit Accreditation Scheme (CVRAS)</li>
+          </ul>
+          
+        <p>National exemptions are automatically checked when you upload your vehicle information.</p>
+        <p>Local exemptions are specific to the local authority of each Clean Air Zone and are managed by them. You usually have to apply for a local exemption. You can find out more about local exemptions for driving in:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://beta.bathnes.gov.uk/get-exemption-or-discount-baths-clean-air-zone">Bath</a></li>
+            <li><a href="https://www.brumbreathes.co.uk/exemptions-and-additional-support">Birmingham</a></li>
+          </ul>
+          
+        <h2 class="govuk-heading-m">Contact Clean Air Zones</h2>
+        <p>You can contact Clean Air Zone support if you cannot use the online service or you need help.</p>
+        
+        <p><strong>Clean Air Zone Support</strong> <br>
+        <a href="https://contact.dvla.gov.uk/caz/">Online contact form</a> <br>
+        Telephone: 0300 029 8888 <br>
+        Monday to Friday, 8am to 4:30pm <br>
+        <a class="govuk-link" href="#">Find out about call charges</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

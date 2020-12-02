@@ -1,0 +1,100 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Vehicle information and charge results for AB12CDE</h1>
+        <table class="govuk-table">
+            <caption class="govuk-table__caption">Vehicle details</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"></th>
+                <td class="govuk-table__cell"></td>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Number plate</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">AB12CDE</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Vehicle type approval</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">N1</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">CAZ vehicle type</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Van</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Make</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Ford</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Model</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Transit</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Colour</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">White</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Fuel Type</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">Diesel</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="govuk-table">
+            <caption class="govuk-table__caption">Charge results</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half"></th>
+                <td class="govuk-table__cell govuk-!-width-one-half"></td>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Bath</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">£9</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Birmingham</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">£8</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Bristol</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">£10</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Leeds</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">No charge</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Leicester</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">No charge</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Tyneside</th>
+                <td class="govuk-table__cell govuk-!-width-one-half">£11</td>
+              </tr>
+            </tbody>
+          </table>
+        
+        <p><a href="fleet-update-filter-dropdown-many">Return to Manage your vehicles</a></p>
+
+
+    </div>
+</div>
+
+{% endblock %}
