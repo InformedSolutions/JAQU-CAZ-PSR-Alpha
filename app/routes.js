@@ -5,6 +5,8 @@ const today = moment();
 const todayString = today.format("DDDD d MMMM YYYY")
 
 
+
+
 // keep this updated with the names of further CAZs
 var cazs = ['birmingham', 'leeds']
 
@@ -435,6 +437,22 @@ router.post('/payments/confirm-payment', function (req, res) {
   req.session.amountDue = '£' + charge.toFixed(2);
   var localAuthority = caz === "leeds-weekly" ? "Leeds" : caz.charAt(0).toUpperCase() + caz.slice(1);
 
+  if (email != "") {
+    format = "dddd D MMMM YYYY";
+    emailDate = caz === 'leeds-weekly' ? moment(dates).format(format) : dates.map(d => moment(d).format(format));
+    notify.sendEmail(
+      // GOV.UK Notify template ID
+      '9b0ce7a5-8830-4d69-ae2f-7762c5ad76e7',
+      email, {
+        personalisation: {
+          'charge': req.session.amountDue,
+          'caz': localAuthority,
+          'vrn': vrn,
+          'dates': emailDate,
+          'paymentDate': moment(today).format('DD/MM/YYYY')
+        }
+      })
+  }
 
   res.render('payments/confirm-payment', {
     amountDue: req.session.amountDue, 
@@ -608,7 +626,7 @@ router.get('/fleets/single-user/select-caz', function(req, res) {
     if (req.session.vrns && req.session.vrns.length > 0) {
       res.render('fleets/single-user/select-caz');
     } else {
-      res.redirect('first-upload');
+      res.redirect('first-add-choice');
     }
   })
 
@@ -723,17 +741,22 @@ router.get('/fleets/single-user/fleet-update', function(req, res) {
   var registered = true ? req.session.data['registered'] === 'true' : false;
   res.render('fleets/single-user/fleet-update', {
     registered: registered,
-    vrns: req.session.vrns
+    vrns: req.session.vrns,
+    manageTag: req.session.manageTag,
+    lastvrn: req.session.lastvrn
   })
+  req.session.manageTag='blank';
 })
 
 router.post('/fleets/single-user/fleet-update', function(req, res) {  
-    
     if (req.session.data['remove'] == 'yes') {
         if (req.query.vrn) {
             var vrns = req.session.vrns.filter(function (vrn) {
                 return vrn !== req.query.vrn;
+                
             });
+            req.session.manageTag='remove';
+            req.session.lastvrn=req.query.vrn;
             req.session.vrns = vrns;
         }
     }
@@ -741,19 +764,25 @@ router.post('/fleets/single-user/fleet-update', function(req, res) {
     var registered = true ? req.session.data['registered'] === 'true' : false;
     res.render('fleets/single-user/fleet-update', {
       registered: registered,
-      vrns: req.session.vrns
-    })
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn
+    }) 
+    req.session.managetag='blank';
   })
 
 // upload fleet
 router.post('/fleets/single-user/fleets-confirmation', function(req, res) {
   req.session.vrns = ['AB12CDE','AF03WMY','BT02VYL','JO51WQE','M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ']
-  res.redirect('fleet-update');
+  req.session.manageTag='upload';
+  res.redirect('fleet-update-filter-dropdown-many');
+  
 })
 
 router.post('/fleets/single-user/fleets-reconfirmation', function(req, res) {
     req.session.vrns = ['M15JIK','M56FGF','MH75BJH','P057BOX','R66PPR','WL08JTZ','Z12TTP']
-    res.redirect('fleet-update');
+    req.session.manageTag='upload';
+    res.redirect('fleet-update-filter-dropdown-many');
   })
 
 // update the fleet - post
@@ -775,29 +804,37 @@ router.get('/fleets/single-user/fleets-confirmation', function(req, res) {
 })
 
 // add a vehicle to a fleet
-router.post('/fleets/single-user/add-vehicle', function(req,res) {
-  var vrn = req.session.data['vrn'];
-  if (vrn) {
-    if (req.session.vrns) {
-      req.session.vrns.push(vrn);
+router.post('/fleets/single-user/add-vehicle', function (req, res) {
+    var vrn = req.session.data['vrn'];
+    req.session.manageTag = 'blank';
+    if (vrn) {
+        req.session.manageTag = 'add';
+        if (req.session.vrns) {
+
+            if (req.session.vrns.indexOf(vrn) > -1) {
+                req.session.manageTag = 'duplicate';
+            } else { req.session.vrns.push(vrn); }
+        }
+        else {
+            req.session.vrns = [vrn];
+        }
+
+        req.session.lastvrn = vrn;
     }
-    else {
-      req.session.vrns = [vrn];
-    }
-  }
-  res.redirect('/fleets/single-user/fleet-update');
+    console.log(req.session.lastvrn);
+    res.redirect('/fleets/single-user/fleet-update');
 
 })
 
-router.post('/fleets/organisation-account/add-user', function(req, res) {
-    var ans = true ? req.session.data['add-user'] === 'yes' : false;
-    if (ans) {
-      res.redirect('/fleets/organisation-account/add-user');
-    }
-    else {
-      res.redirect('/fleets/organisation-account/dashboard');
-    }
-  })
+// router.post('/fleets/organisation-account/add-user', function(req, res) {
+//     var ans = true ? req.session.data['add-user'] === 'yes' : false;
+//     if (ans) {
+//       res.redirect('/fleets/organisation-account/add-user');
+//     }
+//     else {
+//       res.redirect('/fleets/organisation-account/dashboard');
+//     }
+//   })
 
 
   router.get('/add-vehicle-choice', function (req, res) {
@@ -958,112 +995,129 @@ router.post('/payments/select-date-weekly-2x', function (req, res) {
     }
 
     
+   
 
+});
+ router.post('/fleets/single-user/date-vehicle-matrix-tabbed', function (req, res) {
+        console.log(req.session.vrns)
+    
+        if (req.session.vrns.indexOf("ABC123") > -1) {
+            
+            res.redirect('/fleets/single-user/no-chargeable-vehicles')
+        } else {res.redirect('/fleets/single-user/date-vehicle-matrix-tabbed')}
+    }); 
+
+
+router.post('/fleets/organisation-account/vehicle-amount-route', function (req, res) {
+    var vehicleAmount = req.body['vehicle-amount'];
+
+    if (vehicleAmount == "one") {
+
+        res.redirect('/fleets/organisation-account/less-than-two')
+
+    } else {res.redirect('/fleets/organisation-account/email-address')
+    }
 
 });
 
+//fleet update get for variants
+router.get('/fleets/single-user/fleet-update-csv', function(req, res) {  
+    if (req.query.vrn) {
+      var vrns = req.session.vrns.filter(function( vrn ) {
+        return vrn !== req.query.vrn;
+      });
+      req.session.vrns = vrns;
+    }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-csv', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn
+    })
+    req.session.manageTag='blank';
+  })
 
 
-router.post('/vccs/contact', function (req, res) {
-  var contact = req.body['contact'];
+  //fleet update get for variants
+  router.get('/fleets/single-user/fleet-update-filter-dropdown-many', function(req, res) {  
+    if (req.query.one) {
+    req.session.one= req.query.one
+    }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown-many', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn,
+      one: req.session.one
+    })
+    req.session.manageTag='blank';
+  })
 
-  if (contact == 'charges') {
-          res.redirect('/vccs/charges')
-  } else if (contact == 'london') {
-      res.redirect('/vccs/london')
-  } else if (contact == 'exemptions') {
-      res.redirect('/vccs/exemptions')
-  } else if (contact == 'data') {
-      res.redirect('/vccs/data')
-  } else if (contact == 'other') {
-      res.redirect('https://contact.dvla.gov.uk/caz/')
-  } else {
-      res.render('vccs/contact-1', {
-          error: true,
-          errorMessage: "Select an answer"
-      })
-  }
-});
+  router.get('/fleets/single-user/fleet-update-filter-dropdown', function(req, res) {  
+    if (req.query.one) {
+    req.session.one= req.query.one
+    }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn,
+      one: req.session.one
+    })
+    req.session.manageTag='blank';
+  })
 
+  router.get('/fleets/single-user/fleet-update-filter-dropdown-many-2', function(req, res) {  
+    if (req.query.one) {
+        req.session.one= req.query.one
+        }
 
-router.post('/accounts-start', function (req, res) {
-  var cazaction = req.body['cazaction'];
+        if (req.query.two) {
+            req.session.two= req.query.two
+            }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown-many-2', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn,
+      one: req.session.one,
+      two: req.session.two
+    })
+    req.session.manageTag='blank';
+  })
 
-  if (cazaction == 'vccs') {
-          res.redirect('vccs/enter-vehicle-details')
-  } else if (cazaction == 'sign-in') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
-  } else if (cazaction == 'create-account') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/organisations')
-  } else {
-      res.render('start-pages/start-accounts-3', {
-          error: true,
-          errorMessage: "Select an answer"
-      })
-  }
-});
+  router.get('/fleets/single-user/fleet-update-filter-dropdown-many-3', function(req, res) {  
+    if (req.query.one) {
+        req.session.one= req.query.one
+        }
 
-router.post('/accounts-march2', function (req, res) {
-  var cazaction = req.body['cazaction'];
-
-  if (cazaction == 'vccs') {
-          res.redirect('vccs/enter-vehicle-details')
-  } else if (cazaction == 'sign-in') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
-  } else if (cazaction == 'pay-iod') {
-      res.redirect('https://t2m.io/4wmvKzi1')
-  } else {
-      res.render('start-pages/start-accounts-march-2', {
-          error: true,
-          errorMessage: "Select an answer"
-      })
-  }
-});
-
-router.post('/accounts-marchalt2', function (req, res) {
-  var cazaction = req.body['cazaction'];
-
-  if (cazaction == 'check') {
-          res.redirect('/start-pages/start-accounts-march-alt-check')
-  } else if (cazaction == 'pay') {
-      res.redirect('/start-pages/start-accounts-march-alt-pay')
-  } else {
-      res.render('start-pages/start-accounts-march-alt-2', {
-          error: true,
-          errorMessage: "Select an answer"
-      })
-  }
-});
-
-router.post('/accounts-marchaltcheck', function (req, res) {
-  var cazaction = req.body['cazaction'];
-
-  if (cazaction == 'check-one') {
-          res.redirect('vccs/enter-vehicle-details')
-  } else if (cazaction == 'check-multiple') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
-  } else {
-      res.render('start-pages/start-accounts-march-alt-check', {
-          error: true,
-          errorMessage: "Select an answer"
-      })
-  }
-});
-
-router.post('/accounts-marchaltpay', function (req, res) {
-  var cazaction = req.body['cazaction'];
-
-  if (cazaction == 'pay-one') {
-          res.redirect(' https://t2m.io/T7hXvcxs')
-  } else if (cazaction == 'pay-multiple') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
-  } else {
-      res.render('start-pages/start-accounts-march-alt-check', {
-          error: true,
-          errorMessage: "Select an answer"
-      })
-  }
-});
+        if (req.query.two) {
+            req.session.two= req.query.two
+            }
+            if (req.query.three) {
+                req.session.three= req.query.three
+                }
+  
+    var registered = true ? req.session.data['registered'] === 'true' : false;
+    res.render('fleets/single-user/fleet-update-filter-dropdown-many-3', {
+      registered: registered,
+      vrns: req.session.vrns,
+      manageTag: req.session.manageTag,
+      lastvrn: req.session.lastvrn,
+      one: req.session.one,
+      two: req.session.two,
+      three: req.session.three
+    })
+    req.session.manageTag='blank';
+  })
 
 
 module.exports = router

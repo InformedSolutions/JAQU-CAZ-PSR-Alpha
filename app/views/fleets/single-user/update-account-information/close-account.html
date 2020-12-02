@@ -17,9 +17,30 @@ text: "Back"
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Do you want to permenantly deleting your account?</h1>
+        <h1 class="govuk-heading-l">Closing an account</h1>
+        <p>You can download the <a href="/fleets/single-user/history-filter">payment history</a> for your records.</p>
+        <h2 class="govuk-heading-m">What happens to account data</h2>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Active number plate(s) are retained in our database as long as your account remains active. We delete the history of your vehicle(s) after 12 months.</li>
+          <li>We keep payment transactions in our system for 7 years. These include a record of the number plate against which you made a payment.</li>
+          <li>Email data is stored for 7 days and then deleted</li>
+          <li>We will only retain IP addresses for 30 days</li>
+        </ul>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            If you drive a vehicle that does not meet emission standards into a Clean Air Zone charges may still need to be paid.</strong>
+        </div>
+
         <form method="POST" class="form" action="/fleets/single-user/update-account-information/why-close">
         <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              Do you want to close the account?
+            </h2>
+          </legend>
             <div class="govuk-radios govuk-radios--inline">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
@@ -35,7 +56,7 @@ text: "Back"
               </div>
             </div>          </div>
           <button class="govuk-button" data-module="govuk-button">
-            Delete account
+            Continue
           </button>
           <p><a href="my-account">Exit without deleting</a></p></form>
 
