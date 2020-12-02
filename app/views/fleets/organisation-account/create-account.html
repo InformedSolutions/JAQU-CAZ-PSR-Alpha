@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_account-no-nav.html" %}
 
 {% block beforeContent %}
 {{ govukBackLink({
@@ -37,6 +37,7 @@ text: "Back"
         Upload and pay the charge for multiple vehicles.
     </span>
 
+    <p>By creating an account, you agree to Drive in a Clean Air Zone's <a href="">privacy</a> notice.</p>
     <form method="POST" class="form" action="/fleets/organisation-account/vehicle-amount">
         {% if error %}
           <div class="govuk-form-group govuk-form-group--error">
@@ -44,7 +45,7 @@ text: "Back"
         {% if not error %} 
           <div class="govuk-form-group">
         {% endif %}
-      <label class="govuk-label" for="company-name">Enter your company name</label>
+      <label class="govuk-label" for="company-name">Enter the company name</label>
       {% if error %}
         <span id="vrn-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
@@ -60,7 +61,7 @@ text: "Back"
             </button>
 
           </form>
-
+          <p>If you already have an account you can <a href="/fleets/single-user/login">sign in</a></p>
     </div>
 </div>
 
