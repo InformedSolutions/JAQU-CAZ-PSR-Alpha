@@ -8,7 +8,7 @@ text: "Back"
 {% endblock %}
 
 {% block pageTitle %}
-Pay a Clean Air Zone charge
+Drive in a Clean Air Zone
 {% endblock %}
 
 {% block content %}
@@ -18,14 +18,24 @@ Pay a Clean Air Zone charge
 
         
 
-        <h1 class="govuk-heading-l">Upload multiple vehicles</h1>
-        <p>To find out if your vehicles will be charged in each Clean Air Zone:</p>
-        <ol class="govuk-list govuk-list--number">
-            <li>Download the <a href="\public\images\docs\VehicleUploadTemplate.csv">template</a>.</li>
-            <li>Enter all your number plates (vehicle registration numbers) in the first column.</li>
-            <li>Save. The name of the file does not matter.</li>
+        <h1 class="govuk-heading-l">Upload a list of vehicles</h1>
+        <p>To add vehicles to this account, you can either use your own spreadsheet or <a href="\public\images\docs\VehicleUploadTemplate.csv">download a template (CSV, 1KB).</a></p>
+        <p>When filling in the number plates follow these rules so the data uploads correctly:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>the number plates can only be between 2 and 7 characters</li>
+            <li>only letters and numbers are allowed</li>
+            <li>number plates need to be entered in the first column only, leave cell A1 blank</li>
+            <li>there should be no empty rows between the number plates</li>
+            <li>the maximum amount of vehicles you can upload is 200,000</li>
+          </ul>
+
+          <p>Once the file is filled in:</p>
+          <ol class="govuk-list govuk-list--number">
+            <li>Save it as .CSV - the name of the file does not matter (Go to file > save as > .CSV (comma delimited)).</li>
+            <li>Choose the file.</li>
             <li>Upload the file.</li>
           </ol>
+
         
         <form method="POST" class="form" action="/fleets/single-user/local-exemption">
                 <div class="govuk-form-group">
