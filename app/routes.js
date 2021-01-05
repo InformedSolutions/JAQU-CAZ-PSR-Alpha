@@ -692,7 +692,7 @@ router.post('/fleets/single-user/choose-payment-method', function (req, res) {
       res.redirect('confirm-charge-direct-debit')
     }
     else {
-      res.redirect('first-mandate')
+      res.redirect('confirm-charge-direct-debit')
     }    
   } else if (payment_type == 'card-payment'){
     res.redirect('fleet-debit-credit-card')
