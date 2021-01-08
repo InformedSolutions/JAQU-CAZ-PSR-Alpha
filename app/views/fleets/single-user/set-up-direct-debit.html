@@ -1,0 +1,53 @@
+
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Drive in a Clean Air Zone
+{% endblock %}
+
+{% block content %}   
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Choose which zone to set up a Direct Debit with</h1>
+    <form method="post" class="form" action="/fleets/single-user/go-cardless">
+      <p>You need to set up a separate Direct Debit mandate with each zone to make single, one-off payments.</p> 
+      <p>These are not recurring payments.</p>
+      <p>Zones you haven't set up a Direct Debit with and where the local authority supports this type of payment will appear here.</p>
+      <div class="govuk-form-group">
+        <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="cazHint">
+          <div class="govuk-radios">
+             <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="caz-3" name="caz" type="radio" value="Bath">
+              <label class="govuk-label govuk-radios__label" for="caz-3">
+                Bath
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="caz-2" name="caz" type="radio" value="Birmingham">
+              <label class="govuk-label govuk-radios__label" for="caz-2">
+                Birmingham
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <br>
+      <br>
+      <button type="submit" class="govuk-button">
+          Continue
+      </button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

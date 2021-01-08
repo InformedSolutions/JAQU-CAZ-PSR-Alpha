@@ -16,7 +16,7 @@ text: "Back"
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Your direct debits</h1>
+    <h1 class="govuk-heading-l">Direct debits</h1>
     <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -27,7 +27,7 @@ text: "Back"
           You can only cancel direct debits with your bank. To change which bank account will be billed, cancel the direct debit on your old account and then create a new direct debit with your new account details.
         </div>
       </details>
-    <form method="post" class="form" action="select-direct-debit">
+    <form method="post" class="form" action="#">
         <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -36,24 +36,18 @@ text: "Back"
                 <th scope="col" class="govuk-table__header">Status</th>
               </tr>
             </thead>
-            {% for m in mandate %}
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="text-transform: capitalize">{{m.caz}}</th>
-                <td class="govuk-table__cell">{{m.mandateId}}</td>
+                <th scope="row" class="govuk-table__header" style="text-transform: capitalize">Bath</th>
+                <td class="govuk-table__cell">xngajgdlfkrvmbrz7y2hka9</td>
                 <td class="govuk-table__cell">Pending</td>
               </tr>
             </tbody>
-            {%endfor%}
           </table>
-      {% if (mandate === None) or (mandate.length < 2) %}
         <button type="submit" class="govuk-button">
             Set up new direct debit
         </button>
-      {% else %}
-        <p>You have created a mandate for each CAZ. No more mandates can be created.</p>
-      {% endif %}
-      <p><a href="fleet-account">Return to dashboard</a></p>
+      <p><a href="/fleets/single-user/fleet-account">Return to dashboard</a></p>
     </form>
 
   </div>
