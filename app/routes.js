@@ -992,9 +992,9 @@ router.post('/accounts-start', function (req, res) {
   if (cazaction == 'vccs') {
           res.redirect('vccs/enter-vehicle-details')
   } else if (cazaction == 'sign-in') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+      res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else if (cazaction == 'create-account') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/organisations')
+      res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else {
       res.render('start-pages/start-accounts-3', {
           error: true,
@@ -1009,7 +1009,7 @@ router.post('/accounts-march2', function (req, res) {
   if (cazaction == 'vccs') {
           res.redirect('vccs/enter-vehicle-details')
   } else if (cazaction == 'sign-in') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+      res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else if (cazaction == 'pay-iod') {
       res.redirect('https://t2m.io/kFzu1vX9')
   } else {
@@ -1041,7 +1041,7 @@ router.post('/accounts-marchaltcheck', function (req, res) {
   if (cazaction == 'check-one') {
           res.redirect('vccs/enter-vehicle-details')
   } else if (cazaction == 'check-multiple') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+      res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else {
       res.render('start-pages/start-accounts-march-alt-check', {
           error: true,
@@ -1056,7 +1056,7 @@ router.post('/accounts-marchaltpay', function (req, res) {
   if (cazaction == 'pay-one') {
           res.redirect('https://t2m.io/kFzu1vX9')
   } else if (cazaction == 'pay-multiple') {
-      res.redirect('https://accountpay.cleanairzone.defra.gov.uk/users/sign_in')
+      res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else {
       res.render('start-pages/start-accounts-march-alt-check', {
           error: true,
