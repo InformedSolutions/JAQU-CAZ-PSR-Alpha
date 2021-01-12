@@ -1,0 +1,87 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Payment details</h1>
+        <p><strong>User ID:</strong> example@email.com</p>
+        <p><strong>Clean Air Zone:</strong> Bath</p>
+        <p><strong>Payment reference:</strong> 16739</p>
+        <p><strong>GOV.UK payment ID:</strong> jqnrqko5h2n07elmuca44gns76</p>
+        <p><strong>Payment status:</strong> Success</p>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Number plate</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Make</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Model</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Dates</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">CAS300</td>
+                    <td class="govuk-table__cell" scope="row">Volkswagen</td>
+                    <td class="govuk-table__cell" scope="row">Golf match tdi 105</td>
+                    <td class="govuk-table__cell" scope="row">Wednesday 15 July 2020<br>Thursday 16 July 2020<br>Friday 17 July 2020</td>
+                    <td class="govuk-table__cell" scope="row">£150</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">CAS301</td>
+                    <td class="govuk-table__cell" scope="row">Mazda</td>
+                    <td class="govuk-table__cell" scope="row">RX8 gt</td>
+                    <td class="govuk-table__cell" scope="row">Wednesday 15 July 2020
+                    </td>
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <button class="govuk-button" data-module="govuk-button">
+            Email these details
+        </button>
+
+        <h2 class="govuk-heading-m">Refund information</h2>
+        <p><strong>Case reference:</strong> 1243</p>
+        <p><strong>Date recieved from Local Authority:</strong> 19/12/2020</p>
+        <p><strong>Payment status:</strong> Refund</p>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Number plate</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Make</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Model</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Dates</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">CAS300</td>
+                    <td class="govuk-table__cell" scope="row">Volkswagen</td>
+                    <td class="govuk-table__cell" scope="row">Golf match tdi 105</td>
+                    <td class="govuk-table__cell" scope="row">Wednesday 15 July 2020<br>Friday 17 July 2020</td>
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="">Return to payment history</a></p>
+
+
+    </div>
+</div>
+
+{% endblock %}
