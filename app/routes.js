@@ -114,7 +114,7 @@ router.post('/payments/paymentPages', function (req, res) {
       errorMessage: "State which Clean Air Zone you are paying for"
     })
   } else if (confirm == "bath" && vrn == "MH123") {
-    res.redirect('/payments/select-period')
+    res.redirect('/payments/motorhomes')
   } else {
     res.redirect('/payments/' + confirm)
   }
@@ -166,22 +166,6 @@ router.post('/payments/unrecognised-vehicle', function (req, res) {
   }
 });
 
-// Payment period selection page
-router.post('/payments/paymentPagesSelectPeriod', function (req, res) {
-  var period = req.body['period'];
-
-  if (period == undefined) {
-      res.render('payments/select-period', {
-        error: true,
-        errorMessage: "State if you are paying for 1 day or 7 days"
-      })
-    } else if (period == "daily-charge") {
-      res.redirect('/payments/leeds')
-    } else if (period == "weekly-charge") {
-      res.redirect('/payments/leeds-weekly-charge')
-    }
-
-});
 
 // Date selection page
 router.get('/payments/select-date', function (req, res) {
