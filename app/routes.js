@@ -99,6 +99,10 @@ router.get('/payments/caz', function (req, res) {
   }
 });
 
+router.post('/payments/local-authority', function (req, res) {
+  var vrn = req.session.data['vrn'];
+});
+
 // Router to date selection or payment period selection page
 router.post('/payments/paymentPages', function (req, res) {
   var confirm = req.body['caz'];
@@ -109,7 +113,7 @@ router.post('/payments/paymentPages', function (req, res) {
       error: true,
       errorMessage: "State which Clean Air Zone you are paying for"
     })
-  } else if (confirm == "leeds" && vrn == "ABC123") {
+  } else if (confirm == "bath" && vrn == "MH123") {
     res.redirect('/payments/select-period')
   } else {
     res.redirect('/payments/' + confirm)
