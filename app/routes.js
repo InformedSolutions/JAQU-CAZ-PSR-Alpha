@@ -999,7 +999,7 @@ router.post('/accounts-march2', function (req, res) {
   } else if (cazaction == 'sign-in') {
       res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else if (cazaction == 'pay-iod') {
-      res.redirect('https://t2m.io/kFzu1vX9')
+      res.redirect('/payments/enter-vehicle-details')
   } else {
       res.render('start-pages/start-accounts-march-2', {
           error: true,
