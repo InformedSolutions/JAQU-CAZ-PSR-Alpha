@@ -65,7 +65,11 @@ text: "Back"
                     </tr>
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell">Total charge</td>
+                        {% if vrn == "MH123" %}
                         <th class="govuk-table__header" scope="row">£100</th>
+                        {% else %}
+                        <th class="govuk-table__header" scope="row">£8</th>
+                        {% endif %}                        
                         <td class="govuk-table__cell"></td>
                     </tr>          
                 </tbody>

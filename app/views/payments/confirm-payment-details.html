@@ -85,7 +85,12 @@ text: "Back"
         <h3 class="govuk-heading-s">
             Total charge
         </h3>
+        {% if vrn == "MH123" %}
         <h2 class="govuk-heading-m" id="charge" name="charge">£100</h2>
+        {% else %}
+        <h2 class="govuk-heading-m" id="charge" name="charge">£8</h2>
+        {% endif %}       
+
     </div>
 </div>
 

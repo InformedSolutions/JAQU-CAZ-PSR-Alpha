@@ -376,12 +376,24 @@ router.post('/payments/selected-date', function (req, res) {
     });
 
 router.get('/payments/debit-credit-card', function (req, res) {
-  res.render('payments/debit-credit-card', {amountDue: req.session.amountDue});
-
+  if (!req.session.data['vrn']) {
+    res.redirect('/')
+  }
+  var vrn = formatVrn(req.session.data['vrn']);
+  res.render('payments/debit-credit-card', {
+    vrn: vrn
+  });
 });
 
 router.post('/payments/debit-credit-card', function (req, res) {
-  res.render('payments/debit-credit-card', {amountDue: req.session.amountDue});
+  if (!req.session.data['vrn']) {
+    res.redirect('/')
+  }
+  var vrn = formatVrn(req.session.data['vrn']);
+  res.render('payments/debit-credit-card', {
+    vrn: vrn
+  });
+
 });
 
 // Payment confirmation page
@@ -436,6 +448,7 @@ router.post('/payments/confirm-payment', function (req, res) {
 
 router.post('/payments/confirm-payment-details', function (req, res) {
   var error = false;
+  var vrn = formatVrn(req.session.data['vrn']);
 
   // Card number validation
   var inputs = {
@@ -487,16 +500,20 @@ router.post('/payments/confirm-payment-details', function (req, res) {
   } else {
     res.render('payments/confirm-payment-details', {
       amountDue: req.session.amountDue,
-      cardNumber: '*'.repeat(12) + '1234'
+      cardNumber: '*'.repeat(12) + '1234',
+      vrn: vrn
     });
   }  
+
+  
 });
 
 router.get('/payments/confirm-payment-details', function (req, res) {
   res.render('payments/confirm-payment-details', {
     amountDue: req.session.amountDue,
     cardNumber: '*'.repeat(12) + '1234',
-    data: req.session.data
+    data: req.session.data,
+    vrn: vrn
   });
 });
 
