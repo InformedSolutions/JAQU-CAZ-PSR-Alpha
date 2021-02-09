@@ -72,7 +72,7 @@ text: "Back"
         {% endif %}
 
         <h1 class="govuk-heading-l">Manage your vehicles and view charges</h1>
-        <p>The table shows the charges you would pay for each of your vehicles if they drive in a Clean Air Zone.</p>
+        <p>Charge information for vehicles in each Clean Air Zone. Find out how we <a href="#">calculate charges.</a></p>
         <div class="govuk-inset-text">
             <b>Live</b> - you must pay a charge to drive in the zone <br>
             <b>Upcoming</b> - you do not need to pay until charging starts, you can see the dates on our <a
@@ -162,8 +162,7 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£9</td>
                     {% endif %}
                     {% endif %}
-                    <td class="govuk-table__cell" scope="row"><a
-                            href="/fleets/single-user/remove-confirm?vrn={{vrn}}">Remove</a></td>
+                    <td class="govuk-table__cell" scope="row"> </a></td>
                 </tr>
 
                 {% endfor %}
@@ -215,7 +214,7 @@ text: "Back"
         <div class="govuk-checkboxes__item" style="float:left;">
             <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
             <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Hide vehicles that are not charged in any Zone
+                Hide vehicles that are not charged in any zone
             </label>
         </div>
         <br><br><br><br>
@@ -241,10 +240,13 @@ text: "Back"
             </div>
         </details>
 
+        <form method="post" class="form" action="/fleets/single-user-update/add-remove-group/choice">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add, remove or group vehicles
+          </button>
+          </form>
 
-        <h2 class="govuk-heading-m">Add vehicles</h2>
-        <p>You can add multiple vehicles by overriding this list with a new <a href="reupload">list of vehicles</a>.</p>
-        <p><a href="/fleets/single-user/fleet-update-add">Add individual vehicles one by one</a>.</p>
+       
         <br>
         <form method="post" class="form" action="/fleets/single-user/select-caz">
             <button type="submit" class="govuk-button">
