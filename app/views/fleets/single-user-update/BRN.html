@@ -1,0 +1,1199 @@
+{% extends "layout_account.html" %}
+
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+
+        {% if manageTag == "add" %}
+        <div class="moj-banner moj-banner--success">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Success</span>You have successfully added {{lastvrn}} to your
+                vehicle list.
+            </div>
+
+        </div>
+        {% elseif manageTag == "duplicate" %}
+        <div class="moj-banner moj-banner--warning">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" />
+            </svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Warning</span>{{lastvrn}} already exists in your vehicle list.</div>
+
+        </div>
+        {% elseif manageTag == "remove" %}
+        <div class="moj-banner moj-banner--success">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Success</span>You have successfully removed {{lastvrn}} from your
+                vehicle
+                list.</div>
+
+        </div>
+        {% elseif manageTag == "upload" %}
+        <div class="moj-banner moj-banner--success">
+
+            <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+                <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+            <div class="moj-banner__message">
+                <span class="moj-banner__assistive">Success</span>You have successfully uploaded 93 vehicles to your
+                vehicle list.</div>
+
+        </div>
+        {% endif %}
+
+        <h1 class="govuk-heading-l">Select businesses you want to enrol</h1>
+        <p>Any businesses that are already enrolled will be greyed out</a></p>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"> </th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Business name</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">BRN</th>
+                   
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                        </label>
+                      </div></a></td>
+                    <td class="govuk-table__cell" scope="row">A farm</td>
+                    <td class="govuk-table__cell" scope="row">12121100</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                            </label>
+                          </div></a></td>
+                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                        <td class="govuk-table__cell" scope="row">12121103</td>
+                        </tr>
+                        <tr>
+                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                </label>
+                              </div></a></td>
+                            <td class="govuk-table__cell" scope="row">A farm</td>
+                    <td class="govuk-table__cell" scope="row">1212150</td>
+                            </tr>
+                            <tr>
+                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                    </label>
+                                  </div></a></td>
+                                <td class="govuk-table__cell" scope="row">A farm</td>
+                        <td class="govuk-table__cell" scope="row">1212150</td>
+                            </tr>
+                            <tr>
+                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                    </label>
+                                  </div></a></td>
+                                <td class="govuk-table__cell" scope="row">A farm</td>
+                        <td class="govuk-table__cell" scope="row">1215150</td>
+                            </tr>
+                            <tr>
+                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                    </label>
+                                  </div></a></td>
+                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                            </tr>
+
+                            <tr>
+                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                    </label>
+                                  </div></a></td>
+                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                </tr>
+                                <tr>
+                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                        </label>
+                                      </div></a></td>
+                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                            </label>
+                                          </div></a></td>
+                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                            </label>
+                                          </div></a></td>
+                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                            </label>
+                                          </div></a></td>
+                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                            </label>
+                                          </div></a></td>
+                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                </label>
+                                              </div></a></td>
+                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                    </label>
+                                                  </div></a></td>
+                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                    </label>
+                                                  </div></a></td>
+                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                    </label>
+                                                  </div></a></td>
+                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                    </label>
+                                                  </div></a></td>
+                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                        </label>
+                                                      </div></a></td>
+                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                            </label>
+                                                          </div></a></td>
+                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                            </label>
+                                                          </div></a></td>
+                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                            </label>
+                                                          </div></a></td>
+                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                            </label>
+                                                          </div></a></td>
+                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                </label>
+                                                              </div></a></td>
+                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                    </label>
+                                                                  </div></a></td>
+                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                    </label>
+                                                                  </div></a></td>
+                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                    </label>
+                                                                  </div></a></td>
+                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                    </label>
+                                                                  </div></a></td>
+                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                        </label>
+                                                                      </div></a></td>
+                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                            </label>
+                                                                          </div></a></td>
+                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                            </label>
+                                                                          </div></a></td>
+                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                            </label>
+                                                                          </div></a></td>
+                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                            </label>
+                                                                          </div></a></td>
+                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                </label>
+                                                                              </div></a></td>
+                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                    </label>
+                                                                                  </div></a></td>
+                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                    </label>
+                                                                                  </div></a></td>
+                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                    </label>
+                                                                                  </div></a></td>
+                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                    </label>
+                                                                                  </div></a></td>
+                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                        </label>
+                                                                                      </div></a></td>
+                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                            </label>
+                                                                                          </div></a></td>
+                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                            </label>
+                                                                                          </div></a></td>
+                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                            </label>
+                                                                                          </div></a></td>
+                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                    </tr>
+        
+                                                                                    <tr>
+                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                            </label>
+                                                                                          </div></a></td>
+                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                </label>
+                                                                                              </div></a></td>
+                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                    </label>
+                                                                                                  </div></a></td>
+                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                    </label>
+                                                                                                  </div></a></td>
+                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                    </label>
+                                                                                                  </div></a></td>
+                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                            </tr>
+                                                                
+                                                                                            <tr>
+                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                    </label>
+                                                                                                  </div></a></td>
+                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                        </label>
+                                                                                                      </div></a></td>
+                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                            </label>
+                                                                                                          </div></a></td>
+                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                            </label>
+                                                                                                          </div></a></td>
+                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                            </label>
+                                                                                                          </div></a></td>
+                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                            </label>
+                                                                                                          </div></a></td>
+                                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                </label>
+                                                                                                              </div></a></td>
+                                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                    </label>
+                                                                                                                  </div></a></td>
+                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                    </label>
+                                                                                                                  </div></a></td>
+                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                    </label>
+                                                                                                                  </div></a></td>
+                                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                    </label>
+                                                                                                                  </div></a></td>
+                                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                        </label>
+                                                                                                                      </div></a></td>
+                                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                            </label>
+                                                                                                                          </div></a></td>
+                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                            </label>
+                                                                                                                          </div></a></td>
+                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                            </label>
+                                                                                                                          </div></a></td>
+                                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                            </label>
+                                                                                                                          </div></a></td>
+                                                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                        </tr>
+                                                                                                                        <tr>
+                                                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                </label>
+                                                                                                                              </div></a></td>
+                                                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                    </label>
+                                                                                                                                  </div></a></td>
+                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                    </label>
+                                                                                                                                  </div></a></td>
+                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                    </label>
+                                                                                                                                  </div></a></td>
+                                                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                    </label>
+                                                                                                                                  </div></a></td>
+                                                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                </tr>
+                                                                                                                                <tr>
+                                                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                        </label>
+                                                                                                                                      </div></a></td>
+                                                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                    </tr>
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                            </label>
+                                                                                                                                          </div></a></td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                    </tr>
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                            </label>
+                                                                                                                                          </div></a></td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                    </tr>
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                            </label>
+                                                                                                                                          </div></a></td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                    </tr>
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                            </label>
+                                                                                                                                          </div></a></td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                        </tr>
+                                                                                                                                        <tr>
+                                                                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                </label>
+                                                                                                                                              </div></a></td>
+                                                                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                            </tr>
+                                                                                                                                            <tr>
+                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                    </label>
+                                                                                                                                                  </div></a></td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                            </tr>
+                                                                                                                                            <tr>
+                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                    </label>
+                                                                                                                                                  </div></a></td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                            </tr>
+                                                                                                                                            <tr>
+                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                    </label>
+                                                                                                                                                  </div></a></td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                            </tr>
+                                                                                                                                            <tr>
+                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                    </label>
+                                                                                                                                                  </div></a></td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                </tr>
+                                                                                                                                                <tr>
+                                                                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                        </label>
+                                                                                                                                                      </div></a></td>
+                                                                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                    </tr>
+                                                                                                                                                    <tr>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                            </label>
+                                                                                                                                                          </div></a></td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                    </tr>
+                                                                                                                                                    <tr>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                            </label>
+                                                                                                                                                          </div></a></td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                    </tr>
+                                                                                                                                                    <tr>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                            </label>
+                                                                                                                                                          </div></a></td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                    </tr>
+                                                                                                                                                    <tr>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                            </label>
+                                                                                                                                                          </div></a></td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                        </tr>
+                                                                                                                                                        <tr>
+                                                                                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                </label>
+                                                                                                                                                              </div></a></td>
+                                                                                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                            </tr>
+                                                                                                                                                            <tr>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                    </label>
+                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                            </tr>
+                                                                                                                                                            <tr>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                    </label>
+                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                            </tr>
+                                                                                                                                                            <tr>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                    </label>
+                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                            </tr>
+                                                                                                                                
+                                                                                                                                                            <tr>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                    </label>
+                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                                </tr>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                        </label>
+                                                                                                                                                                      </div></a></td>
+                                                                                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                    </tr>
+                                                                                                                                                                    <tr>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                            </label>
+                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                    </tr>
+                                                                                                                                                                    <tr>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                            </label>
+                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                                    </tr>
+                                                                                                                                                                    <tr>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                            </label>
+                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                                    </tr>
+                                                                                                                                                                    <tr>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                            </label>
+                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                                        </tr>
+                                                                                                                                                                        <tr>
+                                                                                                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                </label>
+                                                                                                                                                                              </div></a></td>
+                                                                                                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                            </tr>
+                                                                                                                                                                            <tr>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                    </label>
+                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                            </tr>
+                                                                                                                                                                            <tr>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                    </label>
+                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                                            </tr>
+                                                                                                                                                                            <tr>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                    </label>
+                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                                            </tr>
+                                                                                                                                                                            <tr>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                    </label>
+                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                                                </tr>
+                                                                                                                                                                                <tr>
+                                                                                                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                        </label>
+                                                                                                                                                                                      </div></a></td>
+                                                                                                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                    </tr>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                            </label>
+                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                    </tr>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                            </label>
+                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                                                    </tr>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                            </label>
+                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                                                    </tr>
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                            </label>
+                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                                                        </tr>
+                                                                                                                                                                                        <tr>
+                                                                                                                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                </label>
+                                                                                                                                                                                              </div></a></td>
+                                                                                                                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                            </tr>
+                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                            </tr>
+                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                                                            </tr>
+                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                                                            </tr>
+                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                                                                </tr>
+                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                        </label>
+                                                                                                                                                                                                      </div></a></td>
+                                                                                                                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                                                                        </tr>
+                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                            <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                                <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                </label>
+                                                                                                                                                                                                              </div></a></td>
+                                                                                                                                                                                                            <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                    <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                                    <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                                  </div></a></td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">Matt's farm</td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">12121103</td>
+                                                                                                                                                                                                                </tr>
+                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                                        <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                        </label>
+                                                                                                                                                                                                                      </div></a></td>
+                                                                                                                                                                                                                    <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                            <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">1212150</td>
+                                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" >
+                                                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row">A farm</td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row">1215150</td>
+                                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">      <div class="govuk-checkboxes__item">
+                                                                                                                                                                                                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc" disabled >
+                                                                                                                                                                                                                            <label class="govuk-label govuk-checkboxes__label" for="organisation"></label>
+                                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                                          </div></a></td>
+                                                                                                                                                                                                                        <td class="govuk-table__cell" scope="row"><p class="govuk-hint">A farm</p></td>
+                                                                                                                                                                                                                <td class="govuk-table__cell" scope="row"> <p class="govuk-hint">1212150</p></td>
+                                                                                                                                                                                                                    </tr>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <br>
+        <form method="post" class="form" action="#">
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}
