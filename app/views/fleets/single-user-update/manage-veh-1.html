@@ -241,7 +241,7 @@ text: "Back"
                   </label>
               </div>
               <br><br><br><br>
-              <form method="post" action="\public\images\Vehicle Compliance Results.csv"> 
+              <form action="\public\images\Vehicle Compliance Results.csv"> 
               <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
                 Download (CSV)
               </button>
@@ -273,13 +273,9 @@ text: "Back"
             <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="add-remove">
               <h2 class="govuk-heading-l">Manage vehicles</h2>
               <form action="/add-vehicle-choice" method="post" novalidate>
-
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
-
                         <div class="govuk-radios">
-                            <div class="govuk-radios__item">
-                            </div>
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="add-choice-2" name="add-choice" type="radio"
                                     value="manual">
