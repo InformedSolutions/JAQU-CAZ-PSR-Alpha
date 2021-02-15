@@ -112,85 +112,173 @@ text: "Back"
                       </button>
                   </div>
               </form>
-              <table class="govuk-table">
-                  <thead class="govuk-table__head">
-                      <tr class="govuk-table__row">
-                          <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Number plate</th>
-                          <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Type</th>
-                          <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select"
-                                  id="sort" name="sort" onchange="if (this.value) window.location.href=this.value">
-      
-                                  <option value="manage-veh-1?one=bath"
-                                      {% if one == 'bath'%}selected{% endif %}>Bath (Live)</option>
-                                  <option value="manage-veh-1?one=birmingham"
-                                      {% if one == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
-                                  <option value="manage-veh-1?one=leeds"
-                                      {% if one == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
-                                  <option value="manage-veh-1?one=bristol"
-                                      {% if one == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
-                                  <option value="manage-veh-1?one=leicester"
-                                      {% if one == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
-                                  <option value="manage-veh-1?one=tyneside"
-                                      {% if one == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
-                              </select></th>
-                          <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><a
-                                  href="manage-veh-2?one={{one}}">Add another zone</a></th>
-                          <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"></th>
-                      </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-      
-                      {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
-      
-                      <tr class="govuk-table__row">
-                          <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">{{vrn}}</a></td>
-                          {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
-                          <td class="govuk-table__cell" scope="row">HGV</td>
-                          {% if one == 'bath' %}
-                          <td class="govuk-table__cell" scope="row">£100</td>
-                          {% elseif one == 'birmingham'%}
-                          <td class="govuk-table__cell" scope="row">£50</td>
-                          {% elseif one == 'bristol'%}
-                          <td class="govuk-table__cell" scope="row">£60</td>
-                          {% elseif one == 'leeds'%}
-                          <td class="govuk-table__cell" scope="row">£50</td>
-                          {% elseif one == 'leicester'%}
-                          <td class="govuk-table__cell" scope="row">£75</td>
-                          {% elseif one == 'tyneside'%}
-                          <td class="govuk-table__cell" scope="row">£80</td>
-                          {% else %}
-                          <td class="govuk-table__cell" scope="row">£100</td>
-                          {% endif %}
-                          {% elseif vrn == 'MH75BJH' %}
-                          <td class="govuk-table__cell" scope="row">HGV</td>
-                          <td class="govuk-table__cell" scope="row">No charge</td>
-                          {% elseif vrn == 'M56FGF' %}
-                          <td class="govuk-table__cell" scope="row">Undetermined</td>
-                          <td class="govuk-table__cell" scope="row">Undetermined</td>
-                          {% else %}
-                          <td class="govuk-table__cell" scope="row">Van</td>
-                          {% if one == 'bath' %}
-                          <td class="govuk-table__cell" scope="row">£9</td>
-                          {% elseif one == 'birmingham'%}
-                          <td class="govuk-table__cell" scope="row">£8</td>
-                          {% elseif one == 'bristol'%}
-                          <td class="govuk-table__cell" scope="row">£10</td>
-                          {% elseif one == 'leeds'%}
-                          <td class="govuk-table__cell" scope="row">No charge</td>
-                          {% elseif one == 'leicester'%}
-                          <td class="govuk-table__cell" scope="row">No charge</td>
-                          {% elseif one == 'tyneside'%}
-                          <td class="govuk-table__cell" scope="row">£11</td>
-                          {% else %}
-                          <td class="govuk-table__cell" scope="row">£9</td>
-                          {% endif %}
-                          {% endif %}
-                          <td class="govuk-table__cell" scope="row"> </td>
-                      </tr>
-      
-                      {% endfor %}
-                  </tbody>
-              </table>
+            
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Number plate</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col">Type</th>
+                    <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort" name="sort" onchange="if (this.value) window.location.href=this.value">
+                        <option value="manage-veh-3?one=bath" {% if one == 'bath'%}selected{% endif %}>Bath (Live)</option>
+                        <option value="manage-veh-3?one=birmingham" {% if one == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
+                        <option value="manage-veh-3?one=leeds" {% if one == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
+                        <option value="manage-veh-3?one=bristol" {% if one == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
+                        <option value="manage-veh-3?one=leicester" {% if one == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
+                        <option value="manage-veh-3?one=tyneside" {% if one == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                      </select></th>
+                      <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort2" name="sort2" onchange="if (this.value) window.location.href=this.value">
+                        <option value="">Select zone...</option>
+                        <option value="manage-veh-3?two=bath" {% if two == 'bath'%}selected{% endif %}>Bath (Live)</option>
+                        <option value="manage-veh-3?two=birmingham" {% if two == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
+                        <option value="manage-veh-3?two=leeds" {% if two == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
+                        <option value="manage-veh-3?two=bristol" {% if two == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
+                        <option value="manage-veh-3?two=leicester" {% if two == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
+                        <option value="manage-veh-3?two=tyneside" {% if two == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                      </select> <a href="manage-veh-2">X</a></th>
+                      <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort3" name="sort3" onchange="if (this.value) window.location.href=this.value">
+                        <option value="">Select zone...</option>
+                        <option value="manage-veh-3?three=bath" {% if three == 'bath'%}selected{% endif %}>Bath (Live)</option>
+                        <option value="manage-veh-3?three=birmingham" {% if three == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
+                        <option value="manage-veh-3?three=leeds" {% if three == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
+                        <option value="manage-veh-3?three=bristol" {% if three == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
+                        <option value="manage-veh-3?three=leicester" {% if three == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
+                        <option value="manage-veh-3?three=tyneside" {% if three == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                      </select> <a href="manage-veh-2">X</a></th>
+                    </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+                {% for vrn in ['AB12CDE', 'AF03WMY', 'BT02VYL', 'JO51WQE', 'M15JIK', 'M56FGF', 'MH75BJH', 'P057BOX', 'R66PPR', 'WL08JTZ'] %}
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="vrn-info-many">{{vrn}}</a></td>
+                    {% if vrn == 'AF03WMY' or vrn == 'JO51WQE' or vrn == 'P057BOX' %}
+                    <td class="govuk-table__cell" scope="row">HGV</td>
+                    {% if one == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% elseif one == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif one == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£60</td>
+                    {% elseif one == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif one == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif one == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% endif %}
+                    {% if two == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% elseif two == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif two == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£60</td>
+                    {% elseif two == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif two == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif two == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£100</td>
+                    {% elseif three == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif three == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£60</td>
+                    {% elseif three == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">£50</td>
+                    {% elseif three == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif three == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% elseif vrn == 'MH75BJH' %}
+                    <td class="govuk-table__cell" scope="row">HGV</td>
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% if two %}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three %}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% elseif vrn == 'M56FGF' %}
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    {% if two %}
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three %}
+                    <td class="govuk-table__cell" scope="row">Undetermined</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">Van</td>
+                    {% if one == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% elseif one == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£8</td>
+                    {% elseif one == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£10</td>
+                    {% elseif one == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% endif %}
+                    {% if two == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% elseif two == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£8</td>
+                    {% elseif two == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£10</td>
+                    {% elseif two == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif two == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif two == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% if three == 'bath' %}
+                    <td class="govuk-table__cell" scope="row">£9</td>
+                    {% elseif three == 'birmingham'%}
+                    <td class="govuk-table__cell" scope="row">£8</td>
+                    {% elseif three == 'bristol'%}
+                    <td class="govuk-table__cell" scope="row">£10</td>
+                    {% elseif three == 'leeds'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif three == 'leicester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif three == 'tyneside'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
+                    {% else %}
+                    <td class="govuk-table__cell" scope="row"></td>
+                    {% endif %}
+                    {% endif %}
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+
               <nav class="moj-pagination" id="pagination-label" style="margin-top:-30px">
       
                   <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>

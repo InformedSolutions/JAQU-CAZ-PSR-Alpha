@@ -1119,5 +1119,81 @@ router.get('/fleets/single-user/fleet-update-csv', function(req, res) {
     req.session.manageTag='blank';
   })
 
+  
+  router.post('/manage-veh-1', function (req, res) {
+    var choice = req.body['choice'];
+
+    if (choice == 'add') {
+        res.redirect('/fleets/single-user-update/add-vehicle')
+    } 
+    else if (choice == 'upload') { 
+      res.redirect('/fleets/single-user-update/reupload')
+    } 
+    else if (choice == 'remove') {
+    res.redirect('/fleets/single-user-update/remove-new')}
+});
+
+router.get('/fleets/single-user-update/manage-veh-1', function(req, res) {  
+  if (req.query.one) {
+  req.session.one= req.query.one
+  }
+
+  var registered = true ? req.session.data['registered'] === 'true' : false;
+  res.render('fleets/single-user-update/manage-veh-1', {
+    registered: registered,
+    vrns: req.session.vrns,
+    manageTag: req.session.manageTag,
+    lastvrn: req.session.lastvrn,
+    one: req.session.one
+  })
+  req.session.manageTag='blank';
+})
+
+router.get('/fleets/single-user-update/manage-veh-2', function(req, res) {  
+  if (req.query.one) {
+      req.session.one= req.query.one
+      }
+
+      if (req.query.two) {
+          req.session.two= req.query.two
+          }
+
+  var registered = true ? req.session.data['registered'] === 'true' : false;
+  res.render('fleets/single-user-update/manage-veh-2', {
+    registered: registered,
+    vrns: req.session.vrns,
+    manageTag: req.session.manageTag,
+    lastvrn: req.session.lastvrn,
+    one: req.session.one,
+    two: req.session.two
+  })
+  req.session.manageTag='blank';
+})
+
+router.get('/fleets/single-user-update/manage-veh-3', function(req, res) {  
+  if (req.query.one) {
+      req.session.one= req.query.one
+      }
+
+      if (req.query.two) {
+          req.session.two= req.query.two
+          }
+          if (req.query.three) {
+              req.session.three= req.query.three
+              }
+
+  var registered = true ? req.session.data['registered'] === 'true' : false;
+  res.render('fleets/single-user-update/manage-veh-3', {
+    registered: registered,
+    vrns: req.session.vrns,
+    manageTag: req.session.manageTag,
+    lastvrn: req.session.lastvrn,
+    one: req.session.one,
+    two: req.session.two,
+    three: req.session.three
+  })
+  req.session.manageTag='blank';
+})
+
 
 module.exports = router

@@ -32,17 +32,31 @@ text: "Back"
       </div>
       {% endif %}
 
+   
       <h1 class="govuk-heading-l">
-        Replace and upload a new list of vehicles</h1>
-      <p>
-        To find out if your vehicles will be charged in each Clean Air Zone:</p>
-        <ol class="govuk-list govuk-list--number">
-            <li>Download the <a href="\public\images\docs\VehicleUploadTemplate.csv">template</a>.</li>
-            <li>Enter all your number plates (vehicle registration numbers) in the first column.</li>
-            <li>Save. The name of the file does not matter.</li>
-            <li>Upload the file.</li>
+        Replace and upload a new list of vehicles to Account</h1>
+   
+        <p>To add vehicles to this account, you can either use your own spreadsheet or <a href="\public\images\docs\VehicleUploadTemplate.csv">download a template (CSV, 1KB).</a></p>
+       
+       <p> When filling in the number plates follow these rules so the data uploads with no errors:</p>
+       <ul class="govuk-list govuk-list--bullet">
+            <li>in cell A1, enter the words 'number plate'</li>
+            <li>the number plates can only be between 2 and 7 characters</li>
+            <li>use only letters and numbers</li>
+            <li>enter number plates in the first column only</li>
+            <li>no empty rows between the number plates</li>
+            <li>the maximum amount of vehicles you can upload is 200,000</li>
+          </ul>
+
+          <p>Once the file is filled in:</p>
+          <ol class="govuk-list govuk-list--number">
+          <li>Save it as .CSV - the name of the file does not matter <br>
+          (Go to file > save as > .CSV (comma delimited)).</li>
+          <li>Choose the file.</li>
+          <li>Upload the file.</li>
           </ol>
-      <form method="POST" class="form" action="fleets-reconfirmation">
+
+      <form method="POST" class="form" action="/fleets/single-user-update/local-exemption">
         {% if error %}
         <div class="govuk-form-group govuk-form-group--error">
         {% endif %}
@@ -68,7 +82,7 @@ text: "Back"
         {% endif %}
         
         <button type="submit" class="govuk-button" name="registered" value="true">
-            Upload the file
+            Upload file
         </button>
       </form>
 

@@ -1,0 +1,182 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Select vehicles to remove</h1>
+
+        <form method="post" class="form" action="#">
+            <div class="govuk-form-group" style="margin-bottom: -10px;">
+                <label class="govuk-label" for="vrn-search">
+                    Search for a number plate
+                </label>
+                <input class="govuk-input govuk-input--width-10" id="vrn-search" name="vrn-search" type="text">
+                <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Search
+                </button>
+            </div>
+        </form>
+
+        <form method="post" class="form" action="/fleets/single-user-update/remove-confirm-new">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Number plate</th>
+                        <th scope="col" class="govuk-table__header"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">ABC123</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">ABD123</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">BBZ456</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">BYZ456</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">CU57ABC</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">CYZ456</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">DYZ456</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">EYZ456</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">HYZ456</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">XYZ456</td>
+                        <td class="govuk-table__cell">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="select" name="select" type="checkbox" value="select">
+                                <label class="govuk-label govuk-checkboxes__label" for="select">
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </fieldset>
+
+                <ul class="moj-pagination__list">
+
+                    <li class="moj-pagination__item  moj-pagination__item--prev">
+                        <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of
+                                pages</span></a>
+                    </li>
+                    <li class="moj-pagination__item moj-pagination__item--active">1</li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
+                    <li class="moj-pagination__item">...</li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">13</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">14</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">15</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">16</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">17</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">18</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">19</a></li>
+                    <li class="moj-pagination__item">...</li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">56</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">57</a></li>
+                    <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">58</a></li>
+    
+                    <li class="moj-pagination__item  moj-pagination__item--next">
+                        <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of
+                                pages</span></a>
+                    </li>
+                </ul>
+            </div>
+            
+            <button type="submit" class="govuk-button">
+                Remove vehicles
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
