@@ -15,20 +15,24 @@ Drive in a Clean Air Zone
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-l">Which vehicles and days are you paying for?</h1>
-        <p><strong>This list only contains vehicles that are subject to a charge in {{data['caz']}}.</strong></p>
+        <p><strong>This list only contains vehicles that will be charged in {{data['caz']}}.</strong></p>
         <p>You can pay for the past 6 days and the next 7 days, which includes today.</p>
         <p>A daily charge period runs from midnight to midnight.</p>
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                    Why can't I see my date?
+                    I can't see the dates I want to pay for
                 </span>
             </summary>
             <div class="govuk-details__text">
                 If the date you want to pay for is not displayed, it may be because:<br><br>
-                <li>The 7 day period you had to pay has ended.<br>You may be subject to a penalty charge notice (PCN).
+                <li>The 7 day period you had to pay has ended.
+                    <br>
+                    A penalty charge notice (PCN) may be issued.
                 </li><br>
-                <li>The date is too far in the future.<br>You should check back here closer to the date you want.
+                <li>The date is too far in the future.
+                    <br>
+                    Check back here closer to the date you need to pay for.
                 </li>
             </div>
         </details>
@@ -191,7 +195,7 @@ Drive in a Clean Air Zone
             </fieldset>
             <form method="post" class="form" action="/fleets/single-user/confirm-charge">
                 <button type="submit" class="govuk-button">
-                    Continue
+                    Review payment
                 </button>
             </form>
         </div>
