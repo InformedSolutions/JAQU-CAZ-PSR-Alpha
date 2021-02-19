@@ -89,7 +89,7 @@ text: "Back"
               </li>
               <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#manage-sub">
-                  Custom vehicle lists
+                  Groups
                 </a>
               </li>
             </ul>
@@ -98,7 +98,7 @@ text: "Back"
               <p>The table shows the daily charge you would pay to drive a vehicle in each Clean Air Zone. Find out how we <a href="#">calculate charges.</a></p>
               <div class="govuk-inset-text">
                   <b>Live</b> - you must pay a charge to drive in the zone <br>
-                  <b>Upcoming</b> - you do not need to pay until charging starts, you can see the dates on our <a
+                  <b>Future</b> - you do not need to pay until charging starts, you can see the dates on our <a
                       href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone#cleanairzones">guidance page</a>
               </div>
               <form method="post" class="form" action="/fleets/single-user/fleet-update-searched">
@@ -121,28 +121,34 @@ text: "Back"
                     <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort" name="sort" onchange="if (this.value) window.location.href=this.value">
                         <option value="manage-veh-3?one=bath" {% if one == 'bath'%}selected{% endif %}>Bath (Live)</option>
                         <option value="manage-veh-3?one=birmingham" {% if one == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
-                        <option value="manage-veh-3?one=leeds" {% if one == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
-                        <option value="manage-veh-3?one=bristol" {% if one == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
-                        <option value="manage-veh-3?one=leicester" {% if one == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
-                        <option value="manage-veh-3?one=tyneside" {% if one == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                        <option value="manage-veh-3?one=bradford" {% if one == 'bradford'%}selected{% endif %}>Bradford (Future)</option>
+                        <option value="manage-veh-3?one=bristol" {% if one == 'bristol'%}selected{% endif %}>Bristol (Future)</option>
+                        <option value="manage-veh-3?one=manchester" {% if one == 'manchester'%}selected{% endif %}>Manchester (Future)</option>
+                        <option value="manage-veh-3?one=portsmouth" {% if one == 'portsmouth'%}selected{% endif %}>Portsmouth (Future)</option>
+                        <option value="manage-veh-3?one=sheffield" {% if one == 'sheffield'%}selected{% endif %}>Sheffield (Future)</option>
+                        <option value="manage-veh-3?one=tyneside" {% if one == 'tyneside'%}selected{% endif %}>Tyneside (Future)</option>
                       </select></th>
                       <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort2" name="sort2" onchange="if (this.value) window.location.href=this.value">
                         <option value="">Select zone...</option>
                         <option value="manage-veh-3?two=bath" {% if two == 'bath'%}selected{% endif %}>Bath (Live)</option>
                         <option value="manage-veh-3?two=birmingham" {% if two == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
-                        <option value="manage-veh-3?two=leeds" {% if two == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
-                        <option value="manage-veh-3?two=bristol" {% if two == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
-                        <option value="manage-veh-3?two=leicester" {% if two == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
-                        <option value="manage-veh-3?two=tyneside" {% if two == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                        <option value="manage-veh-3?two=bradford" {% if two == 'bradford'%}selected{% endif %}>Bradford (Live)</option>
+                        <option value="manage-veh-3?two=bristol" {% if two == 'bristol'%}selected{% endif %}>Bristol (Future)</option>
+                        <option value="manage-veh-3?two=manchester" {% if two == 'manchester'%}selected{% endif %}>Manchester (Future)</option>
+                        <option value="manage-veh-3?two=portsmouth" {% if two == 'portsmouth'%}selected{% endif %}>Portsmouth (Future)</option>
+                        <option value="manage-veh-3?two=sheffield" {% if two == 'sheffield'%}selected{% endif %}>Sheffield (Future)</option>
+                        <option value="manage-veh-3?two=tyneside" {% if two == 'tyneside'%}selected{% endif %}>Tyneside (Future)</option>
                       </select> <a href="manage-veh-2">X</a></th>
                       <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><select class="govuk-select" id="sort3" name="sort3" onchange="if (this.value) window.location.href=this.value">
                         <option value="">Select zone...</option>
                         <option value="manage-veh-3?three=bath" {% if three == 'bath'%}selected{% endif %}>Bath (Live)</option>
                         <option value="manage-veh-3?three=birmingham" {% if three == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
-                        <option value="manage-veh-3?three=leeds" {% if three == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
-                        <option value="manage-veh-3?three=bristol" {% if three == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
-                        <option value="manage-veh-3?three=leicester" {% if three == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
-                        <option value="manage-veh-3?three=tyneside" {% if three == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                        <option value="manage-veh-3?three=bradford" {% if three == 'bradford'%}selected{% endif %}>Bradford (Live)</option>
+                        <option value="manage-veh-3?three=bristol" {% if three == 'bristol'%}selected{% endif %}>Bristol (Future)</option>
+                        <option value="manage-veh-3?three=manchester" {% if three == 'manchester'%}selected{% endif %}>Manchester (Future)</option>
+                        <option value="manage-veh-3?three=portsmouth" {% if three == 'portsmouth'%}selected{% endif %}>Portsmouth (Future)</option>
+                        <option value="manage-veh-3?three=sheffield" {% if three == 'sheffield'%}selected{% endif %}>Sheffield (Future)</option>
+                        <option value="manage-veh-3?three=tyneside" {% if three == 'tyneside'%}selected{% endif %}>Tyneside (Future)</option>
                       </select> <a href="manage-veh-2">X</a></th>
                     </tr>
             </thead>
@@ -160,10 +166,14 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£50</td>
                     {% elseif one == 'bristol'%}
                     <td class="govuk-table__cell" scope="row">£60</td>
-                    {% elseif one == 'leeds'%}
+                    {% elseif one == 'bradford'%}
                     <td class="govuk-table__cell" scope="row">£50</td>
-                    {% elseif one == 'leicester'%}
+                    {% elseif one == 'manchester'%}
                     <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif one == 'portsmouth'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif one == 'sheffield'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
                     {% elseif one == 'tyneside'%}
                     <td class="govuk-table__cell" scope="row">£80</td>
                     {% else %}
@@ -175,10 +185,14 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£50</td>
                     {% elseif two == 'bristol'%}
                     <td class="govuk-table__cell" scope="row">£60</td>
-                    {% elseif two == 'leeds'%}
+                    {% elseif two == 'bradford'%}
                     <td class="govuk-table__cell" scope="row">£50</td>
-                    {% elseif two == 'leicester'%}
+                    {% elseif two == 'manchester'%}
                     <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif two == 'portsmouth'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif two == 'sheffield'%}
+                    <td class="govuk-table__cell" scope="row">£80</td>
                     {% elseif two == 'tyneside'%}
                     <td class="govuk-table__cell" scope="row">£80</td>
                     {% else %}
@@ -190,9 +204,13 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£50</td>
                     {% elseif three == 'bristol'%}
                     <td class="govuk-table__cell" scope="row">£60</td>
-                    {% elseif three == 'leeds'%}
+                    {% elseif three == 'bradford'%}
                     <td class="govuk-table__cell" scope="row">£50</td>
-                    {% elseif three == 'leicester'%}
+                    {% elseif three == 'manchester'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif three == 'portsmouth'%}
+                    <td class="govuk-table__cell" scope="row">£75</td>
+                    {% elseif three == 'sheffield'%}
                     <td class="govuk-table__cell" scope="row">£75</td>
                     {% elseif three == 'tyneside'%}
                     <td class="govuk-table__cell" scope="row">£80</td>
@@ -233,9 +251,13 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£8</td>
                     {% elseif one == 'bristol'%}
                     <td class="govuk-table__cell" scope="row">£10</td>
-                    {% elseif one == 'leeds'%}
+                    {% elseif one == 'bradford'%}
                     <td class="govuk-table__cell" scope="row">No charge</td>
-                    {% elseif one == 'leicester'%}
+                    {% elseif one == 'manchester'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'portsmouth'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif one == 'sheffield'%}
                     <td class="govuk-table__cell" scope="row">No charge</td>
                     {% elseif one == 'tyneside'%}
                     <td class="govuk-table__cell" scope="row">£11</td>
@@ -248,10 +270,14 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£8</td>
                     {% elseif two == 'bristol'%}
                     <td class="govuk-table__cell" scope="row">£10</td>
-                    {% elseif two == 'leeds'%}
+                    {% elseif two == 'bradford'%}
                     <td class="govuk-table__cell" scope="row">No charge</td>
-                    {% elseif two == 'leicester'%}
+                    {% elseif two == 'manchester'%}
                     <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif two == 'portsmouth'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif two == 'sheffield'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
                     {% elseif two == 'tyneside'%}
                     <td class="govuk-table__cell" scope="row">£11</td>
                     {% else %}
@@ -263,10 +289,14 @@ text: "Back"
                     <td class="govuk-table__cell" scope="row">£8</td>
                     {% elseif three == 'bristol'%}
                     <td class="govuk-table__cell" scope="row">£10</td>
-                    {% elseif three == 'leeds'%}
+                    {% elseif three == 'bradford'%}
                     <td class="govuk-table__cell" scope="row">No charge</td>
-                    {% elseif three == 'leicester'%}
+                    {% elseif three == 'manchester'%}
                     <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif two == 'portsmouth'%}
+                    <td class="govuk-table__cell" scope="row">No charge</td>
+                    {% elseif three == 'sheffield'%}
+                    <td class="govuk-table__cell" scope="row">£11</td>
                     {% elseif three == 'tyneside'%}
                     <td class="govuk-table__cell" scope="row">£11</td>
                     {% else %}
@@ -405,13 +435,13 @@ text: "Back"
             </div>
          
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manage-sub">
-            <h2 class="govuk-heading-l">Custom vehicle lists</h2>
-            <p>Creating custom lists allows you to group vehicles together according to your needs.</p>
-            <p>When making a payment you can choose to pay from a custom list or the whole vehicle list.</p>
+            <h2 class="govuk-heading-l">Groups</h2>
+            <p>Create a group to organise your vehicles according to your needs.</p>
+            <p>When making a payment you can choose to pay from one of your groups or the vehicle list.</p>
             <table class="govuk-table">
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="col">List name</th>
+                        <th class="govuk-table__header" scope="col">Group name</th>
                         <th class="govuk-table__header" scope="col">Number of vehicles</th>
                         <th class="govuk-table__header" scope="col"></th>
                 </thead>
@@ -431,7 +461,7 @@ text: "Back"
             <form method="post" class="form" action="/fleets/single-user-update/add-group">
             
                 <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                    Create a new list
+                    Create a new group
                   </button>
             </form>
            

@@ -89,7 +89,7 @@ text: "Back"
               </li>
               <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#manage-sub">
-                  Custom vehicle lists
+                  Groups
                 </a>
               </li>
             </ul>
@@ -98,7 +98,7 @@ text: "Back"
               <p>The table shows the daily charge you would pay to drive a vehicle in each Clean Air Zone. Find out how we <a href="#">calculate charges.</a></p>
               <div class="govuk-inset-text">
                   <b>Live</b> - you must pay a charge to drive in the zone <br>
-                  <b>Upcoming</b> - you do not need to pay until charging starts, you can see the dates on our <a
+                  <b>Future</b> - you do not need to pay until charging starts, you can see the dates on our <a
                       href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone#cleanairzones">guidance page</a>
               </div>
               <form method="post" class="form" action="/fleets/single-user/fleet-update-searched">
@@ -124,14 +124,18 @@ text: "Back"
                                       {% if one == 'bath'%}selected{% endif %}>Bath (Live)</option>
                                   <option value="manage-veh-1?one=birmingham"
                                       {% if one == 'birmingham'%}selected{% endif %}>Birmingham (Live)</option>
-                                  <option value="manage-veh-1?one=leeds"
-                                      {% if one == 'leeds'%}selected{% endif %}>Leeds (Live)</option>
+                                  <option value="manage-veh-1?one=bradford"
+                                      {% if one == 'bradford'%}selected{% endif %}>Bradford (Future)</option>
                                   <option value="manage-veh-1?one=bristol"
-                                      {% if one == 'bristol'%}selected{% endif %}>Bristol (Upcoming)</option>
-                                  <option value="manage-veh-1?one=leicester"
-                                      {% if one == 'leicester'%}selected{% endif %}>Leicester (Upcoming)</option>
+                                      {% if one == 'bristol'%}selected{% endif %}>Bristol (Future)</option>
+                                  <option value="manage-veh-1?one=manchester"
+                                      {% if one == 'manchester'%}selected{% endif %}>Manchester (Future)</option>
+                                  <option value="manage-veh-1?one=portsmouth"
+                                      {% if one == 'portsmouth'%}selected{% endif %}>Portsmouth (Future)</option>
+                                  <option value="manage-veh-1?one=sheffield"
+                                      {% if one == 'sheffield'%}selected{% endif %}>Sheffield (Future)</option>
                                   <option value="manage-veh-1?one=tyneside"
-                                      {% if one == 'tyneside'%}selected{% endif %}>Tyneside (Upcoming)</option>
+                                      {% if one == 'tyneside'%}selected{% endif %}>Tyneside (Future)</option>
                               </select></th>
                           <th class="govuk-table__header govuk-!-width-one-fifth" scope="col"><a
                                   href="manage-veh-2?one={{one}}">Add another zone</a></th>
@@ -152,10 +156,14 @@ text: "Back"
                           <td class="govuk-table__cell" scope="row">£50</td>
                           {% elseif one == 'bristol'%}
                           <td class="govuk-table__cell" scope="row">£60</td>
-                          {% elseif one == 'leeds'%}
+                          {% elseif one == 'bradford'%}
                           <td class="govuk-table__cell" scope="row">£50</td>
-                          {% elseif one == 'leicester'%}
+                          {% elseif one == 'manchester'%}
                           <td class="govuk-table__cell" scope="row">£75</td>
+                          {% elseif one == 'portsmouth'%}
+                          <td class="govuk-table__cell" scope="row">£80</td>
+                          {% elseif one == 'sheffield'%}
+                          <td class="govuk-table__cell" scope="row">£80</td>
                           {% elseif one == 'tyneside'%}
                           <td class="govuk-table__cell" scope="row">£80</td>
                           {% else %}
@@ -175,9 +183,13 @@ text: "Back"
                           <td class="govuk-table__cell" scope="row">£8</td>
                           {% elseif one == 'bristol'%}
                           <td class="govuk-table__cell" scope="row">£10</td>
-                          {% elseif one == 'leeds'%}
+                          {% elseif one == 'bradford'%}
                           <td class="govuk-table__cell" scope="row">No charge</td>
-                          {% elseif one == 'leicester'%}
+                          {% elseif one == 'manchester'%}
+                          <td class="govuk-table__cell" scope="row">No charge</td>
+                          {% elseif one == 'portsmouth'%}
+                          <td class="govuk-table__cell" scope="row">No charge</td>
+                          {% elseif one == 'sheffield'%}
                           <td class="govuk-table__cell" scope="row">No charge</td>
                           {% elseif one == 'tyneside'%}
                           <td class="govuk-table__cell" scope="row">£11</td>
@@ -243,7 +255,7 @@ text: "Back"
               <br><br><br><br>
               <form action="\public\images\Vehicle Compliance Results.csv"> 
               <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Download the charges (CSV)
+                Download the results (CSV)
               </button>
               </form>
               <details class="govuk-details" data-module="govuk-details">
@@ -317,13 +329,13 @@ text: "Back"
             </div>
          
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="manage-sub">
-            <h2 class="govuk-heading-l">Custom vehicle lists</h2>
-            <p>Creating custom lists allows you to group vehicles together according to your needs.</p>
-            <p>When making a payment you can choose to pay from a custom list or the whole vehicle list.</p>
+            <h2 class="govuk-heading-l">Groups</h2>
+            <p>Create a group to organise your vehicles according to your needs.</p>
+            <p>When making a payment you can choose to pay from one of your groups or the vehicle list.</p>
             <table class="govuk-table">
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="col">List name</th>
+                        <th class="govuk-table__header" scope="col">Group name</th>
                         <th class="govuk-table__header" scope="col">Number of vehicles</th>
                         <th class="govuk-table__header" scope="col"></th>
                 </thead>
@@ -343,7 +355,7 @@ text: "Back"
             <form method="post" class="form" action="/fleets/single-user-update/add-group">
             
                 <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                    Create a new list
+                    Create a new group
                   </button>
             </form>
            

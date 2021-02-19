@@ -1,0 +1,30 @@
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Pay a Clean Air Zone charge
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+
+        <h1 class="govuk-heading-l">Downloading payment history</h1>
+        <p>We are processing your file (CSV) which may take a few minutes.</p>
+        <p>Do not leave this page. Your file will pop-up when it is ready.</p>
+        <p>If this page does not automatically refresh in 30 seconds, you can <a href="#">refresh it yourself.</a></p>
+        
+        <p><a href="#">Return to payment history.</a></p>
+    </div>
+</div>
+
+{% endblock %}
