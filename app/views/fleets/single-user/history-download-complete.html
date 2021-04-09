@@ -1,0 +1,33 @@
+
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Drive in a Clean Air Zone
+{% endblock %}
+
+{% block content %}   
+
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Downloading your payment history</h1>
+
+    <p>We will email you a link to download a CSV of your payment history shortly.</p>
+
+    <p> <a href="/fleets/single-user/history-filter">Return to payment history</a></p>
+   
+
+
+{% endblock %}
+{% block pageScripts %}
+
+
+{% endblock %}

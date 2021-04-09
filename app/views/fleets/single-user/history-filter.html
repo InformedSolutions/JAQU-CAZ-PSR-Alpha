@@ -164,9 +164,14 @@ text: "Back"
       <option value="">50</option>
 
   </select></p>
-      <br><p><a href="\public\images\PaymentHistory.csv">Download a spreadsheet (CSV) of payment history</a></p>
-
+  <br>
+      <form action="/fleets/single-user/history-download-complete"> 
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Download payment history (CSV)
+        </button>
+        </form>
     </div>
+  
 </div>
 
 

@@ -1,0 +1,107 @@
+
+{% extends "layout_account.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Drive in a Clean Air Zone
+{% endblock %}
+
+{% block content %}   
+
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Select date range</h1>
+
+    <p>You can download up to 3 months history.</p>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m"></legend>
+          <div class="govuk-form-group">
+            <fieldset aria-describedby="start_date_hint" class="govuk-fieldset" role="group">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Start date
+              </legend>
+              <span class="govuk-hint" id="start_date_hint">
+              For example, 15 3 2021
+              </span>
+              <div class="govuk-date-input">
+                <div class="govuk-date-input__item" id="start_date_day">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="search_start_date_day">Day</label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " inputmode="numeric" pattern="[0-9]*" type="text" maxlength="2" size="2" name="search[start_date_day]" id="search_start_date_day">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item" id="start_date_month">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="search_start_date_month">Month</label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " inputmode="numeric" pattern="[0-9]*" type="text" maxlength="2" size="2" name="search[start_date_month]" id="search_start_date_month">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item" id="start_date_year">
+                  <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="search_start_date_year">Year</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4 " inputmode="numeric" pattern="[0-9]*" type="text" maxlength="4" size="4" name="search[start_date_year]" id="search_start_date_year">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+            <div class="govuk-form-group">
+            <fieldset aria-describedby="end_date_hint" class="govuk-fieldset" role="group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            End date
+            </legend>
+            <span class="govuk-hint" id="end_date_hint">
+            For example, 15 6 2021
+            </span>
+            <div class="govuk-date-input">
+            <div class="govuk-date-input__item" id="end_date_day">
+            <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="search_end_date_day">Day</label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2 " inputmode="numeric" pattern="[0-9]*" type="text" maxlength="2" size="2" name="search[end_date_day]" id="search_end_date_day">
+            </div>
+            </div>
+            <div class="govuk-date-input__item" id="end_date_month">
+            <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="search_end_date_month">Month</label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2 " inputmode="numeric" pattern="[0-9]*" type="text" maxlength="2" size="2" name="search[end_date_month]" id="search_end_date_month">
+            </div>
+            </div>
+            <div class="govuk-date-input__item" id="end_date_year">
+            <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="search_end_date_year">Year</label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4 " inputmode="numeric" pattern="[0-9]*" type="text" maxlength="4" size="4" name="search[end_date_year]" id="search_end_date_year">
+            </div>
+            </div>
+            </div>
+            </fieldset>
+          </div>
+      </fieldset>
+      </div>
+
+ 
+  </select></p>
+
+  <form action="/fleets/single-user/history-download-complete"> 
+    <button class="govuk-button" data-module="govuk-button">
+      Download (CSV)
+    </button>
+    </form>
+
+    </div>
+</div>
+
+
+{% endblock %}
+{% block pageScripts %}
+
+
+{% endblock %}
