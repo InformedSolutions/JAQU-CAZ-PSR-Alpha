@@ -20,7 +20,7 @@ text: "Back"
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-l">Payment history</h1>
 
-       <p>Use this page to view payments made by you and your team members.</p>        
+       <p>View payments made by you and your team members.</p>        
         <br>        
 
        <table class="govuk-table">
@@ -144,7 +144,14 @@ text: "Back"
       <option value="">50</option>
 
   </select></p>
-      <br><p><a href="\public\images\PaymentHistory.csv">Download a spreadsheet (CSV) of payment history</a></p>
+
+  <br><br>
+
+      <form action="/fleets/single-user/history-download-complete"> 
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Request a download link (CSV)
+        </button>
+        </form>
 
     </div>
 </div>
