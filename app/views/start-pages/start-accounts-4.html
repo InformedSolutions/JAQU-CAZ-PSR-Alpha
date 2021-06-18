@@ -1,61 +1,76 @@
+
 {% extends "layout.html" %}
 
-
+{% block beforeContent %}
+{{ govukBackLink({
+href: "javascript:history.back()",
+text: "Back"
+}) }}
+{% endblock %}
 
 {% block pageTitle %}
-Drive in a Clean Air Zone
+  Drive in a Clean Air Zone
 {% endblock %}
 
+{% block content %}   
 
-{% block beforeContent %}
- 
-{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-{% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-xl">
-        Drive in a Clean Air Zone - Check for multiple vehicles
-      </h1>
-
-      <h2 class="govuk-heading-m">
-        Business accounts for multiple vehicles
+    {% if error %}
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
       </h2>
-
-   <p>If you own or manage 2 or more vehicles, creating an account is the easiest way to check how much you will be charged.</p>
-  <p> You will need to upload your vehicle number plates to this service. Your number plates will be used to determine whether your vehicles meet the emission standards in each zone. If they don't, you can check what your charges will be.</p>
-
-  <p>Once your account is set up you can:</p>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>upload all your vehicle number plates by file (CSV) or add them one by one</li>
-            <li>manage your vehicles - add and remove</li>
-            <li>view what each vehicle will be charged in every Clean Air Zone</li>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#caz-error">{{errorMessage}}</a>
+          </li>
         </ul>
-
-        <p>To create an account you'll need:</p>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>your company name</li>
-            <li>an email address</li>
-        </ul>
-
-        <div class="govuk-inset-text">
-          If you’ve already created a business account <a href="https://accountpay.cleanairzone.defra.gov.uk/users/sign_in">sign in</a></p> 
-        </div>
-        
-        <a href="start-accounts-3" role="button" draggable="false"
-            class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start"
-            data-module="govuk-button">
-            Create an account
-            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
-                viewBox="0 0 33 40" role="presentation" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg>
-        </a>
-      <p>Once payments are live, you will need to use this service to tell us when any of your vehicles drive into a Clean Air Zone, and make a payment for any charges.</p>
-
-        
-
+      </div>
     </div>
+    {% endif %}
+
+    <h1 class="govuk-heading-l">What would you like to do?</h1>
+    <form method="post" class="form" action="/accounts-start-iod">
+      <div class="govuk-form-group">
+        {% if error %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% endif %}
+        {% if not error %} 
+        <div class="govuk-form-group">
+        {% endif %}
+        <fieldset class="govuk-fieldset" aria-describedby="cazHint">
+          {% if error %}
+            <span id="caz-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{errorMessage}}
+            </span>
+            {% endif %}
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cazaction-2" name="cazaction" type="radio" value="check">
+              <label class="govuk-label govuk-radios__label" for="cazaction-2">
+            Check if i'll be charged
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cazaction-3" name="cazaction" type="radio" value="pay">
+              <label class="govuk-label govuk-radios__label" for="cazaction-3">
+               Pay a charge
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <br>
+      <br>
+      <button type="submit" class="govuk-button">
+          Continue
+      </button>
+    </form>
+
   </div>
+</div>
+
 {% endblock %}

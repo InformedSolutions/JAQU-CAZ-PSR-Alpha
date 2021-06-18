@@ -32,7 +32,7 @@ text: "Back"
     </div>
     {% endif %}
 
-    <h1 class="govuk-heading-l">What would you like to do?</h1>
+    <h1 class="govuk-heading-l">Are you a business with two or more vehicles?</h1>
     <form method="post" class="form" action="/accounts-start">
       <div class="govuk-form-group">
         {% if error %}
@@ -49,21 +49,15 @@ text: "Back"
             {% endif %}
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cazaction-2" name="cazaction" type="radio" value="vccs">
+              <input class="govuk-radios__input" id="cazaction-2" name="cazaction" type="radio" value="accounts">
               <label class="govuk-label govuk-radios__label" for="cazaction-2">
-                <strong>Check a single vehicle</strong>
-                <div id="sort-code-hint" class="govuk-hint">
-                  Find out if your vehicle will be charged to drive in a Clean Air Zone.
-                </div>
-              </label> 
+            Yes
+              </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cazaction-3" name="cazaction" type="radio" value="sign-in">
+              <input class="govuk-radios__input" id="cazaction-3" name="cazaction" type="radio" value="iod">
               <label class="govuk-label govuk-radios__label" for="cazaction-3">
-                <strong>Check multiple vehicles</strong>
-                <div id="sort-code-hint" class="govuk-hint">
-                  If you have a business that owns or manages multiple vehicles create an account or sign in to check if the vehicles will be charged to drive in a Clean Air Zone.
-                </div>
+               No
               </label>
             </div>
           </div>

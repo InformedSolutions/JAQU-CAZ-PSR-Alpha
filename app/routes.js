@@ -994,10 +994,27 @@ router.post('/vccs/contact', function (req, res) {
 router.post('/accounts-start', function (req, res) {
   var cazaction = req.body['cazaction'];
 
-  if (cazaction == 'vccs') {
-          res.redirect('vccs/enter-vehicle-details')
-  } else if (cazaction == 'sign-in') {
+  if (cazaction == 'accounts') {
+          res.redirect('https://multiple-vehiclecheck-pay.drive-clean-air-zone.service.gov.uk/')
+  } else if (cazaction == 'iod') {
+      res.redirect('/start-pages/start-accounts-4')
+  } else if (cazaction == 'create-account') {
       res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
+  } else {
+      res.render('start-pages/start-accounts-3', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
+
+router.post('/accounts-start-iod', function (req, res) {
+  var cazaction = req.body['cazaction'];
+
+  if (cazaction == 'check') {
+          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+  } else if (cazaction == 'pay') {
+      res.redirect('https://pay.drive-clean-air-zone.service.gov.uk/vehicles/enter_details')
   } else if (cazaction == 'create-account') {
       res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else {
@@ -1012,11 +1029,11 @@ router.post('/accounts-march2', function (req, res) {
   var cazaction = req.body['cazaction'];
 
   if (cazaction == 'vccs') {
-          res.redirect('vccs/enter-vehicle-details')
+          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
   } else if (cazaction == 'sign-in') {
-      res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
+      res.redirect('https://multiple-vehiclecheck-pay.drive-clean-air-zone.service.gov.uk/')
   } else if (cazaction == 'pay-iod') {
-      res.redirect('/payments/enter-vehicle-details')
+      res.redirect('https://pay.drive-clean-air-zone.service.gov.uk/vehicles/enter_details')
   } else {
       res.render('start-pages/start-accounts-march-2', {
           error: true,
