@@ -1061,7 +1061,7 @@ router.post('/accounts-marchaltcheck', function (req, res) {
   var cazaction = req.body['cazaction'];
 
   if (cazaction == 'check-one') {
-          res.redirect('vccs/enter-vehicle-details')
+          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
   } else if (cazaction == 'check-multiple') {
       res.redirect('https://caz-accounts-new.herokuapp.com/fleets/single-user/fleet-account')
   } else {
