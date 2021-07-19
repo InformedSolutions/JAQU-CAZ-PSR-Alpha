@@ -1087,5 +1087,28 @@ router.post('/accounts-marchaltpay', function (req, res) {
   }
 });
 
+router.post('/wwyltd', function (req, res) {
+  var cazaction = req.body['cazaction'];
+
+  if (cazaction == 'vccs') {
+          res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
+  } else if (cazaction == 'boundary') {
+      res.redirect('/boundary')
+  } else if (cazaction == 'guidance') {
+      res.redirect('https://www.gov.uk/guidance/driving-in-a-clean-air-zone')
+  } else if (cazaction == 'accounts') {
+      res.redirect('https://multiple-vehiclecheck-pay.drive-clean-air-zone.service.gov.uk/create_account')
+    } else if (cazaction == 'sign-in') {
+      res.redirect('https://multiple-vehiclecheck-pay.drive-clean-air-zone.service.gov.uk/')
+  } else if (cazaction == 'iod') {
+      res.redirect('https://pay.drive-clean-air-zone.service.gov.uk/vehicles/enter_details')
+  } else {
+      res.render('start-pages/start-accounts-march-2', {
+          error: true,
+          errorMessage: "Select an answer"
+      })
+  }
+});
+
 
 module.exports = router
