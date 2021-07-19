@@ -1093,7 +1093,7 @@ router.post('/wwyltd', function (req, res) {
   if (cazaction == 'vccs') {
           res.redirect('https://vehiclecheck.drive-clean-air-zone.service.gov.uk/vehicle_checkers/enter_details')
   } else if (cazaction == 'boundary') {
-      res.redirect('/boundary')
+      res.redirect('/gds-proposals/step-by-step/boundary')
   } else if (cazaction == 'guidance') {
       res.redirect('https://www.gov.uk/guidance/driving-in-a-clean-air-zone')
   } else if (cazaction == 'accounts') {
@@ -1103,7 +1103,7 @@ router.post('/wwyltd', function (req, res) {
   } else if (cazaction == 'iod') {
       res.redirect('https://pay.drive-clean-air-zone.service.gov.uk/vehicles/enter_details')
   } else {
-      res.render('start-pages/start-accounts-march-2', {
+      res.render('gds-proposals/what-would-you-like-to-do', {
           error: true,
           errorMessage: "Select an answer"
       })

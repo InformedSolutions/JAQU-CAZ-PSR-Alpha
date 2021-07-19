@@ -1,0 +1,73 @@
+{% extends "layout_overall.html" %} {% block pageTitle %} Start page example {% endblock %} {% block pageScripts %}
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+            Check the Clean Air Zone boundaries
+        </h1>
+
+        <p class='govuk-body'>There are currently three Charging Clean Air Zones. These are Bath, Birmingham and
+            Portsmouth. London also has a similar scheme called the <a href="https://tfl.gov.uk/modes/driving/ultra-low-emission-zone" target="_blank">Ultra Low Emission Zone</a>.</p>
+        <img src="\public\images\cazs.JPG" style="height: 550px;">
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                            Bath
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-2" class="govuk-accordion__section-content"
+                    aria-labelledby="accordion-default-heading-2">
+                    <img src="\public\images\Bathcaz.JPG" style="width: 550px;">
+                    <p class='govuk-body'>
+                      <a
+                            href="https://beta.bathnes.gov.uk/view-map-baths-clean-air-zone"
+                            target="_blank">More information on Bath's boundary.</a></p>
+                   
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                            Birmingham
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+                    aria-labelledby="accordion-default-heading-3">
+                    <img src="\public\images\Birminghamcaz.JPG" style="width: 550px;">
+                   
+                    <p>  Birmingham's Clean Air Zone will cover all roads within the A4540 Middleway Ring Road but not the Middleway itself. This includes the A38 and tunnels.                      <a
+                        href="https://www.brumbreathes.co.uk/info/1/welcome/1/welcome-1/2"
+                        target="_blank">More information on Birmingham's boundary.</a>
+                    </p>
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                            Portsmouth
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+                    aria-labelledby="accordion-default-heading-3">
+                    <img src="\public\images\Portsmouthcaz.JPG" style="width: 550px;">
+                              <p><a
+                        href="https://travel.portsmouth.gov.uk/schemes/charging-clean-air-zone/"
+                        target="_blank">More information on Portsmouth's boundary</a>.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</div>
+{% endblock %}
